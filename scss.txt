@@ -1,0 +1,13 @@
+
+{
+                test:/\.scss$/,
+                exclude: /(node_modules|bower_components)/,
+                use: extractPlugin.extract({
+                  use:['css-loader','sass-loader']
+                })
+              }
+
+
+              plugins: [
+      extractPlugin
+    ]
