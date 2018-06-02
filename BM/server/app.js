@@ -6,6 +6,8 @@ const app = express();
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
+const path = require('path');
+
 
 
 const productRoutes = require('../api/routes/products');
@@ -26,7 +28,16 @@ app.use((req,res,next)=>{
     next();
 });
 
+
+
+
 app.use('/products',productRoutes);
+app.use(express.static(path.join(__dirname +'/../dist/')));
+
+
+
+
+
 //app.use('/',(req,res,next)=>{res.status(200).json({message:"it works!"})});
 
 app.use((req,res,next)=>{
