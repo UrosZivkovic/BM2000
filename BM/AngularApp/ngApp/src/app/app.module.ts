@@ -11,12 +11,13 @@ import { NormalEComponent } from './normal-e/normal-e.component';
 import { SpecialEComponent } from './special-e/special-e.component';
 import { AuthService } from './auth.service';
 import { EventService } from './event.service';
+import { AuthGuard } from './auth.guard';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    RegisterComponent,
+    RegisterComponent, 
     LoginComponent,
     NormalEComponent,
     SpecialEComponent
@@ -27,7 +28,7 @@ import { EventService } from './event.service';
     HttpClientModule,
     AppRoutingModule
   ],
-  providers: [AuthService,EventService],
+  providers: [AuthService,AuthGuard, EventService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -4,6 +4,7 @@ import { SpecialEComponent } from './special-e/special-e.component';
 import { NormalEComponent } from './normal-e/normal-e.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { AuthGuard } from './auth.guard';
 
 const routes: Routes = [
   {
@@ -17,7 +18,8 @@ const routes: Routes = [
   },
   {
     path: 'special',
-    component: SpecialEComponent
+    component: SpecialEComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'login',
