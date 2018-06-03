@@ -50,6 +50,22 @@ router.post('/',(req,res,next)=>{
     })
 });
 
+router.get("/normal",(req,res)=>{
+    let normal = [{
+        "_id":"1",
+        "name":"ime1",
+        "price":"3"
+    }]
+    res.json(normal);
+})
 
+router.get("/special",(req,res)=>{
+    let special = [{
+        "_id":"2",
+        "name":"ime1Spec",
+        "price":"5"
+    }]
+    res.status(200).json(special);
+})
 
 module.exports = router;

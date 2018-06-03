@@ -4,6 +4,7 @@ const User =require('../models/user');
 const mongoose = require('mongoose');
 const fs = require('fs');
 const path = require('path');
+const jwt = require("jsonwebtoken");
 
 
 router.post('/register', (req,res)=> {
@@ -19,7 +20,9 @@ router.post('/register', (req,res)=> {
         if (error) {
             console.log(error);
         } else { 
-            res.status(200).send(regUser);
+            let payload = {subject: regUser._id}
+            let token = jwt.sign(payload,"secretKey")
+            res.status(200).send({token});
         }
     })
 })
@@ -38,7 +41,9 @@ router.post('/login', (req,res)=> {
             if (user.password !== userData.password){
                 res.status(401).send("invalid pass")//password
             } else {
-                res.status(200).send(user);
+                let payload = {subject: User._id}
+                let token = jwt.sign(payload,"secretKey")
+                res.status(200).send({token});
             }
             
         }

@@ -7,7 +7,7 @@ const morgan = require('morgan');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const path = require('path');
-
+const cors = require('cors');
 
 
 const productRoutes = require('../api/routes/products');
@@ -28,7 +28,7 @@ app.use((req,res,next)=>{
     }
     next();
 });
-
+app.use(cors());
 
 
 
