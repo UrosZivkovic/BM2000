@@ -51,7 +51,6 @@ router.post('/login', (req,res)=> {
     
    
 })
-
 router.get('/all',(req,res,next)=>{
     User.find()
     .exec()
