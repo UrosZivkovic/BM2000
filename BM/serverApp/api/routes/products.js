@@ -2,6 +2,7 @@ const express= require('express');
 const router = express.Router();
 const Product =require('../models/product');
 const mongoose = require('mongoose');
+const VerifyJWT = require( '../jwt/VerifyJWT');
 
 
 router.get('/',(req,res,next)=>{
@@ -49,7 +50,7 @@ router.post('/',(req,res,next)=>{
         createdProduct: product
     })
 });
-
+//router.get("/normal",VerifyJWT.veryfToken,(req,res)=>{
 router.get("/normal",(req,res)=>{
     let normal = [{
         "_id":"1",
@@ -59,7 +60,8 @@ router.get("/normal",(req,res)=>{
     res.json(normal);
 })
 
-router.get("/special",(req,res)=>{
+router.get("/special", (req,res)=>{
+    
     let special = [{
         "_id":"2",
         "name":"ime1Spec",
