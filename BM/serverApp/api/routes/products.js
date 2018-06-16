@@ -58,6 +58,7 @@ router.get("/normal", (req, res) => {
       price: "3"
     }
   ];
+  // ja probao
   res.json(normal);
 });
 
