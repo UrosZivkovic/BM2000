@@ -27,7 +27,7 @@ router.get('/all',(req,res,next)=>{
     });    
 
 
-router.post('/',(req,res,next)=>{
+router.post('/add',(req,res,next)=>{
     // const prod = {
     //     name:req.body.name,
     //     price: req.body.price

@@ -8,9 +8,9 @@ import { AuthGuard } from './auth.guard';
 
 const routes: Routes = [
   {
-    path:"",
-    redirectTo:"/normal",
-    pathMatch:'full'
+    path: '' ,
+    redirectTo: '/normal',
+    pathMatch: 'full'
   },
   {
     path: 'normal',
@@ -23,11 +23,11 @@ const routes: Routes = [
   },
   {
     path: 'login',
-    component:LoginComponent
+    component: LoginComponent
   },
   {
-    path:'register',
-    component:RegisterComponent
+    path: 'register',
+    component: RegisterComponent
   }
 ];
 
