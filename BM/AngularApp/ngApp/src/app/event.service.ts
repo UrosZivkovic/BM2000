@@ -6,14 +6,14 @@ import { HttpClient } from '@angular/common/http';
 })
 export class EventService {
 
-  private _eventsNormalUrl = "http://localhost:3030/products/normal";
-  private _eventsSpecialUrl= "http://localhost:3030/products/special";
-  constructor(private http:HttpClient) { }
-  getNormalEvents(){
-    return this.http.get<any>(this._eventsNormalUrl)
+  private _eventsNormalUrl = 'http://localhost:3030/products/normal';
+  private _eventsSpecialUrl = 'http://localhost:3030/products/special';
+  constructor(private http: HttpClient) { }
+  getNormalEvents() {
+    return this.http.get<any>(this._eventsNormalUrl );
   }
 
-  getSpecialEvents(){
-    return this.http.get<any>(this._eventsSpecialUrl)
+  getSpecialEvents() {
+    return this.http.get<any>(this._eventsSpecialUrl);
   }
 }

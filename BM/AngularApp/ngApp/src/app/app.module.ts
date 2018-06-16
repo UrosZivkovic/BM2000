@@ -18,7 +18,7 @@ import { TokenInterceptorService } from './token-interceptor.service';
 @NgModule({
   declarations: [
     AppComponent,
-    RegisterComponent, 
+    RegisterComponent,
     LoginComponent,
     NormalEComponent,
     SpecialEComponent
@@ -29,11 +29,11 @@ import { TokenInterceptorService } from './token-interceptor.service';
     HttpClientModule,
     AppRoutingModule
   ],
-  providers: [AuthService,AuthGuard, EventService,
+  providers: [AuthService, AuthGuard, EventService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptorService,
-      multi:true
+      multi: true
     }],
   bootstrap: [AppComponent]
 })
