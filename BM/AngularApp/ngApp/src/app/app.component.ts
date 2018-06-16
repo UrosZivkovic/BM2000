@@ -10,7 +10,7 @@ import {ServerConfigurationService} from './server-configuration.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  private ROOT_URL = "";
+  private ROOT_URL = '';
 
   title = 'app';
 

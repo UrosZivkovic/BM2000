@@ -5,7 +5,8 @@ import {Injectable} from '@angular/core';
 })
 export class ServerConfigurationService {
 
-  private ipAddress = "localhost";
+  private ipAddress = "192.168.0.172";
+  // 192.168.0.172
   private portNum = "3030";
 
   constructor() {
@@ -23,20 +24,20 @@ export class ServerConfigurationService {
     return this.portNum;
   }
 
-  public getLoginUrl(){
-    return this.getFullServerAddress()+"/users/login";
+  public getLoginUrl() {
+    return this.getFullServerAddress() + "/users/login";
   }
 
-  public getRegisterUrl(){
-    return this.getFullServerAddress()+"/users/register";
+  public getRegisterUrl() {
+    return this.getFullServerAddress() + "/users/register";
   }
 
-  public getEventsNormalUrl(){
-    return this.getFullServerAddress()+"/products/normal";
+  public getEventsNormalUrl() {
+    return this.getFullServerAddress() + "/products/normal";
   }
 
-  public getEventsSpecialUrl(){
-    return this.getFullServerAddress()+"/products/special";
+  public getEventsSpecialUrl() {
+    return this.getFullServerAddress() + "/products/special";
   }
 
 }
