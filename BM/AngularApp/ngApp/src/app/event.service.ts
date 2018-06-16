@@ -8,12 +8,12 @@ import {ServerConfigurationService} from './server-configuration.service';
 
 export class EventService {
 
-  private _eventsNormalUrl = "";
-  private _eventsSpecialUrl = "";
+  private _eventsNormalUrl = '';
+  private _eventsSpecialUrl = '';
 
   constructor(private http: HttpClient, private _serverConfig: ServerConfigurationService) {
-    this._eventsNormalUrl = this._serverConfig.getFullServerAddress() + "/products/normal";
-    this._eventsSpecialUrl = this._serverConfig.getFullServerAddress() + "/products/special";
+    this._eventsNormalUrl = this._serverConfig.getEventsNormalUrl();
+    this._eventsSpecialUrl = this._serverConfig.getEventsSpecialUrl();
   }
 
   getNormalEvents() {
