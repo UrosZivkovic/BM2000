@@ -1,7 +1,10 @@
-import { Injectable } from '@angular/core';
-import { CanActivate, Router } from '@angular/router';
-import { AuthService } from './auth.service';
-// import { Observable } from 'rxjs';
+import {Injectable} from '@angular/core';
+import {CanActivate, Router} from '@angular/router';
+import {AuthService} from './auth.service';
+
+//import { Observable } from 'rxjs';
+
+// ovi iznad su bili isti samo u jednom bila prazna linija ispod auth service
 
 @Injectable(// {
   // providedIn: 'root'
