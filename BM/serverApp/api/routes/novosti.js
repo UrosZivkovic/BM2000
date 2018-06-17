@@ -34,10 +34,9 @@ router.get("next",function(req,res,next){
 
 });
 
-module.exports = router;
 
 router.post('/add', (req, res, next) => {
-
+    
     const novost = new Novost({
         _id: new mongoose.Types.ObjectId(),
         datum: req.body.datum,
@@ -45,15 +44,57 @@ router.post('/add', (req, res, next) => {
         naslov: req.body.naslov,
         sadrzaj: req.body.sadrzaj
     });
-
+    
     novost.save()//mongoosova fja koja cuva
-        .then(result => {
-            console.log(result);
-        })
-        .catch(err => console.log(err));
-
+    .then(result => {
+        console.log(result);
+    })
+    .catch(err => console.log(err));
+    
     res.status(200).json({
         message: "it works for post",
         created: novost
     })
 });
+
+router.post('/interval',(req,res,next)=>{
+    console.log("stigao");
+    const indexOd =req.body.firstIndex;
+    const indexDo = req.body.lastIndex;
+    console.log(indexOd,indexDo);
+    Novost.find()
+    .exec()
+    .then(docs => {
+        var niz = docs;
+        var drugi;
+        if(niz.length>indexOd){
+            if (niz.length > indexDo){
+
+                
+                drugi = niz.slice(indexOd,indexDo - indexOd + 1);
+                
+                res.status(200).json(drugi);
+
+            }else{
+               
+                drugi = niz.slice(indexOd);
+                
+                res.status(200).json(drugi);
+            }
+        }else
+        return res.status(404).json({
+            message : "prevelik je pocetni index, nema toliko objava"
+        })
+        
+        
+    })
+    .catch(err=> {
+        console.log(err);
+        res.status(500).json({
+            error:err
+        })
+    })
+    });    
+
+
+module.exports = router;

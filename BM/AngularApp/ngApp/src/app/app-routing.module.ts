@@ -5,14 +5,14 @@ import {NormalEComponent} from './normal-e/normal-e.component';
 import {LoginComponent} from './login/login.component';
 import {RegisterComponent} from './register/register.component';
 import {AuthGuard} from './auth.guard';
-import {VestComponent} from "./vest/vest.component";
+import {VestComponent} from './vest/vest.component';
 
 const routes: Routes = [
   {
 
     path: '',
     redirectTo: '/normal',
-    pathMatch:"full"
+    pathMatch: 'full'
   },
   {
     path: 'normal',
@@ -32,8 +32,8 @@ const routes: Routes = [
     component: RegisterComponent
   },
   {
-    path:'show_posts',
-    component:VestComponent
+    path: 'show_posts',
+    component: VestComponent
   }
 ];
 
