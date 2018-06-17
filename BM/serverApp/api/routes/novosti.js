@@ -26,6 +26,14 @@ router.get('/all', (req, res, next) => {
             })
         })
 });
+
+
+router.get("next",function(req,res,next){
+
+    // uzmi index iz url-a i pribavi jos 10 posta
+
+});
+
 module.exports = router;
 
 router.post('/add', (req, res, next) => {

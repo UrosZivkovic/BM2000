@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {PostsManagerService} from "../posts_manager_service/posts-manager.service";
 
 @Component({
   selector: 'app-vest',
@@ -7,9 +8,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class VestComponent implements OnInit {
 
-  constructor() { }
+  private _vesti = [];
+
+  private _lastPostIndex;
+
+  constructor(private _postsManager: PostsManagerService) {
+    this._lastPostIndex = 0;
+  }
 
   ngOnInit() {
+
+    let _this = this;
+
+    this._postsManager.getNextPart(this._lastPostIndex).subscribe(
+      function (res) {
+        _this._vesti = res;
+      }
+      , function (err) {
+        console.log(err);
+      })
+
   }
 
 }

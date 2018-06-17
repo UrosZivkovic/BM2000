@@ -20,7 +20,9 @@ const novostSchema = mongoose.Schema({
     // redni broj pri ucitavanju na stranici da bi mogli da se ucitavaju iz delova
     redniBroj: Number,
     // id zaposlenog koji ga je kreirao
-    idZaposlenog: String
+    idZaposlenog: String,
+    // kao preview
+    ukratko:String
 });
 
 module.exports = mongoose.model('novost', novostSchema);
