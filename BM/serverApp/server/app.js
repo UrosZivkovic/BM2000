@@ -12,6 +12,10 @@ const cors = require('cors');
 
 const productRoutes = require('../api/routes/products');
 const userRoutes = require('../api/routes/users');
+const zavodRoutes = require('../api/routes/zavodi');
+const obavestenjeRoutes = require('../api/routes/obavestenja');
+const novostRoutes = require('../api/routes/novosti');
+
 
 mongoose.connect('mongodb://BM2000Admin:bmadmin@bloodmasters2000-shard-00-00-xxpcx.mongodb.net:27017,bloodmasters2000-shard-00-01-xxpcx.mongodb.net:27017,bloodmasters2000-shard-00-02-xxpcx.mongodb.net:27017/test?ssl=true&replicaSet=BloodMasters2000-shard-0&authSource=admin');
 
@@ -31,9 +35,13 @@ app.use((req,res,next)=>{
 app.use(cors());
 
 
-
+ 
 app.use('/products',productRoutes);
 app.use("/users",userRoutes);
+app.use("/obavestenja",obavestenjeRoutes);
+app.use("/novosti",novostRoutes);
+app.use("/zavodi",zavodRoutes);
+
 app.use(express.static(path.join(__dirname +'/../dist/')));
 
 
