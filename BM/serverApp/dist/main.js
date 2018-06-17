@@ -419,7 +419,6 @@ var EventService = /** @class */ (function () {
         this._eventsSpecialUrl = this._serverConfig.getEventsSpecialUrl();
     }
     EventService.prototype.getNormalEvents = function () {
-        console.log("\n\n\n\n\n GETTING NORMAL EVENTS \n\n\n\n\n");
         return this.http.get(this._eventsNormalUrl);
     };
     EventService.prototype.getSpecialEvents = function () {
@@ -697,11 +696,9 @@ var NormalEComponent = /** @class */ (function () {
         this.events = [];
     }
     NormalEComponent.prototype.ngOnInit = function () {
-        console.log("\n\n\n SALJE SE ZAHTEV " + this._eventService.getEventsNormalUrl() + "\n\n\n\n");
+        console.log("SALJE SE ZAHTEV " + this._eventService.getEventsNormalUrl());
         var _this = this;
         this._eventService.getNormalEvents().subscribe(function (res) {
-            console.log("\n\n\n\n\n RESOURCES RECEIVED \n\n\n\n\n");
-            console.log(res);
             _this.events = res;
         }, function (err) {
             console.log("\n\n\n\n\n GRESKA:      " + err + "\n\n\n\n\n\n");
@@ -801,7 +798,7 @@ var FakePostsManagerService = /** @class */ (function () {
         return this._postsList;
     };
     FakePostsManagerService.prototype.getNextPart = function (_lastPostIndex) {
-        return this._postsList.slice(_lastPostIndex, _lastPostIndex + 2); // bice 10, al i 1 je dosta
+        return this._postsList.slice(_lastPostIndex, _lastPostIndex + 2);
     };
     FakePostsManagerService = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
@@ -1135,7 +1132,8 @@ var VestComponent = /** @class */ (function () {
     }
     VestComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this._vesti = this._postsManager.getNextPart(this._lastPostIndex);
+        this._vesti = this._vesti.concat(this._postsManager.getNextPart(this._lastPostIndex));
+        console.log(this._vesti);
         // this._postsManager.getNextPart(this._lastPostIndex).subscribe(
         //   function (res) {
         //     _this._vesti = res;
@@ -1145,9 +1143,9 @@ var VestComponent = /** @class */ (function () {
         //   });
     };
     VestComponent.prototype.dodajPostClick = function () {
-        var _tempArray = this._postsManager.getNextPart(this._lastPostIndex);
-        this._lastPostIndex += _tempArray.length;
-        this._vesti.push(_tempArray);
+        var tempArray = this._postsManager.getNextPart(this._lastPostIndex);
+        this._lastPostIndex += tempArray.length;
+        this._vesti = this._vesti.concat(tempArray);
     };
     VestComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
