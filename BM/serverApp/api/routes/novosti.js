@@ -57,6 +57,23 @@ router.post('/add', (req, res, next) => {
     })
 });
 
+router.post("/delete", (req,res,next)=> {
+    const id =req.body.id;
+    Novost.remove({_id:id})
+        .exec()
+        .then(result => {
+            res.status(200).json(result);
+    })
+    .catch(err => {
+        console.log(err);
+        res.status(500).json({
+            error:err
+        })
+    });
+
+
+});
+
 router.post('/interval',(req,res,next)=>{
     console.log("stigao");
     const indexOd =req.body.firstIndex;
