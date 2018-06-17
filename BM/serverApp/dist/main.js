@@ -40,6 +40,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _login_login_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./login/login.component */ "./src/app/login/login.component.ts");
 /* harmony import */ var _register_register_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./register/register.component */ "./src/app/register/register.component.ts");
 /* harmony import */ var _auth_guard__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./auth.guard */ "./src/app/auth.guard.ts");
+/* harmony import */ var _vest_vest_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./vest/vest.component */ "./src/app/vest/vest.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -53,11 +54,12 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 
+
 var routes = [
     {
-        path: "",
-        redirectTo: "/normal",
-        pathMatch: 'full'
+        path: '',
+        redirectTo: '/normal',
+        pathMatch: "full"
     },
     {
         path: 'normal',
@@ -75,6 +77,10 @@ var routes = [
     {
         path: 'register',
         component: _register_register_component__WEBPACK_IMPORTED_MODULE_5__["RegisterComponent"]
+    },
+    {
+        path: 'show_posts',
+        component: _vest_vest_component__WEBPACK_IMPORTED_MODULE_7__["VestComponent"]
     }
 ];
 var AppRoutingModule = /** @class */ (function () {
@@ -111,7 +117,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<nav class=\"navbar navbar-expand-lg navbar-dark bg-dark\">\n  <a class=\"navbar-brand\" href=\"#\">Eventhub</a>\n  <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarSupportedContent\" aria-controls=\"navbarSupportedContent\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\n    <span class=\"navbar-toggler-icon\"></span>\n  </button>\n\n  <div class=\"collapse navbar-collapse\" id=\"navbarSupportedContent\">\n    <ul class=\"navbar-nav mr-auto\">\n      <li class=\"nav-item\">\n        <a class=\"nav-link\" routerLink=\"/normal\" routerLinkActive=\"active\">Events</a>\n      </li>\n      <li class=\"nav-item\">\n        <a class=\"nav-link\" routerLink=\"/special\" routerLinkActive=\"active\">Members</a>\n      </li>\n    </ul>\n    <ul class=\"navbar-nav\">\n        <a class=\"nav-link\"  routerLink=\"/login\" routerLinkActive=\"active\">Login</a>\n        <a class=\"nav-link\"  routerLink=\"/register\" routerLinkActive=\"active\">Register</a>\n      </ul>\n  </div>\n</nav>    \n<div class=\"container\">\n  <router-outlet></router-outlet>            \n</div>"
+module.exports = "<div class=\"container\">\n  <nav class=\"navbar navbar-default\">\n    <div class=\"container-fluid\">\n      <!-- Brand and toggle get grouped for better mobile display -->\n      <div class=\"navbar-header\">\n        <button type=\"button\" class=\"navbar-toggle collapsed\" data-toggle=\"collapse\"\n                data-target=\"#bs-example-navbar-collapse-1\"\n                aria-expanded=\"false\">\n          <span class=\"sr-only\">Toggle navigation</span>\n          <span class=\"icon-bar\"></span>\n          <span class=\"icon-bar\"></span>\n          <span class=\"icon-bar\"></span>\n        </button>\n        <a class=\"navbar-brand\" href=\"#\">BloodMaster2000</a>\n      </div>\n\n      <!-- Collect the nav links, forms, and other content for toggling -->\n      <div class=\"collapse navbar-collapse\" id=\"bs-example-navbar-collapse-1\">\n        <ul class=\"nav navbar-nav\">\n          <li class=\"active\">\n            <a href=\"#\" routerLink=\"/show_posts\">Home\n              <span class=\"sr-only\">(current)</span>\n            </a>\n          </li>\n          <li class=\"active\">\n            <a href=\"#\" routerLink=\"/show_posts\">Vesti\n              <span class=\"sr-only\">(current)</span>\n            </a>\n          </li>\n        </ul>\n        <form class=\"navbar-form navbar-left\">\n          <div class=\"form-group\">\n            <input type=\"text\" class=\"form-control\" placeholder=\"Search\">\n          </div>\n          <button type=\"submit\" class=\"btn btn-default\">Submit</button>\n        </form>\n        <ul class=\"nav navbar-nav navbar-right\">\n          <li>\n            <a class=\"nav-link\" *ngIf=\"!_authService.loggedIn()\" routerLink=\"/login\" routerLinkActive=\"active\">Login</a>\n          </li>\n          <li>\n            <a class=\"nav-link\" *ngIf=\"!_authService.loggedIn()\" routerLink=\"/register\" routerLinkActive=\"active\">Register</a>\n          </li>\n          <li>\n            <a style=\"cursor:pointer\" *ngIf=\"_authService.loggedIn()\" class=\"nav-link\"\n               (click)=\"_authService.logoutUser()\">Logout</a>\n          </li>\n        </ul>\n      </div>\n      <!-- /.navbar-collapse -->\n    </div>\n    <!-- /.container-fluid -->\n  </nav>\n  <div>\n    <router-outlet></router-outlet>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -126,23 +132,45 @@ module.exports = "<nav class=\"navbar navbar-expand-lg navbar-dark bg-dark\">\n 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AppComponent", function() { return AppComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var _auth_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./auth.service */ "./src/app/auth.service.ts");
+/* harmony import */ var _server_configuration_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./server-configuration.service */ "./src/app/server-configuration.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
 
 var AppComponent = /** @class */ (function () {
-    function AppComponent() {
+    function AppComponent(http, _authService, _serverConfig) {
+        this.http = http;
+        this._authService = _authService;
+        this._serverConfig = _serverConfig;
+        this.ROOT_URL = '';
         this.title = 'app';
+        this.ROOT_URL = this._serverConfig.getFullServerAddress();
     }
+    AppComponent.prototype.ngOnInit = function () {
+        document.addEventListener('backbutton', function () {
+            alert('el si morao ');
+        }, false);
+    };
     AppComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-root',
             template: __webpack_require__(/*! ./app.component.html */ "./src/app/app.component.html"),
             styles: [__webpack_require__(/*! ./app.component.css */ "./src/app/app.component.css")]
-        })
+        }),
+        __metadata("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"],
+            _auth_service__WEBPACK_IMPORTED_MODULE_2__["AuthService"],
+            _server_configuration_service__WEBPACK_IMPORTED_MODULE_3__["ServerConfigurationService"]])
     ], AppComponent);
     return AppComponent;
 }());
@@ -174,12 +202,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _auth_service__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./auth.service */ "./src/app/auth.service.ts");
 /* harmony import */ var _event_service__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./event.service */ "./src/app/event.service.ts");
 /* harmony import */ var _auth_guard__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./auth.guard */ "./src/app/auth.guard.ts");
+/* harmony import */ var _token_interceptor_service__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./token-interceptor.service */ "./src/app/token-interceptor.service.ts");
+/* harmony import */ var _vest_vest_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./vest/vest.component */ "./src/app/vest/vest.component.ts");
+/* harmony import */ var _korisnik_korisnik_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./korisnik/korisnik.component */ "./src/app/korisnik/korisnik.component.ts");
+/* harmony import */ var _navbar_navbar_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./navbar/navbar.component */ "./src/app/navbar/navbar.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
+
+
+
 
 
 
@@ -203,7 +239,10 @@ var AppModule = /** @class */ (function () {
                 _register_register_component__WEBPACK_IMPORTED_MODULE_6__["RegisterComponent"],
                 _login_login_component__WEBPACK_IMPORTED_MODULE_7__["LoginComponent"],
                 _normal_e_normal_e_component__WEBPACK_IMPORTED_MODULE_8__["NormalEComponent"],
-                _special_e_special_e_component__WEBPACK_IMPORTED_MODULE_9__["SpecialEComponent"]
+                _special_e_special_e_component__WEBPACK_IMPORTED_MODULE_9__["SpecialEComponent"],
+                _vest_vest_component__WEBPACK_IMPORTED_MODULE_14__["VestComponent"],
+                _korisnik_korisnik_component__WEBPACK_IMPORTED_MODULE_15__["KorisnikComponent"],
+                _navbar_navbar_component__WEBPACK_IMPORTED_MODULE_16__["NavbarComponent"]
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
@@ -211,7 +250,12 @@ var AppModule = /** @class */ (function () {
                 _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClientModule"],
                 _app_routing_module__WEBPACK_IMPORTED_MODULE_4__["AppRoutingModule"]
             ],
-            providers: [_auth_service__WEBPACK_IMPORTED_MODULE_10__["AuthService"], _auth_guard__WEBPACK_IMPORTED_MODULE_12__["AuthGuard"], _event_service__WEBPACK_IMPORTED_MODULE_11__["EventService"]],
+            providers: [_auth_service__WEBPACK_IMPORTED_MODULE_10__["AuthService"], _auth_guard__WEBPACK_IMPORTED_MODULE_12__["AuthGuard"], _event_service__WEBPACK_IMPORTED_MODULE_11__["EventService"],
+                {
+                    provide: _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HTTP_INTERCEPTORS"],
+                    useClass: _token_interceptor_service__WEBPACK_IMPORTED_MODULE_13__["TokenInterceptorService"],
+                    multi: true
+                }],
             bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_5__["AppComponent"]]
         })
     ], AppModule);
@@ -248,6 +292,7 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 //import { Observable } from 'rxjs';
+// ovi iznad su bili isti samo u jednom bila prazna linija ispod auth service
 var AuthGuard = /** @class */ (function () {
     function AuthGuard(_authService, _router) {
         this._authService = _authService;
@@ -285,6 +330,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AuthService", function() { return AuthService; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _server_configuration_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./server-configuration.service */ "./src/app/server-configuration.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -296,11 +343,17 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 };
 
 
+
+
 var AuthService = /** @class */ (function () {
-    function AuthService(http) {
+    function AuthService(http, _router, _serverConfig) {
         this.http = http;
-        this._registerUrl = 'http://localhost:3030/users/register';
-        this._loginUrl = "http://localhost:3030/users/login";
+        this._router = _router;
+        this._serverConfig = _serverConfig;
+        this._registerUrl = '';
+        this._loginUrl = '';
+        this._registerUrl = this._serverConfig.getRegisterUrl();
+        this._loginUrl = this._serverConfig.getLoginUrl();
     }
     AuthService.prototype.registerUser = function (user) {
         return this.http.post(this._registerUrl, user);
@@ -309,13 +362,20 @@ var AuthService = /** @class */ (function () {
         return this.http.post(this._loginUrl, user);
     };
     AuthService.prototype.loggedIn = function () {
-        return !!localStorage.getItem('token'); //dva puta negira
+        return !!localStorage.getItem('token'); // dva puta negira
+    };
+    AuthService.prototype.getToken = function () {
+        return localStorage.getItem('token');
+    };
+    AuthService.prototype.logoutUser = function () {
+        localStorage.removeItem('token');
+        this._router.navigate(['/normal']);
     };
     AuthService = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
             providedIn: 'root'
         }),
-        __metadata("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"]])
+        __metadata("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _server_configuration_service__WEBPACK_IMPORTED_MODULE_3__["ServerConfigurationService"]])
     ], AuthService);
     return AuthService;
 }());
@@ -336,6 +396,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "EventService", function() { return EventService; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var _server_configuration_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./server-configuration.service */ "./src/app/server-configuration.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -347,25 +408,96 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 };
 
 
+
 var EventService = /** @class */ (function () {
-    function EventService(http) {
+    function EventService(http, _serverConfig) {
         this.http = http;
-        this._eventsNormalUrl = "http://localhost:3030/products/normal";
-        this._eventsSpecialUrl = "http://localhost:3030/products/special";
+        this._serverConfig = _serverConfig;
+        this._eventsNormalUrl = '';
+        this._eventsSpecialUrl = '';
+        this._eventsNormalUrl = this._serverConfig.getEventsNormalUrl();
+        this._eventsSpecialUrl = this._serverConfig.getEventsSpecialUrl();
     }
     EventService.prototype.getNormalEvents = function () {
+        console.log("\n\n\n\n\n GETTING NORMAL EVENTS \n\n\n\n\n");
         return this.http.get(this._eventsNormalUrl);
     };
     EventService.prototype.getSpecialEvents = function () {
         return this.http.get(this._eventsSpecialUrl);
     };
+    EventService.prototype.getEventsNormalUrl = function () {
+        return this._eventsNormalUrl;
+    };
     EventService = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
             providedIn: 'root'
         }),
-        __metadata("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"]])
+        __metadata("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"], _server_configuration_service__WEBPACK_IMPORTED_MODULE_2__["ServerConfigurationService"]])
     ], EventService);
     return EventService;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/korisnik/korisnik.component.css":
+/*!*************************************************!*\
+  !*** ./src/app/korisnik/korisnik.component.css ***!
+  \*************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/korisnik/korisnik.component.html":
+/*!**************************************************!*\
+  !*** ./src/app/korisnik/korisnik.component.html ***!
+  \**************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<p>\n  korisnik works!\n</p>\n"
+
+/***/ }),
+
+/***/ "./src/app/korisnik/korisnik.component.ts":
+/*!************************************************!*\
+  !*** ./src/app/korisnik/korisnik.component.ts ***!
+  \************************************************/
+/*! exports provided: KorisnikComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "KorisnikComponent", function() { return KorisnikComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var KorisnikComponent = /** @class */ (function () {
+    function KorisnikComponent() {
+    }
+    KorisnikComponent.prototype.ngOnInit = function () {
+    };
+    KorisnikComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-korisnik',
+            template: __webpack_require__(/*! ./korisnik.component.html */ "./src/app/korisnik/korisnik.component.html"),
+            styles: [__webpack_require__(/*! ./korisnik.component.css */ "./src/app/korisnik/korisnik.component.css")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], KorisnikComponent);
+    return KorisnikComponent;
 }());
 
 
@@ -451,6 +583,69 @@ var LoginComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/navbar/navbar.component.css":
+/*!*********************************************!*\
+  !*** ./src/app/navbar/navbar.component.css ***!
+  \*********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/navbar/navbar.component.html":
+/*!**********************************************!*\
+  !*** ./src/app/navbar/navbar.component.html ***!
+  \**********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<nav class=\"navbar navbar-default\">\n    <div class=\"container-fluid\">\n      <!-- Brand and toggle get grouped for better mobile display -->\n      <div class=\"navbar-header\">\n        <button type=\"button\" class=\"navbar-toggle collapsed\" data-toggle=\"collapse\" data-target=\"#bs-example-navbar-collapse-1\" aria-expanded=\"false\">\n          <span class=\"sr-only\">Toggle navigation</span>\n          <span class=\"icon-bar\"></span>\n          <span class=\"icon-bar\"></span>\n          <span class=\"icon-bar\"></span>\n        </button>\n        <a class=\"navbar-brand\" href=\"#\">BloodMaster2000</a>\n      </div>\n  \n      <!-- Collect the nav links, forms, and other content for toggling -->\n      <div class=\"collapse navbar-collapse\" id=\"bs-example-navbar-collapse-1\">\n        <ul class=\"nav navbar-nav\">\n          <li class=\"active\"><a href=\"#\">Link <span class=\"sr-only\">(current)</span></a></li>\n          <li><a href=\"#\">Link</a></li>\n        </ul>\n        <form class=\"navbar-form navbar-left\">\n          <div class=\"form-group\">\n            <input type=\"text\" class=\"form-control\" placeholder=\"Search\">\n          </div>\n          <button type=\"submit\" class=\"btn btn-default\">Submit</button>\n        </form>\n        <ul class=\"nav navbar-nav navbar-right\">\n          <li><a class=\"nav-link\" *ngIf=\"!_authService.loggedIn()\" routerLink=\"/login\" routerLinkActive=\"active\">Login</a></li>\n          <li><a class=\"nav-link\" *ngIf=\"!_authService.loggedIn()\" routerLink=\"/register\" routerLinkActive=\"active\" >Register</a></li>\n          <li><a style= \"cursor:pointer\" *ngIf=\"_authService.loggedIn()\" class=\"nav-link\" (click)=\"_authService.logoutUser()\">Logout</a></li>\n        </ul>\n      </div><!-- /.navbar-collapse -->\n    </div><!-- /.container-fluid -->\n  </nav>"
+
+/***/ }),
+
+/***/ "./src/app/navbar/navbar.component.ts":
+/*!********************************************!*\
+  !*** ./src/app/navbar/navbar.component.ts ***!
+  \********************************************/
+/*! exports provided: NavbarComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NavbarComponent", function() { return NavbarComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var NavbarComponent = /** @class */ (function () {
+    function NavbarComponent() {
+    }
+    NavbarComponent.prototype.ngOnInit = function () {
+    };
+    NavbarComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-navbar',
+            template: __webpack_require__(/*! ./navbar.component.html */ "./src/app/navbar/navbar.component.html"),
+            styles: [__webpack_require__(/*! ./navbar.component.css */ "./src/app/navbar/navbar.component.css")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], NavbarComponent);
+    return NavbarComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/normal-e/normal-e.component.css":
 /*!*************************************************!*\
   !*** ./src/app/normal-e/normal-e.component.css ***!
@@ -469,7 +664,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"row mt-5\">\n  <div class=\"col-md-4 mb-3\" *ngFor=\"let event of events\">\n    <div class=\"card text-center\">\n      <div class=\"card-body\">\n        <h5 class=\"card-title\">{{event.name}}</h5>\n        <p class=\"card-text\">{{event.price}}</p>\n        <a href=\"#\" class=\"btn btn-primary\">Buy Tickets</a>\n      </div>\n     \n    </div>\n  </div>\n</div>"
+module.exports = "<div class=\"row mt-5\">\n  <div class=\"col-md-4 mb-3\" *ngFor=\"let event of events\">\n    <div class=\"card text-center\">\n      <div class=\"card-body\">\n        <h5 class=\"card-title\">{{event.name}}</h5>\n        <p class=\"card-text\">{{event.price}}</p>\n        <a href=\"#\" class=\"btn btn-primary\">Buy Tickets</a>\n      </div>\n    </div>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -502,8 +697,15 @@ var NormalEComponent = /** @class */ (function () {
         this.events = [];
     }
     NormalEComponent.prototype.ngOnInit = function () {
+        console.log("\n\n\n SALJE SE ZAHTEV " + this._eventService.getEventsNormalUrl() + "\n\n\n\n");
         var _this = this;
-        this._eventService.getNormalEvents().subscribe(function (res) { return _this.events = res; }, function (err) { return console.log(err); });
+        this._eventService.getNormalEvents().subscribe(function (res) {
+            console.log("\n\n\n\n\n RESOURCES RECEIVED \n\n\n\n\n");
+            console.log(res);
+            _this.events = res;
+        }, function (err) {
+            console.log("\n\n\n\n\n GRESKA:      " + err + "\n\n\n\n\n\n");
+        });
     };
     NormalEComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -514,6 +716,81 @@ var NormalEComponent = /** @class */ (function () {
         __metadata("design:paramtypes", [_event_service__WEBPACK_IMPORTED_MODULE_1__["EventService"]])
     ], NormalEComponent);
     return NormalEComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/posts_manager_service/fake-posts-manager.service.ts":
+/*!*********************************************************************!*\
+  !*** ./src/app/posts_manager_service/fake-posts-manager.service.ts ***!
+  \*********************************************************************/
+/*! exports provided: FakePostsManagerService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FakePostsManagerService", function() { return FakePostsManagerService; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var FakePostsManagerService = /** @class */ (function () {
+    /*
+      const novostSchema2 = mongoose.Schema({
+        _id: mongoose.Schema.Types.ObjectId,
+        idZavoda: String,
+        naslov: String,
+        sadrzaj: String,
+        datum: String,
+  
+        // redni broj pri ucitavanju na stranici da bi mogli da se ucitavaju iz delova
+        redniBroj: Number,
+        // id zaposlenog koji ga je kreirao
+        idZaposlenog: String,
+        // kao preview
+        ukratko:String
+      });
+    */
+    function FakePostsManagerService() {
+        this._postsList = [
+            {
+                idZavoda: "2",
+                naslov: "Prvi post",
+                sadrzaj: "E jbg sad, ovo je neki sadrzj",
+                datum: "ima",
+                ukratko: "bas kratko"
+            },
+            {
+                idZavoda: "1",
+                naslov: "neki drugi post",
+                sadrzaj: "ovo je neki lep sadrzj",
+                datum: "nema",
+                ukratko: "bas dosta kratko"
+            }
+        ];
+    }
+    FakePostsManagerService.prototype.getAllPosts = function () {
+        return this._postsList;
+    };
+    FakePostsManagerService.prototype.getNextPart = function (_lastPostIndex) {
+        return this._postsList.slice(_lastPostIndex, _lastPostIndex + 1); // bice 10, al i 1 je dosta
+    };
+    FakePostsManagerService = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
+            providedIn: 'root'
+        }),
+        __metadata("design:paramtypes", [])
+    ], FakePostsManagerService);
+    return FakePostsManagerService;
 }());
 
 
@@ -580,7 +857,7 @@ var RegisterComponent = /** @class */ (function () {
         this._auth.registerUser(this.registerUserData)
             .subscribe(function (res) {
             console.log(res);
-            //localStorage.setItem('token',res.token)
+            // localStorage.setItem('token',res.token)
             _this._router.navigate(['/login']);
         }, function (err) { return console.log(err); });
     };
@@ -594,6 +871,74 @@ var RegisterComponent = /** @class */ (function () {
             _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]])
     ], RegisterComponent);
     return RegisterComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/server-configuration.service.ts":
+/*!*************************************************!*\
+  !*** ./src/app/server-configuration.service.ts ***!
+  \*************************************************/
+/*! exports provided: ServerConfigurationService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ServerConfigurationService", function() { return ServerConfigurationService; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var ServerConfigurationService = /** @class */ (function () {
+    function ServerConfigurationService() {
+        this.ipAddress = "192.168.0.172";
+        // 192.168.0.172
+        this.portNum = "3030";
+    }
+    ServerConfigurationService.prototype.getFullServerAddress = function () {
+        return "http://" + this.ipAddress + ":" + this.portNum;
+    };
+    ServerConfigurationService.prototype.getIpAddress = function () {
+        return this.ipAddress;
+    };
+    ServerConfigurationService.prototype.getPortNum = function () {
+        return this.portNum;
+    };
+    ServerConfigurationService.prototype.getLoginUrl = function () {
+        return this.getFullServerAddress() + "/users/login";
+    };
+    ServerConfigurationService.prototype.getRegisterUrl = function () {
+        return this.getFullServerAddress() + "/users/register";
+    };
+    ServerConfigurationService.prototype.getEventsNormalUrl = function () {
+        return this.getFullServerAddress() + "/products/normal";
+    };
+    ServerConfigurationService.prototype.getEventsSpecialUrl = function () {
+        return this.getFullServerAddress() + "/products/special";
+    };
+    ServerConfigurationService.prototype.getAllPostsUrl = function () {
+        return this.getFullServerAddress() + "/novosti/all";
+    };
+    ServerConfigurationService.prototype.getNextPartOfPostsUrl = function () {
+        // podesi novu rutu na serveru
+        return this.getFullServerAddress() + "/novosti/next";
+    };
+    ServerConfigurationService = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
+            providedIn: 'root'
+        }),
+        __metadata("design:paramtypes", [])
+    ], ServerConfigurationService);
+    return ServerConfigurationService;
 }());
 
 
@@ -669,6 +1014,132 @@ var SpecialEComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/token-interceptor.service.ts":
+/*!**********************************************!*\
+  !*** ./src/app/token-interceptor.service.ts ***!
+  \**********************************************/
+/*! exports provided: TokenInterceptorService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TokenInterceptorService", function() { return TokenInterceptorService; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _auth_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./auth.service */ "./src/app/auth.service.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var TokenInterceptorService = /** @class */ (function () {
+    function TokenInterceptorService(injector) {
+        this.injector = injector;
+    }
+    TokenInterceptorService.prototype.intercept = function (req, next) {
+        var authService = this.injector.get(_auth_service__WEBPACK_IMPORTED_MODULE_1__["AuthService"]);
+        var tokenizedReq = req.clone({
+            setHeaders: {
+                Authorization: "Bearer " + authService.getToken()
+            }
+        });
+        return next.handle(tokenizedReq);
+    };
+    TokenInterceptorService = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
+            providedIn: 'root'
+        }),
+        __metadata("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injector"]])
+    ], TokenInterceptorService);
+    return TokenInterceptorService;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/vest/vest.component.css":
+/*!*****************************************!*\
+  !*** ./src/app/vest/vest.component.css ***!
+  \*****************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/vest/vest.component.html":
+/*!******************************************!*\
+  !*** ./src/app/vest/vest.component.html ***!
+  \******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<section id=\"about\">\n  <div class=\"container\">\n    <div class=\"row\">\n      <div class=\"col-lg-8 mx-auto\" *ngFor=\"let vest of _vesti\">\n        <h2 class=\"card-title\">{{vest.naslov}}</h2>\n        <p class=\"card-text\">{{vest.ukratko}}</p>\n        <a href=\"#\" class=\"btn btn-primary\">Procitaj jos</a>\n      </div>\n    </div>\n  </div>\n</section>\n"
+
+/***/ }),
+
+/***/ "./src/app/vest/vest.component.ts":
+/*!****************************************!*\
+  !*** ./src/app/vest/vest.component.ts ***!
+  \****************************************/
+/*! exports provided: VestComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "VestComponent", function() { return VestComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _posts_manager_service_fake_posts_manager_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../posts_manager_service/fake-posts-manager.service */ "./src/app/posts_manager_service/fake-posts-manager.service.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var VestComponent = /** @class */ (function () {
+    function VestComponent(_postsManager) {
+        this._postsManager = _postsManager;
+        this._vesti = [];
+        this._lastPostIndex = 0;
+    }
+    VestComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this._vesti = this._postsManager.getAllPosts();
+        // this._postsManager.getNextPart(this._lastPostIndex).subscribe(
+        //   function (res) {
+        //     _this._vesti = res;
+        //   }
+        //   , function (err) {
+        //     console.log(err);
+        //   });
+    };
+    VestComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-vest',
+            template: __webpack_require__(/*! ./vest.component.html */ "./src/app/vest/vest.component.html"),
+            styles: [__webpack_require__(/*! ./vest.component.css */ "./src/app/vest/vest.component.css")]
+        }),
+        __metadata("design:paramtypes", [_posts_manager_service_fake_posts_manager_service__WEBPACK_IMPORTED_MODULE_1__["FakePostsManagerService"]])
+    ], VestComponent);
+    return VestComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/environments/environment.ts":
 /*!*****************************************!*\
   !*** ./src/environments/environment.ts ***!
@@ -729,7 +1200,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\Uros\VS Code\BM2000git\BM2000\BM\AngularApp\ngApp\src\main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! /home/pereca/Documents/web/BM2000/BM/AngularApp/ngApp/src/main.ts */"./src/main.ts");
 
 
 /***/ })

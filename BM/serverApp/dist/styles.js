@@ -539,7 +539,7 @@ if(false) {}
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\Uros\VS Code\BM2000git\BM2000\BM\AngularApp\ngApp\src\styles.css */"./src/styles.css");
+module.exports = __webpack_require__(/*! /home/pereca/Documents/web/BM2000/BM/AngularApp/ngApp/src/styles.css */"./src/styles.css");
 
 
 /***/ })

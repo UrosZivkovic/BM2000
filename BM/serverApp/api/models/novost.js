@@ -10,7 +10,7 @@ const novostSchema = mongoose.Schema({
 });
 
 // v2
-const novostSchema = mongoose.Schema({
+const novostSchema2 = mongoose.Schema({
     _id: mongoose.Schema.Types.ObjectId,
     idZavoda: String,
     naslov: String,

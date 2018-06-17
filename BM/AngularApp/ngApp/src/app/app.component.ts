@@ -2,10 +2,6 @@ import {Component, OnInit} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {AuthService} from './auth.service';
 import {ServerConfigurationService} from './server-configuration.service';
-import {Component, OnInit} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
-import {AuthService} from './auth.service';
-import {ServerConfigurationService} from './server-configuration.service';
 
 @Component({
   selector: 'app-root',
