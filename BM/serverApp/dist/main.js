@@ -744,22 +744,6 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 };
 
 var FakePostsManagerService = /** @class */ (function () {
-    /*
-      const novostSchema2 = mongoose.Schema({
-        _id: mongoose.Schema.Types.ObjectId,
-        idZavoda: String,
-        naslov: String,
-        sadrzaj: String,
-        datum: String,
-  
-        // redni broj pri ucitavanju na stranici da bi mogli da se ucitavaju iz delova
-        redniBroj: Number,
-        // id zaposlenog koji ga je kreirao
-        idZaposlenog: String,
-        // kao preview
-        ukratko:String
-      });
-    */
     function FakePostsManagerService() {
         this._postsList = [
             {
@@ -775,6 +759,41 @@ var FakePostsManagerService = /** @class */ (function () {
                 sadrzaj: "ovo je neki lep sadrzj",
                 datum: "nema",
                 ukratko: "bas dosta kratko"
+            },
+            {
+                idZavoda: "1",
+                naslov: "neki drugi post",
+                sadrzaj: "ovo je neki lep sadrzj",
+                datum: "nema",
+                ukratko: "bas dosta kratko"
+            },
+            {
+                idZavoda: "1",
+                naslov: "neki drugi post",
+                sadrzaj: "ovo je neki lep sadrzj",
+                datum: "nema",
+                ukratko: "bas dosta kratko"
+            },
+            {
+                idZavoda: "1",
+                naslov: "neki drugi post",
+                sadrzaj: "ovo je neki lep sadrzj",
+                datum: "nema",
+                ukratko: "bas dosta kratko"
+            },
+            {
+                idZavoda: "1",
+                naslov: "neki drugi post",
+                sadrzaj: "ovo je neki lep sadrzj",
+                datum: "nema",
+                ukratko: "bas dosta kratko"
+            },
+            {
+                idZavoda: "1",
+                naslov: "neki drugi post",
+                sadrzaj: "ovo je neki lep sadrzj",
+                datum: "nema",
+                ukratko: "bas dosta kratko"
             }
         ];
     }
@@ -782,7 +801,7 @@ var FakePostsManagerService = /** @class */ (function () {
         return this._postsList;
     };
     FakePostsManagerService.prototype.getNextPart = function (_lastPostIndex) {
-        return this._postsList.slice(_lastPostIndex, _lastPostIndex + 1); // bice 10, al i 1 je dosta
+        return this._postsList.slice(_lastPostIndex, _lastPostIndex + 2); // bice 10, al i 1 je dosta
     };
     FakePostsManagerService = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
@@ -1081,7 +1100,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<section id=\"about\">\n  <div class=\"container\">\n    <div class=\"row\">\n      <div class=\"col-lg-8 mx-auto\" *ngFor=\"let vest of _vesti\">\n        <h2 class=\"card-title\">{{vest.naslov}}</h2>\n        <p class=\"card-text\">{{vest.ukratko}}</p>\n        <a href=\"#\" class=\"btn btn-primary\">Procitaj jos</a>\n      </div>\n    </div>\n  </div>\n</section>\n"
+module.exports = "<section id=\"about\">\n  <div class=\"container\">\n    <div class=\"row\">\n      <div class=\"col-lg-8 mx-auto\" *ngFor=\"let vest of _vesti\">\n        <h2 class=\"card-title\">{{vest.naslov}}</h2>\n        <p class=\"card-text\">{{vest.ukratko}}</p>\n        <a href=\"#\" class=\"btn btn-primary\">Procitaj jos</a>\n      </div>\n      <button (click)=\"dodajPostClick()\">Dodaj post</button>\n    </div>\n  </div>\n</section>\n"
 
 /***/ }),
 
@@ -1116,7 +1135,7 @@ var VestComponent = /** @class */ (function () {
     }
     VestComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this._vesti = this._postsManager.getAllPosts();
+        this._vesti = this._postsManager.getNextPart(this._lastPostIndex);
         // this._postsManager.getNextPart(this._lastPostIndex).subscribe(
         //   function (res) {
         //     _this._vesti = res;
@@ -1124,6 +1143,11 @@ var VestComponent = /** @class */ (function () {
         //   , function (err) {
         //     console.log(err);
         //   });
+    };
+    VestComponent.prototype.dodajPostClick = function () {
+        var _tempArray = this._postsManager.getNextPart(this._lastPostIndex);
+        this._lastPostIndex += _tempArray.length;
+        this._vesti.push(_tempArray);
     };
     VestComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({

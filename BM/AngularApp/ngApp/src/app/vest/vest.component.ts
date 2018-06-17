@@ -11,7 +11,7 @@ export class VestComponent implements OnInit {
 
   private _vesti = [];
 
-  private _lastPostIndex;
+  private _lastPostIndex: number;
 
   constructor(private _postsManager: FakePostsManagerService) {
     this._lastPostIndex = 0;
@@ -21,7 +21,7 @@ export class VestComponent implements OnInit {
 
     let _this = this;
 
-    this._vesti=this._postsManager.getAllPosts();
+    this._vesti = this._postsManager.getNextPart(this._lastPostIndex);
 
     // this._postsManager.getNextPart(this._lastPostIndex).subscribe(
     //   function (res) {
@@ -32,5 +32,15 @@ export class VestComponent implements OnInit {
     //   });
 
   }
+
+  public dodajPostClick() {
+
+    let _tempArray = this._postsManager.getNextPart(this._lastPostIndex);
+    this._lastPostIndex += _tempArray.length;
+
+    this._vesti.push(_tempArray);
+
+  }
+
 
 }

@@ -19,25 +19,45 @@ export class FakePostsManagerService {
       sadrzaj: "ovo je neki lep sadrzj",
       datum: "nema",
       ukratko: "bas dosta kratko"
+    },
+    {
+      idZavoda: "1",
+      naslov: "neki drugi post",
+      sadrzaj: "ovo je neki lep sadrzj",
+      datum: "nema",
+      ukratko: "bas dosta kratko"
+    },
+    {
+      idZavoda: "1",
+      naslov: "neki drugi post",
+      sadrzaj: "ovo je neki lep sadrzj",
+      datum: "nema",
+      ukratko: "bas dosta kratko"
+    },
+    {
+      idZavoda: "1",
+      naslov: "neki drugi post",
+      sadrzaj: "ovo je neki lep sadrzj",
+      datum: "nema",
+      ukratko: "bas dosta kratko"
+    },
+    {
+      idZavoda: "1",
+      naslov: "neki drugi post",
+      sadrzaj: "ovo je neki lep sadrzj",
+      datum: "nema",
+      ukratko: "bas dosta kratko"
+    },
+    {
+      idZavoda: "1",
+      naslov: "neki drugi post",
+      sadrzaj: "ovo je neki lep sadrzj",
+      datum: "nema",
+      ukratko: "bas dosta kratko"
     }
+
   ];
 
-  /*
-    const novostSchema2 = mongoose.Schema({
-      _id: mongoose.Schema.Types.ObjectId,
-      idZavoda: String,
-      naslov: String,
-      sadrzaj: String,
-      datum: String,
-
-      // redni broj pri ucitavanju na stranici da bi mogli da se ucitavaju iz delova
-      redniBroj: Number,
-      // id zaposlenog koji ga je kreirao
-      idZaposlenog: String,
-      // kao preview
-      ukratko:String
-    });
-  */
   constructor() {
   }
 
@@ -46,7 +66,7 @@ export class FakePostsManagerService {
   }
 
   public getNextPart(_lastPostIndex: number) {
-    return this._postsList.slice(_lastPostIndex,_lastPostIndex+1);// bice 10, al i 1 je dosta
+    return this._postsList.slice(_lastPostIndex,_lastPostIndex+2);// bice 10, al i 1 je dosta
   }
 
 }
