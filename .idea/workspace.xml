@@ -2,12 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="582a6dde-0014-4f68-b7a2-88f7019a8f0a" name="Default" comment="">
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BM/serverApp/api/routes/novosti.js" beforeDir="false" afterPath="$PROJECT_DIR$/BM/serverApp/api/routes/novosti.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BM/serverApp/api/routes/products.js" beforeDir="false" afterPath="$PROJECT_DIR$/BM/serverApp/api/routes/products.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BM/serverApp/server/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/BM/serverApp/server/app.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+=======
+>>>>>>> duci_master
       <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BM/AngularApp/ngApp/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/BM/AngularApp/ngApp/src/app/app.component.html" afterDir="false" />
@@ -66,7 +69,10 @@
               <item name="BM2000" type="b2602c69:ProjectViewProjectNode" />
               <item name="BM2000" type="462c0819:PsiDirectoryNode" />
               <item name="BM" type="462c0819:PsiDirectoryNode" />
+<<<<<<< HEAD
               <item name="AngularApp" type="462c0819:PsiDirectoryNode" />
+=======
+>>>>>>> duci_master
               <item name=".idea" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
