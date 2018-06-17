@@ -17,7 +17,7 @@ export class PostsManagerService {
   }
 
   public getAllPosts() {
-    return this._http.get<any>("this._");
+    return this._http.get<any>(this._allPostsUrl);
   }
 
   public getNextPart(_lastPostIndex: number) {

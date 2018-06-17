@@ -55,18 +55,17 @@ export class FakePostsManagerService {
       datum: "nema",
       ukratko: "bas dosta kratko"
     }
-
   ];
 
   constructor() {
   }
 
-  public getAllPosts() {
+  public getAllPosts():any[] {
     return this._postsList;
   }
 
-  public getNextPart(_lastPostIndex: number) {
-    return this._postsList.slice(_lastPostIndex,_lastPostIndex+2);// bice 10, al i 1 je dosta
+  public getNextPart(_lastPostIndex: number): any[] {
+    return this._postsList.slice(_lastPostIndex, _lastPostIndex + 2);
   }
 
 }

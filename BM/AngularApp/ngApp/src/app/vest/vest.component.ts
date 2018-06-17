@@ -21,7 +21,9 @@ export class VestComponent implements OnInit {
 
     let _this = this;
 
-    this._vesti = this._postsManager.getNextPart(this._lastPostIndex);
+    this._vesti = this._vesti.concat(this._postsManager.getNextPart(this._lastPostIndex));
+
+    console.log(this._vesti);
 
     // this._postsManager.getNextPart(this._lastPostIndex).subscribe(
     //   function (res) {
@@ -35,10 +37,9 @@ export class VestComponent implements OnInit {
 
   public dodajPostClick() {
 
-    let _tempArray = this._postsManager.getNextPart(this._lastPostIndex);
-    this._lastPostIndex += _tempArray.length;
-
-    this._vesti.push(_tempArray);
+    let tempArray = this._postsManager.getNextPart(this._lastPostIndex);
+    this._lastPostIndex += tempArray.length;
+    this._vesti = this._vesti.concat(tempArray);
 
   }
 
