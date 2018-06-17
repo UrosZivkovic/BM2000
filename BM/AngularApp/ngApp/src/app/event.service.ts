@@ -17,10 +17,16 @@ export class EventService {
   }
 
   getNormalEvents() {
+    console.log("\n\n\n\n\n GETTING NORMAL EVENTS \n\n\n\n\n");
     return this.http.get<any>(this._eventsNormalUrl);
   }
 
   getSpecialEvents() {
     return this.http.get<any>(this._eventsSpecialUrl);
   }
+
+  public getEventsNormalUrl(){
+    return this._eventsNormalUrl;
+  }
+
 }
