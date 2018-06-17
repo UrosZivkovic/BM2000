@@ -2,9 +2,13 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-8 mx-auto" *ngFor="let vest of vesti">
-          <h2 class="card-title">{{vest.naslov.}}</h5>
-          <p class="card-text">{{vest.sadrzaj}}</p> <!-- kako staviti kratak sadrzaj -->
-          <a href="#" class="btn btn-primary">Procitaj jos</a>
+        <ul>
+          <li>
+            <h2 class="card-title">{{vest.naslov.}}</h2>
+            <p class="card-text">{{vest.sadrzaj}}</p> <!-- kako staviti kratak sadrzaj -->
+            <a href="#" class="btn btn-primary">Procitaj jos</a>
+            <hr>
+          </li>
         </ul>
       </div>
     </div>
