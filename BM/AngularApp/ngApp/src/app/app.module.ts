@@ -13,6 +13,9 @@ import { AuthService } from './auth.service';
 import { EventService } from './event.service';
 import { AuthGuard } from './auth.guard';
 import { TokenInterceptorService } from './token-interceptor.service';
+import { VestComponent } from './vest/vest.component';
+import { KorisnikComponent } from './korisnik/korisnik.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 
 @NgModule({
@@ -21,7 +24,10 @@ import { TokenInterceptorService } from './token-interceptor.service';
     RegisterComponent,
     LoginComponent,
     NormalEComponent,
-    SpecialEComponent
+    SpecialEComponent,
+    VestComponent,
+    KorisnikComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,2 @@
+ovo je trebala da bude navbar komponenta ... umesto da bude hardkodirano kod u app.component.html
+problem sa rutama
