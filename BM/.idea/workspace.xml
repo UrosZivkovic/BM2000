@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
+<<<<<<< HEAD
     <list default="true" id="385be2e5-3b02-48e6-9c07-bb34e2a0b837" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
+=======
+    <list default="true" id="5fd43ffb-6c6e-4ee2-b7f9-4eb7da69ea52" name="Default" comment="" />
+>>>>>>> master
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -12,6 +16,7 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+<<<<<<< HEAD
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="event.service.ts" pinned="false" current-in-tab="false">
@@ -124,12 +129,15 @@
       </list>
     </option>
   </component>
+=======
+>>>>>>> master
   <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
   <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
   <component name="JsGulpfileManager">
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
+<<<<<<< HEAD
   <component name="NodeModulesDirectoryManager">
     <handled-path value="$PROJECT_DIR$/AngularApp/ngApp/node_modules" />
     <handled-path value="$PROJECT_DIR$/serverApp/node_modules" />
@@ -2810,6 +2818,10 @@
       <path value="$PROJECT_DIR$/serverApp/node_modules/yeoman-generator/package.json" />
       <path value="$PROJECT_DIR$/serverApp/package.json" />
     </packageJsonPaths>
+=======
+  <component name="NodePackageJsonFileManager">
+    <packageJsonPaths />
+>>>>>>> master
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="157" />
@@ -2822,6 +2834,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+<<<<<<< HEAD
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -2879,14 +2892,21 @@
           <select />
         </subPane>
       </pane>
+=======
+      <pane id="ProjectPane" />
+>>>>>>> master
       <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
+<<<<<<< HEAD
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="ts.external.directory.path" value="$PROJECT_DIR$/AngularApp/ngApp/node_modules/typescript/lib" />
+=======
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+>>>>>>> master
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -2905,6 +2925,7 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
+<<<<<<< HEAD
       <changelist id="385be2e5-3b02-48e6-9c07-bb34e2a0b837" name="Default" comment="" />
       <created>1529189064619</created>
       <option name="number" value="Default" />
@@ -2912,10 +2933,19 @@
       <updated>1529189064619</updated>
       <workItem from="1529189085611" duration="501000" />
       <workItem from="1529191703744" duration="4831000" />
+=======
+      <changelist id="5fd43ffb-6c6e-4ee2-b7f9-4eb7da69ea52" name="Default" comment="" />
+      <created>1529200300279</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1529200300279</updated>
+      <workItem from="1529200304200" duration="66000" />
+>>>>>>> master
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< HEAD
     <option name="totallyTimeSpent" value="5332000" />
   </component>
   <component name="ToolWindowManager">
@@ -2940,19 +2970,47 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Find" order="1" />
+=======
+    <option name="totallyTimeSpent" value="66000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-1" y="-11" width="1682" height="1062" extended-state="6" />
+    <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+      <window_info anchor="bottom" id="Version Control" show_stripe_button="false" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Terminal" />
+      <window_info id="Favorites" side_tool="true" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+>>>>>>> master
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+<<<<<<< HEAD
     <option name="exactExcludedFiles">
       <list>
         <option value="$PROJECT_DIR$/AngularApp/ngApp/node_modules/karma/config.tpl.js" />
       </list>
     </option>
+=======
+>>>>>>> master
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
+<<<<<<< HEAD
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/AngularApp/ngApp/src/app/event.service.ts">
       <provider selected="true" editor-type-id="text-editor">
@@ -3053,4 +3111,6 @@
       </provider>
     </entry>
   </component>
+=======
+>>>>>>> master
 </project>

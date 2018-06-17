@@ -8,9 +8,11 @@ import {AuthGuard} from './auth.guard';
 
 const routes: Routes = [
   {
+
+    // dodao bez / (sve su bez / )
+
     path: '',
     redirectTo: 'normal',
-    pathMatch: 'full'
   },
   {
     path: 'normal',

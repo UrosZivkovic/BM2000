@@ -11,6 +11,7 @@ export class LoginComponent implements OnInit {
 
 
   loginUserData = {};
+<<<<<<< HEAD
 
   constructor(private _auth: AuthService,
               private _router: Router) {
@@ -19,6 +20,13 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
 
+=======
+  constructor(private _auth: AuthService,
+    private _router: Router) { }
+
+  ngOnInit() {
+  }
+>>>>>>> master
   loginUser() {
     this._auth.loginUser(this.loginUserData).subscribe(
       res => {
