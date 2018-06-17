@@ -6,6 +6,7 @@ import {LoginComponent} from './login/login.component';
 import {RegisterComponent} from './register/register.component';
 import {AuthGuard} from './auth.guard';
 import {VestComponent} from "./vest/vest.component";
+import {KorisnikComponent} from "./korisnik/korisnik.component";
 
 const routes: Routes = [
   {
@@ -34,7 +35,12 @@ const routes: Routes = [
   {
     path:'show_posts',
     component:VestComponent
+  },
+  {
+    path:'profil',
+    component:KorisnikComponent
   }
+
 ];
 
 @NgModule({

@@ -64,8 +64,8 @@ export class FakePostsManagerService {
     return this._postsList;
   }
 
-  public getNextPart(_lastPostIndex: number): any[] {
-    return this._postsList.slice(_lastPostIndex, _lastPostIndex + 2);
+  public getNextPart(_firstPostIndex:number,_lastPostIndex: number): any[] {
+    return this._postsList.slice(_firstPostIndex, _lastPostIndex);
   }
 
 }

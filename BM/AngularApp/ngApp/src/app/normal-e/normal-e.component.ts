@@ -23,9 +23,12 @@ export class NormalEComponent implements OnInit {
       function (res) {
         _this.events = res;
       }, function (err) {
-        console.log("\n\n\n\n\n GRESKA:      " + err + "\n\n\n\n\n\n");
+        console.log("greska kod normal sa servera");
+        console.log(err);
       }
     );
+
+    localStorage.removeItem("currentPosts");
 
   }
 

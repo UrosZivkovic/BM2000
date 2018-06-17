@@ -20,9 +20,8 @@ export class PostsManagerService {
     return this._http.get<any>(this._allPostsUrl);
   }
 
-  public getNextPart(_lastPostIndex: number) {
-    // napravi rutu na server
-    return this._http.get<any>(this._nextPartOfPostsUrl);
+  public getNextPart(_startingIndex: number,_lastIndex:number) {
+    return this._http.post(this._nextPartOfPostsUrl,{firstIndex:_startingIndex,lastIndex:_lastIndex});
   }
 
 
