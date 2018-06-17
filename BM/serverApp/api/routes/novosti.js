@@ -67,7 +67,7 @@ router.post('/interval',(req,res,next)=>{
     .then(docs => {
         var niz = docs;
         var drugi;
-        if(niz.length>indexOd){
+        if(niz.length>indexOd){ 
             if (niz.length > indexDo){
 
                 
