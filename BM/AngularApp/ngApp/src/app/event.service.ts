@@ -16,8 +16,9 @@ export class EventService {
     this._eventsSpecialUrl = this._serverConfig.getEventsSpecialUrl();
   }
 
-  getNormalEvents() {
+  getNormalEvents(){
     console.log("\n\n\n\n\n GETTING NORMAL EVENTS \n\n\n\n\n");
+
     return this.http.get<any>(this._eventsNormalUrl);
   }
 
@@ -25,7 +26,7 @@ export class EventService {
     return this.http.get<any>(this._eventsSpecialUrl);
   }
 
-  public getEventsNormalUrl(){
+  public getEventsNormalUrl() {
     return this._eventsNormalUrl;
   }
 
