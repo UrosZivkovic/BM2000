@@ -13,7 +13,7 @@ const routes: Routes = [
 
     path: '',
     redirectTo: '/normal',
-    pathMatch:"full"
+    pathMatch: 'full'
   },
   {
     path: 'normal',
