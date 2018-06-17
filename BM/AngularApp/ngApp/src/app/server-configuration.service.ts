@@ -40,4 +40,6 @@ export class ServerConfigurationService {
     return this.getFullServerAddress() + "/products/special";
   }
 
+
+
 }
