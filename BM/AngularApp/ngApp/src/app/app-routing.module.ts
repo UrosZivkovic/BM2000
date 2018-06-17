@@ -1,16 +1,18 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import { SpecialEComponent } from './special-e/special-e.component';
-import { NormalEComponent } from './normal-e/normal-e.component';
-import { LoginComponent } from './login/login.component';
-import { RegisterComponent } from './register/register.component';
-import { AuthGuard } from './auth.guard';
+import {NgModule} from '@angular/core';
+import {Routes, RouterModule} from '@angular/router';
+import {SpecialEComponent} from './special-e/special-e.component';
+import {NormalEComponent} from './normal-e/normal-e.component';
+import {LoginComponent} from './login/login.component';
+import {RegisterComponent} from './register/register.component';
+import {AuthGuard} from './auth.guard';
 
 const routes: Routes = [
   {
-    path:"",
-    redirectTo:"/normal",
-    pathMatch:'full'
+
+    // dodao bez / (sve su bez / )
+
+    path: '',
+    redirectTo: 'normal',
   },
   {
     path: 'normal',
@@ -23,11 +25,11 @@ const routes: Routes = [
   },
   {
     path: 'login',
-    component:LoginComponent
+    component: LoginComponent
   },
   {
-    path:'register',
-    component:RegisterComponent
+    path: 'register',
+    component: RegisterComponent
   }
 ];
 
@@ -35,4 +37,5 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+}

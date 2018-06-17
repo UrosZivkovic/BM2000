@@ -1,25 +1,26 @@
-import { Injectable } from '@angular/core';
-import { CanActivate, Router } from '@angular/router';
-import { AuthService } from './auth.service';
+import {Injectable} from '@angular/core';
+import {CanActivate, Router} from '@angular/router';
+import {AuthService} from './auth.service';
+
 //import { Observable } from 'rxjs';
 
-@Injectable(//{
-  //providedIn: 'root'
-//}
+// ovi iznad su bili isti samo u jednom bila prazna linija ispod auth service
+
+@Injectable(// {
+  // providedIn: 'root'
+// }
 )
 export class AuthGuard implements CanActivate {
 
-  constructor(private _authService: AuthService, private _router:Router)
-  {
+  constructor(private _authService: AuthService, private _router: Router) {
 
   }
-  canActivate():boolean{
-    if (this._authService.loggedIn())
-    {
-      return true
+  canActivate(): boolean {
+    if (this._authService.loggedIn()) {
+      return true;
     } else {
-      this._router.navigate(['/login'])
-      return false
+      this._router.navigate(['/login']);
+      return false;
     }
 
   }
