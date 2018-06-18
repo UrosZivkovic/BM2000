@@ -22,9 +22,11 @@ export class LoginComponent implements OnInit {
   loginUser() {
     this._auth.loginUser(this.loginUserData).subscribe(
       res => {
+
         localStorage.setItem('token', res.token);
         localStorage.setItem("loggedUserData", JSON.stringify(res.userData));
         localStorage.setItem("userType", res.userData.tipKorisnika);
+
         this._router.navigate(['/']);
       },
       err => console.log(err)
