@@ -2,7 +2,6 @@ import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
-
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {RegisterComponent} from './register/register.component';
@@ -17,6 +16,7 @@ import {KorisnikComponent} from './korisnik/korisnik.component';
 import {NavbarComponent} from './navbar/navbar.component';
 import {ZavodComponent} from './zavod/zavod.component';
 import {HomeComponent} from './home/home.component';
+import {Korisnik2Component} from "./korisnik2/korisnik2.component";
 
 @NgModule({
   declarations: [
@@ -27,6 +27,8 @@ import {HomeComponent} from './home/home.component';
     VestComponent,
     KorisnikComponent,
     NavbarComponent,
+    HomeComponent,
+    Korisnik2Component,
     ZavodComponent,
     HomeComponent,
     VestComponent
