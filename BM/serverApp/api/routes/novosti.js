@@ -57,7 +57,6 @@ router.post('/add', (req, res, next) => {
     })
 });
 
-<<<<<<< HEAD
 router.post("/delete", (req,res,next)=> {
     const id =req.body.id;
     Novost.remove({_id:id})
@@ -75,10 +74,7 @@ router.post("/delete", (req,res,next)=> {
 
 });
 
-router.post('/interval',(req,res,next)=>{
-=======
 router.post('/interval', (req, res, next) => {
->>>>>>> 0158dcfc1df1a2df7b45244e4f33eb4dababb185
     console.log("stigao");
     const indexOd = req.body.firstIndex;
     const indexDo = req.body.lastIndex;

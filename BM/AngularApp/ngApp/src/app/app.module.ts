@@ -18,7 +18,6 @@ import {NavbarComponent} from './navbar/navbar.component';
 import {ZavodComponent} from './zavod/zavod.component';
 import {HomeComponent} from './home/home.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,
