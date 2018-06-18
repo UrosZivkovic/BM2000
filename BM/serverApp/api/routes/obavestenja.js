@@ -88,6 +88,21 @@ router.get('/all',(req,res,next)=>{
         });    
 
 
+        router.post("/delete", (req,res,next)=> {
+            const id =req.body.id;
+            Obavestenje.remove({_id:id})
+                .exec()
+                .then(result => {
+                    res.status(200).json(result);
+            })
+            .catch(err => {
+                console.log(err);
+                res.status(500).json({
+                    error:err
+                })
+            });
+        });
+
 
     router.post('/add',(req,res,next)=>{
         // const prod = {
@@ -102,7 +117,7 @@ router.get('/all',(req,res,next)=>{
             idZavoda :req.body.idZavoda,
             naslov :req.body.naslov,
             sadrzaj :req.body.sadrzaj,
-            datum: req.body.datum
+            datum: req.body.datum 
         });
     
         obavestenje.save()//mongoosova fja koja cuva

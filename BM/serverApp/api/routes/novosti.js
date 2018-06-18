@@ -57,7 +57,28 @@ router.post('/add', (req, res, next) => {
     })
 });
 
+<<<<<<< HEAD
+router.post("/delete", (req,res,next)=> {
+    const id =req.body.id;
+    Novost.remove({_id:id})
+        .exec()
+        .then(result => {
+            res.status(200).json(result);
+    })
+    .catch(err => {
+        console.log(err);
+        res.status(500).json({
+            error:err
+        })
+    });
+
+
+});
+
+router.post('/interval',(req,res,next)=>{
+=======
 router.post('/interval', (req, res, next) => {
+>>>>>>> 0158dcfc1df1a2df7b45244e4f33eb4dababb185
     console.log("stigao");
     const indexOd = req.body.firstIndex;
     const indexDo = req.body.lastIndex;

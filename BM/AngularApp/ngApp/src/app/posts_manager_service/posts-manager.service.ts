@@ -1,9 +1,9 @@
 import {Injectable} from '@angular/core';
-import {HttpClient} from "@angular/common/http";
-import {ServerConfigurationService} from "../server-configuration.service";
+import {HttpClient} from '@angular/common/http';
+import {ServerConfigurationService} from '../server-configuration.service';
 
 @Injectable({
-  providedIn: "root"
+  providedIn: 'root'
 })
 
 export class PostsManagerService {
