@@ -9,9 +9,6 @@ const userSchema = mongoose.Schema({
     krvnaGrupa:String,
     obavestenja:[String],
     poruke:[String],
-    
-    
-
 });
 
 module.exports = mongoose.model('user', userSchema);

@@ -30,21 +30,23 @@ router.post('/register', (req, res) => {
 router.post('/login', (req, res) => {
     let userData = req.body;
 
-    console.log("User trying to login: "+userData.email+"->"+userData.password);
+    console.log("User trying to login: " + userData.email + "->" + userData.password);
 
     User.findOne({email: userData.email}, (error, user) => {
         if (error) {
             console.log(error)
         } else {
             if (!user) {
+                console.log("Invalid e-mail");
                 res.status(401).send("Invalid user")//email
             } else if (user.password !== userData.password) {
+                console.log("Wrong password");
                 res.status(401).send("invalid pass")//password
             } else {
                 console.log("Valid data... user loged in");
                 let payload = {subject: User._id}
                 let token = jwt.sign(payload, "secretKey")
-                res.status(200).send({token});
+                res.status(200).send({token: token, userData: user});
             }
 
         }
