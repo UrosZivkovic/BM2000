@@ -15,17 +15,19 @@ export class NormalEComponent implements OnInit {
 
   ngOnInit() {
 
-    console.log("SALJE SE ZAHTEV " + this._eventService.getEventsNormalUrl());
-
     let _this = this;
 
     this._eventService.getNormalEvents().subscribe(
       function (res) {
         _this.events = res;
       }, function (err) {
-        console.log("\n\n\n\n\n GRESKA:      " + err + "\n\n\n\n\n\n");
+        console.log("greska kod normal sa servera");
+        console.log(err);
       }
     );
+
+    localStorage.removeItem("currentPosts");
+    localStorage.setItem("lastPostIndex", String(0));
 
   }
 

@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SpecialEComponent } from './special-e.component';
+import { ZavodComponent } from './zavod.component';
 
-describe('SpecialEComponent', () => {
-  let component: SpecialEComponent;
-  let fixture: ComponentFixture<SpecialEComponent>;
+describe('ZavodComponent', () => {
+  let component: ZavodComponent;
+  let fixture: ComponentFixture<ZavodComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SpecialEComponent ]
+      declarations: [ ZavodComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SpecialEComponent);
+    fixture = TestBed.createComponent(ZavodComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

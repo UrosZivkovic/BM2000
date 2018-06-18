@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 import {PostsManagerService} from "../posts_manager_service/posts-manager.service";
-import {FakePostsManagerService} from "../posts_manager_service/fake-posts-manager.service";
 
 @Component({
   selector: 'app-vest',
@@ -11,36 +10,65 @@ export class VestComponent implements OnInit {
 
   private _vesti = [];
 
-  private _lastPostIndex: number;
+  private _lastPostIndex;
 
-  constructor(private _postsManager: FakePostsManagerService) {
-    this._lastPostIndex = 0;
+  constructor(private _postsManager: PostsManagerService) {
+
+    console.log("Component consturctor....");
+    this._lastPostIndex = this._postsManager.getLastPostIndex();
+    console.log("_lastPostIndex set to : " + this._lastPostIndex);
   }
 
   ngOnInit() {
 
     let _this = this;
 
-    this._vesti = this._vesti.concat(this._postsManager.getNextPart(this._lastPostIndex));
+    let savedPosts = localStorage.getItem("currentPosts");
+    console.log("INITIAL STORAGE STATE: \n" + savedPosts);
+    if (savedPosts != null) {
 
-    console.log(this._vesti);
+      console.log("Loading posts from storage");
 
-    // this._postsManager.getNextPart(this._lastPostIndex).subscribe(
-    //   function (res) {
-    //     _this._vesti = res;
-    //   }
-    //   , function (err) {
-    //     console.log(err);
-    //   });
+      this._vesti = JSON.parse(savedPosts);
 
+    } else {
+
+      console.log("Sending request for posts");
+
+      this.getNextPosts(2);
+
+    }
   }
 
   public dodajPostClick() {
+    this.getNextPosts(2)
+  }
 
-    let tempArray = this._postsManager.getNextPart(this._lastPostIndex);
-    this._lastPostIndex += tempArray.length;
-    this._vesti = this._vesti.concat(tempArray);
+  public getNextPosts(count: number) {
 
+    let _this = this;
+
+    // get posts
+    this._postsManager.getNextPart(this._lastPostIndex, parseInt(this._lastPostIndex) + count).subscribe(
+      function (res) {
+        console.log("Receiving from: " + _this._lastPostIndex + " to: " + (parseInt(_this._lastPostIndex) + count));
+
+        _this._vesti = _this._vesti.concat(res);
+        _this._lastPostIndex += count;
+
+        console.log("Received: "+String(res));
+
+        _this._postsManager.saveLastPostIndex(_this._lastPostIndex);
+        _this._postsManager.savePostsToLocalStorage(res);
+
+      },
+      function (err) {
+        console.log(err);
+      },
+      function () {
+        console.log("...FETCH COMPLETED...");
+      }
+    );
   }
 
 
