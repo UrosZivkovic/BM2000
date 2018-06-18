@@ -41,6 +41,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _register_register_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./register/register.component */ "./src/app/register/register.component.ts");
 /* harmony import */ var _auth_guard__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./auth.guard */ "./src/app/auth.guard.ts");
 /* harmony import */ var _vest_vest_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./vest/vest.component */ "./src/app/vest/vest.component.ts");
+/* harmony import */ var _korisnik_korisnik_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./korisnik/korisnik.component */ "./src/app/korisnik/korisnik.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -55,18 +56,12 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 
+
 var routes = [
     {
-<<<<<<< HEAD
-        // dodao bez / (sve su bez / )
         path: '',
         redirectTo: '/normal',
         pathMatch: 'full'
-=======
-        path: '',
-        redirectTo: '/normal',
-        pathMatch: "full"
->>>>>>> ab8452b5e568de781201f22114cf54f1b2f73714
     },
     {
         path: 'normal',
@@ -88,6 +83,10 @@ var routes = [
     {
         path: 'show_posts',
         component: _vest_vest_component__WEBPACK_IMPORTED_MODULE_7__["VestComponent"]
+    },
+    {
+        path: 'profil',
+        component: _korisnik_korisnik_component__WEBPACK_IMPORTED_MODULE_8__["KorisnikComponent"]
     }
 ];
 var AppRoutingModule = /** @class */ (function () {
@@ -125,10 +124,18 @@ module.exports = ""
 /***/ (function(module, exports) {
 
 <<<<<<< HEAD
+module.exports = "<nav class=\"navbar navbar-default\" style=\"margin-bottom: 0px\">\n  <div class=\"container-fluid\">\n    <!-- Brand and toggle get grouped for better mobile display -->\n    <div class=\"navbar-header\">\n      <button type=\"button\" class=\"navbar-toggle collapsed\" data-toggle=\"collapse\"\n              data-target=\"#bs-example-navbar-collapse-1\" aria-expanded=\"false\">\n        <span class=\"sr-only\">Toggle navigation</span>\n        <span class=\"icon-bar\"></span>\n        <span class=\"icon-bar\"></span>\n        <span class=\"icon-bar\"></span>\n      </button>\n      <a class=\"navbar-brand\" href=\"#\">BloodMaster2000</a>\n    </div>\n\n    <!-- Collect the nav links, forms, and other content for toggling -->\n    <div class=\"collapse navbar-collapse\" id=\"bs-example-navbar-collapse-1\">\n      <ul class=\"nav navbar-nav\">\n        <li class=\"active\"><a routerLink=\"/show_posts\">Home <span class=\"sr-only\">(current)</span></a></li>\n        <li class=\"active\"><a routerLink=\"/show_posts\">Vesti <span class=\"sr-only\">(current)</span></a></li>\n      </ul>\n      <form class=\"navbar-form navbar-left\">\n        <div class=\"form-group\">\n          <input type=\"text\" class=\"form-control\" placeholder=\"Search\">\n        </div>\n        <button type=\"submit\" class=\"btn btn-default\">Trazi</button>\n      </form>\n      <ul class=\"nav navbar-nav navbar-right\">\n        <li><a class=\"nav-link\" *ngIf=\"!_authService.loggedIn()\" routerLink=\"/login\" routerLinkActive=\"active\"><span\n          class=\"glyphicon glyphicon-log-in\"></span> Login</a></li>\n        <li><a class=\"nav-link\" *ngIf=\"!_authService.loggedIn()\" routerLink=\"/register\" routerLinkActive=\"active\">Register</a>\n        </li>\n        <li><a style=\"cursor:pointer\" *ngIf=\"_authService.loggedIn()\" class=\"nav-link\"\n               (click)=\"_authService.logoutUser()\"><span class=\"glyphicon glyphicon-log-out\"></span> Logout</a></li>\n      </ul>\n    </div><!-- /.navbar-collapse -->\n  </div><!-- /.container-fluid -->\n</nav>\n<div>\n  <router-outlet></router-outlet>\n  <app-korisnik2></app-korisnik2>\n</div>\n"
+=======
+<<<<<<< HEAD
+module.exports = "<nav class=\"navbar navbar-default\" style=\"margin-bottom: 0px\">\n  <div class=\"container-fluid\">\n    <!-- Brand and toggle get grouped for better mobile display -->\n    <div class=\"navbar-header\">\n      <button type=\"button\" class=\"navbar-toggle collapsed\" data-toggle=\"collapse\"\n              data-target=\"#bs-example-navbar-collapse-1\" aria-expanded=\"false\">\n        <span class=\"sr-only\">Toggle navigation</span>\n        <span class=\"icon-bar\"></span>\n        <span class=\"icon-bar\"></span>\n        <span class=\"icon-bar\"></span>\n      </button>\n      <a class=\"navbar-brand\" href=\"/\">BloodMaster2000</a>\n    </div>\n\n    <!-- Collect the nav links, forms, and other content for toggling -->\n    <div class=\"collapse navbar-collapse\" id=\"bs-example-navbar-collapse-1\">\n      <ul class=\"nav navbar-nav\">\n        <li class=\"active\"><a routerLink=\"/show_posts\">Home <span class=\"sr-only\">(current)</span></a></li>\n        <li class=\"active\"><a routerLink=\"/show_posts\">Vesti <span class=\"sr-only\">(current)</span></a></li>\n      </ul>\n      <form class=\"navbar-form navbar-left\">\n        <div class=\"form-group\">\n          <input type=\"text\" class=\"form-control\" placeholder=\"Search\">\n        </div>\n        <button type=\"submit\" class=\"btn btn-default\">Trazi</button>\n      </form>\n      <ul class=\"nav navbar-nav navbar-right\">\n\n        <li><a class=\"nav-link\" *ngIf=\"_authService.loggedIn()\" routerLink=\"/profil\" routerLinkActive=\"active\">Profil</a></li>\n\n        <li><a class=\"nav-link\" *ngIf=\"!_authService.loggedIn()\" routerLink=\"/login\" routerLinkActive=\"active\"><span\n          class=\"glyphicon glyphicon-log-in\"></span> Login</a></li>\n        <li><a class=\"nav-link\" *ngIf=\"!_authService.loggedIn()\" routerLink=\"/register\" routerLinkActive=\"active\">Register</a>\n        </li>\n        <li><a style=\"cursor:pointer\" *ngIf=\"_authService.loggedIn()\" class=\"nav-link\"\n               (click)=\"_authService.logoutUser()\"><span class=\"glyphicon glyphicon-log-out\"></span> Logout</a></li>\n      </ul>\n    </div><!-- /.navbar-collapse -->\n  </div><!-- /.container-fluid -->\n</nav>\n<div>\n  <router-outlet></router-outlet>\n</div>\n"
+=======
+<<<<<<< HEAD
 module.exports = "<nav class=\"navbar navbar-default\">\n  <div class=\"container-fluid\">\n    <!-- Brand and toggle get grouped for better mobile display -->\n    <div class=\"navbar-header\">\n      <button type=\"button\" class=\"navbar-toggle collapsed\" data-toggle=\"collapse\" data-target=\"#bs-example-navbar-collapse-1\"\n        aria-expanded=\"false\">\n        <span class=\"sr-only\">Toggle navigation</span>\n        <span class=\"icon-bar\"></span>\n        <span class=\"icon-bar\"></span>\n        <span class=\"icon-bar\"></span>\n      </button>\n      <a class=\"navbar-brand\" href=\"#\">BloodMaster2000</a>\n    </div>\n\n    <!-- Collect the nav links, forms, and other content for toggling -->\n    <div class=\"collapse navbar-collapse\" id=\"bs-example-navbar-collapse-1\">\n      <ul class=\"nav navbar-nav\">\n        <li class=\"active\">\n          <a href=\"#\">Home\n            <span class=\"sr-only\">(current)</span>\n          </a>\n        </li>\n        <li class=\"active\">\n          <a href=\"#\">Vesti\n            <span class=\"sr-only\">(current)</span>\n          </a>\n        </li>\n      </ul>\n      <form class=\"navbar-form navbar-left\">\n        <div class=\"form-group\">\n          <input type=\"text\" class=\"form-control\" placeholder=\"Search\">\n        </div>\n        <button type=\"submit\" class=\"btn btn-default\">Submit</button>\n      </form>\n      <ul class=\"nav navbar-nav navbar-right\">\n        <li>\n          <a class=\"nav-link\" *ngIf=\"!_authService.loggedIn()\" routerLink=\"/login\" routerLinkActive=\"active\">Login</a>\n        </li>\n        <li>\n          <a class=\"nav-link\" *ngIf=\"!_authService.loggedIn()\" routerLink=\"/register\" routerLinkActive=\"active\">Register</a>\n        </li>\n        <li>\n          <a style=\"cursor:pointer\" *ngIf=\"_authService.loggedIn()\" class=\"nav-link\" (click)=\"_authService.logoutUser()\">Logout</a>\n        </li>\n      </ul>\n    </div>\n    <!-- /.navbar-collapse -->\n  </div>\n  <!-- /.container-fluid -->\n</nav>\n<div>\n  <router-outlet></router-outlet>\n</div>\n"
 =======
 module.exports = "<nav class=\"navbar navbar-default\" style=\"margin-bottom: 0px\">\n  <div class=\"container-fluid\">\n    <!-- Brand and toggle get grouped for better mobile display -->\n    <div class=\"navbar-header\">\n      <button type=\"button\" class=\"navbar-toggle collapsed\" data-toggle=\"collapse\" data-target=\"#bs-example-navbar-collapse-1\" aria-expanded=\"false\">\n        <span class=\"sr-only\">Toggle navigation</span>\n        <span class=\"icon-bar\"></span>\n        <span class=\"icon-bar\"></span>\n        <span class=\"icon-bar\"></span>\n      </button>\n      <a class=\"navbar-brand\" href=\"#\">BloodMaster2000</a>\n    </div>\n\n    <!-- Collect the nav links, forms, and other content for toggling -->\n    <div class=\"collapse navbar-collapse\" id=\"bs-example-navbar-collapse-1\">\n      <ul class=\"nav navbar-nav\">\n        <li class=\"active\"><a href=\"#\">Home <span class=\"sr-only\">(current)</span></a></li>\n        <li class=\"active\"><a href=\"#\">Vesti <span class=\"sr-only\">(current)</span></a></li>\n      </ul>\n      <form class=\"navbar-form navbar-left\">\n        <div class=\"form-group\">\n          <input type=\"text\" class=\"form-control\" placeholder=\"Search\">\n        </div>\n        <button type=\"submit\" class=\"btn btn-default\">Trazi</button>\n      </form>\n      <ul class=\"nav navbar-nav navbar-right\">\n        <li><a class=\"nav-link\" *ngIf=\"!_authService.loggedIn()\" routerLink=\"/login\" routerLinkActive=\"active\"><span class=\"glyphicon glyphicon-log-in\"></span> Login</a></li>\n        <li><a class=\"nav-link\" *ngIf=\"!_authService.loggedIn()\" routerLink=\"/register\" routerLinkActive=\"active\" >Register</a></li>\n        <li><a style= \"cursor:pointer\" *ngIf=\"_authService.loggedIn()\" class=\"nav-link\" (click)=\"_authService.logoutUser()\"><span class=\"glyphicon glyphicon-log-out\"></span> Logout</a></li>\n      </ul>\n    </div><!-- /.navbar-collapse -->\n  </div><!-- /.container-fluid -->\n</nav>\n<div>\n  <router-outlet></router-outlet>\n  <app-korisnik></app-korisnik>\n</div>"
 >>>>>>> ab8452b5e568de781201f22114cf54f1b2f73714
+>>>>>>> duci
+>>>>>>> master
 
 /***/ }),
 
@@ -214,21 +221,21 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _event_service__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./event.service */ "./src/app/event.service.ts");
 /* harmony import */ var _auth_guard__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./auth.guard */ "./src/app/auth.guard.ts");
 /* harmony import */ var _token_interceptor_service__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./token-interceptor.service */ "./src/app/token-interceptor.service.ts");
-<<<<<<< HEAD
 /* harmony import */ var _korisnik_korisnik_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./korisnik/korisnik.component */ "./src/app/korisnik/korisnik.component.ts");
 /* harmony import */ var _navbar_navbar_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./navbar/navbar.component */ "./src/app/navbar/navbar.component.ts");
 /* harmony import */ var _zavod_zavod_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./zavod/zavod.component */ "./src/app/zavod/zavod.component.ts");
-=======
-/* harmony import */ var _vest_vest_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./vest/vest.component */ "./src/app/vest/vest.component.ts");
-/* harmony import */ var _korisnik_korisnik_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./korisnik/korisnik.component */ "./src/app/korisnik/korisnik.component.ts");
-/* harmony import */ var _navbar_navbar_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./navbar/navbar.component */ "./src/app/navbar/navbar.component.ts");
->>>>>>> ab8452b5e568de781201f22114cf54f1b2f73714
+/* harmony import */ var _home_home_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./home/home.component */ "./src/app/home/home.component.ts");
+/* harmony import */ var _vest_vest_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./vest/vest.component */ "./src/app/vest/vest.component.ts");
+/* harmony import */ var _korisnik2_korisnik2_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./korisnik2/korisnik2.component */ "./src/app/korisnik2/korisnik2.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
+
+
 
 
 
@@ -257,15 +264,13 @@ var AppModule = /** @class */ (function () {
                 _login_login_component__WEBPACK_IMPORTED_MODULE_7__["LoginComponent"],
                 _normal_e_normal_e_component__WEBPACK_IMPORTED_MODULE_8__["NormalEComponent"],
                 _special_e_special_e_component__WEBPACK_IMPORTED_MODULE_9__["SpecialEComponent"],
-<<<<<<< HEAD
                 _korisnik_korisnik_component__WEBPACK_IMPORTED_MODULE_14__["KorisnikComponent"],
                 _navbar_navbar_component__WEBPACK_IMPORTED_MODULE_15__["NavbarComponent"],
-                _zavod_zavod_component__WEBPACK_IMPORTED_MODULE_16__["ZavodComponent"]
-=======
-                _vest_vest_component__WEBPACK_IMPORTED_MODULE_14__["VestComponent"],
-                _korisnik_korisnik_component__WEBPACK_IMPORTED_MODULE_15__["KorisnikComponent"],
-                _navbar_navbar_component__WEBPACK_IMPORTED_MODULE_16__["NavbarComponent"]
->>>>>>> ab8452b5e568de781201f22114cf54f1b2f73714
+                _home_home_component__WEBPACK_IMPORTED_MODULE_17__["HomeComponent"],
+                _korisnik2_korisnik2_component__WEBPACK_IMPORTED_MODULE_19__["Korisnik2Component"],
+                _zavod_zavod_component__WEBPACK_IMPORTED_MODULE_16__["ZavodComponent"],
+                _home_home_component__WEBPACK_IMPORTED_MODULE_17__["HomeComponent"],
+                _vest_vest_component__WEBPACK_IMPORTED_MODULE_18__["VestComponent"]
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
@@ -442,7 +447,6 @@ var EventService = /** @class */ (function () {
         this._eventsSpecialUrl = this._serverConfig.getEventsSpecialUrl();
     }
     EventService.prototype.getNormalEvents = function () {
-        console.log("\n\n\n\n\n GETTING NORMAL EVENTS \n\n\n\n\n");
         return this.http.get(this._eventsNormalUrl);
     };
     EventService.prototype.getSpecialEvents = function () {
@@ -458,6 +462,69 @@ var EventService = /** @class */ (function () {
         __metadata("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"], _server_configuration_service__WEBPACK_IMPORTED_MODULE_2__["ServerConfigurationService"]])
     ], EventService);
     return EventService;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/home/home.component.css":
+/*!*****************************************!*\
+  !*** ./src/app/home/home.component.css ***!
+  \*****************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ".btn-group {\n    width:  100%;\n    height: inherit;\n}\nbutton {\n    width:  30%;\n    height: inherit;\n    margin: 3.333333%;\n}\n@media (max-width: 600px) {\n    [class*=\"btn-\"] {\n        width: 100%;\n        margin: 10px;\n        box-sizing: border-box;\n        padding: 0;\n    }   \n}\n"
+
+/***/ }),
+
+/***/ "./src/app/home/home.component.html":
+/*!******************************************!*\
+  !*** ./src/app/home/home.component.html ***!
+  \******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"container-fluid\">\n  <div class=\"col-lg-1 col-offset-6 centered\">\n    <div class=\"btn-group\" role=\"group\" style=\"height: 30vh\">\n      <button type=\"button\" class=\"btn btn-light\" style=\"border-radius: 20%\">Zavod</button>\n      <button type=\"button\" class=\"btn btn-light\" style=\"border-radius: 20%\">Korisnik</button>\n      <button type=\"button\" class=\"btn btn-light\" style=\"border-radius: 20%\">Informacije</button>\n    </div>\n  </div>\n</div>"
+
+/***/ }),
+
+/***/ "./src/app/home/home.component.ts":
+/*!****************************************!*\
+  !*** ./src/app/home/home.component.ts ***!
+  \****************************************/
+/*! exports provided: HomeComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HomeComponent", function() { return HomeComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var HomeComponent = /** @class */ (function () {
+    function HomeComponent() {
+    }
+    HomeComponent.prototype.ngOnInit = function () {
+    };
+    HomeComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-home',
+            template: __webpack_require__(/*! ./home.component.html */ "./src/app/home/home.component.html"),
+            styles: [__webpack_require__(/*! ./home.component.css */ "./src/app/home/home.component.css")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], HomeComponent);
+    return HomeComponent;
 }());
 
 
@@ -482,11 +549,7 @@ module.exports = "/* The sidebar menu */\n\n/* On smaller screens, where height 
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-<<<<<<< HEAD
-module.exports = "<!-- \n<div id=\"mySidenav\" class=\"sidenav\">\n    <a href=\"#\">About</a>\n    <a href=\"#\">Services</a>\n    <a href=\"#\">Clients</a>\n    <a href=\"#\">Contact</a>\n</div> -->\n\n<!-- Add all page content inside this div if you want the side nav to push page content to the right (not used if you only want the sidenav to sit on top of the page -->\n\n<div class=\"container-fluid\">\n    <div class=\"row row-offcanvas row-offcanvas-left\">\n        <div class=\"col-xs-6 col-sm-3 sidebar-offcanvas\" id=\"sidebar\" role=\"navigation\" style=\"margin: 0px; padding: 0px;\">\n            <div class=\"sidebar-nav\">\n                <ul class=\"nav\" style=\"background-color: lightgray; height: 100vh; width: 172.25px\">\n                    <li class=\"active\"><a href=\"#\">Link</a></li>\n                    <li><a href=\"#\">Link</a></li>\n                    <li><a href=\"#\">Link</a></li>\n                    <li class=\"nav-divider\"></li>\n                    <li><a href=\"#\">Link</a></li>\n                    <li><a href=\"#\">Link</a></li>\n                    <li><a href=\"#\">Link</a></li>\n                    <li class=\"nav-divider\"></li>\n                    <li><a href=\"#\">Link</a></li>\n                    <li><a href=\"#\">Link</a></li>\n                </ul>\n            </div>\n            <!--/.well -->\n        </div>\n        <!--/span-->\n\n        <div>\n            <ul>\n                <li><h2>Ime</h2></li>\n                <li><h2>Prezime</h2></li>\n            </ul>\n        </div>\n    </div>\n    <!--/row-->\n\n    \n\n    <hr>\n</div>\n<!--/.container-->"
-=======
-module.exports = "<!-- \n<div id=\"mySidenav\" class=\"sidenav\">\n    <a href=\"#\">About</a>\n    <a href=\"#\">Services</a>\n    <a href=\"#\">Clients</a>\n    <a href=\"#\">Contact</a>\n</div> -->\n\n<!-- Add all page content inside this div if you want the side nav to push page content to the right (not used if you only want the sidenav to sit on top of the page -->\n\n<div class=\"container-fluid\">\n  <div class=\"row row-offcanvas row-offcanvas-left\">\n      <div class=\"col-xs-6 col-sm-3 sidebar-offcanvas\" id=\"sidebar\" role=\"navigation\" style=\"margin: 0px; padding: 0px;\">\n          <div class=\"sidebar-nav\">\n              <ul class=\"nav\" style=\"background-color: lightgray; height: 100vh; width: 172.25px\">\n                  <li class=\"active\"><a href=\"#\">Link</a></li>\n                  <li><a href=\"#\">Link</a></li>\n                  <li><a href=\"#\">Link</a></li>\n                  <li class=\"nav-divider\"></li>\n                  <li><a href=\"#\">Link</a></li>\n                  <li><a href=\"#\">Link</a></li>\n                  <li><a href=\"#\">Link</a></li>\n                  <li class=\"nav-divider\"></li>\n                  <li><a href=\"#\">Link</a></li>\n                  <li><a href=\"#\">Link</a></li>\n              </ul>\n          </div>\n          <!--/.well -->\n      </div>\n      <!--/span-->\n\n      <div>\n          <ul>\n              <li><h2>Ime</h2></li>\n              <li><h2>Prezime</h2></li>\n          </ul>\n      </div>\n  </div>\n  <!--/row-->\n\n  \n\n  <hr>\n</div>\n<!--/.container-->"
->>>>>>> ab8452b5e568de781201f22114cf54f1b2f73714
+module.exports = "<!--\n<div id=\"mySidenav\" class=\"sidenav\">\n    <a href=\"#\">About</a>\n    <a href=\"#\">Services</a>\n    <a href=\"#\">Clients</a>\n    <a href=\"#\">Contact</a>\n</div> -->\n\n<!-- Add all page content inside this div if you want the side nav to push page content to the right (not used if you only want the sidenav to sit on top of the page -->\n\n<div class=\"container-fluid\">\n\n  <div class=\"row row-offcanvas row-offcanvas-left\">\n\n    <div class=\"col-xs-6 col-sm-3 sidebar-offcanvas\" id=\"sidebar\" role=\"navigation\" style=\"margin: 0px; padding: 0px;\">\n      <div class=\"sidebar-nav\">\n        <ul class=\"nav\" style=\"background-color: lightgray; height: 100vh; width: 172.25px\">\n          <li class=\"active\"><a href=\"#\">Link</a></li>\n          <li><a href=\"#\">Link</a></li>\n          <li><a href=\"#\">Link</a></li>\n          <li class=\"nav-divider\"></li>\n          <li><a href=\"#\">Link</a></li>\n          <li><a href=\"#\">Link</a></li>\n          <li><a href=\"#\">Link</a></li>\n          <li class=\"nav-divider\"></li>\n          <li><a href=\"#\">Link</a></li>\n          <li><a href=\"#\">Link</a></li>\n        </ul>\n      </div>\n      <!--/.well -->\n    </div>\n    <!--/span-->\n\n    <div>\n      <ul>\n        <li><h2>Ime</h2></li>\n        <li><h2>Prezime</h2></li>\n      </ul>\n    </div>\n  </div>\n  <!--/row-->\n  <hr>\n</div>\n<!--/.container-->\n"
 
 /***/ }),
 
@@ -525,6 +588,69 @@ var KorisnikComponent = /** @class */ (function () {
         __metadata("design:paramtypes", [])
     ], KorisnikComponent);
     return KorisnikComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/korisnik2/korisnik2.component.css":
+/*!***************************************************!*\
+  !*** ./src/app/korisnik2/korisnik2.component.css ***!
+  \***************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "#sidebar {\n    margin-left:0px; \n    padding: 0px;\n    float: left;\n    width: 17.70%;\n    height: 192.7vh;\n    background-color: lightgray;\n    position: fixed;\n}\n\n.nav-item {\n    padding: 0px;\n}"
+
+/***/ }),
+
+/***/ "./src/app/korisnik2/korisnik2.component.html":
+/*!****************************************************!*\
+  !*** ./src/app/korisnik2/korisnik2.component.html ***!
+  \****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class = \"col-xs-6 col-lg-8 sidebar\" id=\"sidebar\" role=\"navigation\">\n  <ul class=\"nav nav-tabs|pills\" id=\"navId\">\n    <li class=\"nav-item\">\n      <a class=\"nav-link active\">Ime</a>\n    </li>\n    <li class=\"nav-item\">\n      <a class=\"nav-link active\">Prezime</a>\n    </li>\n    <li class=\"nav-item\">\n      <a class=\"nav-link active\">Email</a>\n    </li>\n    <li class=\"nav-item\">\n      <a class=\"nav-link active\">Krvna grupa</a>\n    </li>\n    <li class=\"nav-item\">\n      <a class=\"nav-link active\">Broj davanja</a>\n    </li>\n    <li class=\"nav-item\">\n      <a class=\"nav-link active\">Datum poslednjeg davanja</a>\n    </li>\n    <hr>\n    <li class=\"nav-item\">\n      <a class=\"nav-link active\">Logout</a>\n    </li>\n  </ul>\n</div>\n\n<p> Neki tekst</p>\n"
+
+/***/ }),
+
+/***/ "./src/app/korisnik2/korisnik2.component.ts":
+/*!**************************************************!*\
+  !*** ./src/app/korisnik2/korisnik2.component.ts ***!
+  \**************************************************/
+/*! exports provided: Korisnik2Component */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Korisnik2Component", function() { return Korisnik2Component; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var Korisnik2Component = /** @class */ (function () {
+    function Korisnik2Component() {
+    }
+    Korisnik2Component.prototype.ngOnInit = function () {
+    };
+    Korisnik2Component = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-korisnik2',
+            template: __webpack_require__(/*! ./korisnik2.component.html */ "./src/app/korisnik2/korisnik2.component.html"),
+            styles: [__webpack_require__(/*! ./korisnik2.component.css */ "./src/app/korisnik2/korisnik2.component.css")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], Korisnik2Component);
+    return Korisnik2Component;
 }());
 
 
@@ -724,20 +850,13 @@ var NormalEComponent = /** @class */ (function () {
         this.events = [];
     }
     NormalEComponent.prototype.ngOnInit = function () {
-<<<<<<< HEAD
-        console.log("\n\n\n SALJE SE ZAHTEV " + this._eventService.getEventsNormalUrl() + "\n\n\n\n");
-        var _this = this;
-        this._eventService.getNormalEvents().subscribe(function (res) {
-            console.log("\n\n\n\n\n RESOURCES RECEIVED \n\n\n\n\n");
-            console.log(res);
-=======
         console.log("SALJE SE ZAHTEV " + this._eventService.getEventsNormalUrl());
         var _this = this;
         this._eventService.getNormalEvents().subscribe(function (res) {
->>>>>>> ab8452b5e568de781201f22114cf54f1b2f73714
             _this.events = res;
         }, function (err) {
-            console.log("\n\n\n\n\n GRESKA:      " + err + "\n\n\n\n\n\n");
+            console.log("greska kod normal sa servera");
+            console.log(err);
         });
     };
     NormalEComponent = __decorate([
@@ -909,7 +1028,7 @@ var RegisterComponent = /** @class */ (function () {
         this._auth.registerUser(this.registerUserData)
             .subscribe(function (res) {
             console.log(res);
-            // localStorage.setItem('token',res.token)
+            //localStorage.setItem('token',res.token);
             _this._router.navigate(['/login']);
         }, function (err) { return console.log(err); });
     };
@@ -977,8 +1096,6 @@ var ServerConfigurationService = /** @class */ (function () {
     ServerConfigurationService.prototype.getEventsSpecialUrl = function () {
         return this.getFullServerAddress() + "/products/special";
     };
-<<<<<<< HEAD
-=======
     ServerConfigurationService.prototype.getAllPostsUrl = function () {
         return this.getFullServerAddress() + "/novosti/all";
     };
@@ -986,7 +1103,6 @@ var ServerConfigurationService = /** @class */ (function () {
         // podesi novu rutu na serveru
         return this.getFullServerAddress() + "/novosti/next";
     };
->>>>>>> ab8452b5e568de781201f22114cf54f1b2f73714
     ServerConfigurationService = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
             providedIn: 'root'
@@ -1118,17 +1234,10 @@ var TokenInterceptorService = /** @class */ (function () {
 
 /***/ }),
 
-<<<<<<< HEAD
-/***/ "./src/app/zavod/zavod.component.css":
-/*!*******************************************!*\
-  !*** ./src/app/zavod/zavod.component.css ***!
-  \*******************************************/
-=======
 /***/ "./src/app/vest/vest.component.css":
 /*!*****************************************!*\
   !*** ./src/app/vest/vest.component.css ***!
   \*****************************************/
->>>>>>> ab8452b5e568de781201f22114cf54f1b2f73714
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -1136,24 +1245,6 @@ module.exports = ""
 
 /***/ }),
 
-<<<<<<< HEAD
-/***/ "./src/app/zavod/zavod.component.html":
-/*!********************************************!*\
-  !*** ./src/app/zavod/zavod.component.html ***!
-  \********************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "<p>\n  zavod works!\n</p>\n"
-
-/***/ }),
-
-/***/ "./src/app/zavod/zavod.component.ts":
-/*!******************************************!*\
-  !*** ./src/app/zavod/zavod.component.ts ***!
-  \******************************************/
-/*! exports provided: ZavodComponent */
-=======
 /***/ "./src/app/vest/vest.component.html":
 /*!******************************************!*\
   !*** ./src/app/vest/vest.component.html ***!
@@ -1161,7 +1252,7 @@ module.exports = "<p>\n  zavod works!\n</p>\n"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<section id=\"about\">\n  <div class=\"container\">\n    <div class=\"row\">\n      <div class=\"col-lg-8 mx-auto\" *ngFor=\"let vest of _vesti\">\n        <h2 class=\"card-title\">{{vest.naslov}}</h2>\n        <p class=\"card-text\">{{vest.ukratko}}</p>\n        <a href=\"#\" class=\"btn btn-primary\">Procitaj jos</a>\n      </div>\n      <button (click)=\"dodajPostClick()\">Dodaj post</button>\n    </div>\n  </div>\n</section>\n"
+module.exports = "<section id=\"about\">\n  <div class=\"container\">\n    <div class=\"row\">\n      <div class=\"col-lg-8 mx-auto\" *ngFor=\"let vest of vesti\">\n        <ul>\n          <li>\n            <h2 class=\"card-title\">{{vest.naslov}}</h2>\n            <p class=\"card-text\">{{vest.sadrzaj}}</p> <!-- kako staviti kratak sadrzaj -->\n            <a href=\"#\" class=\"btn btn-primary\">Procitaj jos</a>\n            <hr>\n          </li>\n        </ul>\n      </div>\n      <button (click)=\"dodajPostClick()\">Dodaj post</button>\n    </div>\n  </div>\n</section>\n"
 
 /***/ }),
 
@@ -1170,19 +1261,13 @@ module.exports = "<section id=\"about\">\n  <div class=\"container\">\n    <div 
   !*** ./src/app/vest/vest.component.ts ***!
   \****************************************/
 /*! exports provided: VestComponent */
->>>>>>> ab8452b5e568de781201f22114cf54f1b2f73714
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-<<<<<<< HEAD
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ZavodComponent", function() { return ZavodComponent; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-=======
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "VestComponent", function() { return VestComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _posts_manager_service_fake_posts_manager_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../posts_manager_service/fake-posts-manager.service */ "./src/app/posts_manager_service/fake-posts-manager.service.ts");
->>>>>>> ab8452b5e568de781201f22114cf54f1b2f73714
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1193,22 +1278,6 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
-<<<<<<< HEAD
-var ZavodComponent = /** @class */ (function () {
-    function ZavodComponent() {
-    }
-    ZavodComponent.prototype.ngOnInit = function () {
-    };
-    ZavodComponent = __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
-            selector: 'app-zavod',
-            template: __webpack_require__(/*! ./zavod.component.html */ "./src/app/zavod/zavod.component.html"),
-            styles: [__webpack_require__(/*! ./zavod.component.css */ "./src/app/zavod/zavod.component.css")]
-        }),
-        __metadata("design:paramtypes", [])
-    ], ZavodComponent);
-    return ZavodComponent;
-=======
 
 var VestComponent = /** @class */ (function () {
     function VestComponent(_postsManager) {
@@ -1242,7 +1311,69 @@ var VestComponent = /** @class */ (function () {
         __metadata("design:paramtypes", [_posts_manager_service_fake_posts_manager_service__WEBPACK_IMPORTED_MODULE_1__["FakePostsManagerService"]])
     ], VestComponent);
     return VestComponent;
->>>>>>> ab8452b5e568de781201f22114cf54f1b2f73714
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/zavod/zavod.component.css":
+/*!*******************************************!*\
+  !*** ./src/app/zavod/zavod.component.css ***!
+  \*******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/zavod/zavod.component.html":
+/*!********************************************!*\
+  !*** ./src/app/zavod/zavod.component.html ***!
+  \********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<p>\n  zavod works!\n</p>\n"
+
+/***/ }),
+
+/***/ "./src/app/zavod/zavod.component.ts":
+/*!******************************************!*\
+  !*** ./src/app/zavod/zavod.component.ts ***!
+  \******************************************/
+/*! exports provided: ZavodComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ZavodComponent", function() { return ZavodComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var ZavodComponent = /** @class */ (function () {
+    function ZavodComponent() {
+    }
+    ZavodComponent.prototype.ngOnInit = function () {
+    };
+    ZavodComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-zavod',
+            template: __webpack_require__(/*! ./zavod.component.html */ "./src/app/zavod/zavod.component.html"),
+            styles: [__webpack_require__(/*! ./zavod.component.css */ "./src/app/zavod/zavod.component.css")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], ZavodComponent);
+    return ZavodComponent;
 }());
 
 
