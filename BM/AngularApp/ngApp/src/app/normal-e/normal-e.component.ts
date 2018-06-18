@@ -29,6 +29,7 @@ export class NormalEComponent implements OnInit {
     );
 
     localStorage.removeItem("currentPosts");
+    localStorage.setItem("lastPostIndex", String(0));
 
   }
 
