@@ -38,7 +38,7 @@ router.get('/register/realUser', (req, res) => {
         krvnaGrupa: "0",
         obavestenja: ["obavestenje1", "obavestenje2", "obavestenje3", "ime sigurno jos"],
         poruke: ["prva poruka", "druga poruka", "treca poruka"],
-        tipKorisnika:"zaposleni"
+        tipKorisnika: "zaposleni"
     });
 
     user.save((error, regUser) => {
@@ -47,17 +47,17 @@ router.get('/register/realUser', (req, res) => {
         } else {
             let payload = {subject: regUser._id}
             let token = jwt.sign(payload, "secretKey")
-            console.log("User added to database: \n"+user);
+            console.log("User added to database: \n" + user);
             res.status(200).send({token});
         }
     });
 });
 router.get('/removeUser', (req, res) => {
-    User.remove({tipKorisnika:"zaposleni"},function(err){
-        if(err){
+    User.remove({tipKorisnika: "zaposleni"}, function (err) {
+        if (err) {
             console.log("shit happened");
             res.status(304).send("shit")
-        }else{
+        } else {
             console.log("sve ooookeeee");
             res.status(200).send("sve ooook");
         }
@@ -81,6 +81,7 @@ router.post('/login', (req, res) => {
                 res.status(401).send("invalid pass")//password
             } else {
                 console.log("Valid data... user logged in");
+                console.log("User data: " + user);
                 let payload = {subject: User._id}
                 let token = jwt.sign(payload, "secretKey")
                 res.status(200).send({token: token, userData: user});

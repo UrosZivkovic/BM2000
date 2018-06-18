@@ -27,7 +27,14 @@ export class LoginComponent implements OnInit {
         localStorage.setItem("loggedUserData", JSON.stringify(res.userData));
         localStorage.setItem("userType", res.userData.tipKorisnika);
 
-        this._router.navigate(['/']);
+        let redirectingPath = localStorage.getItem("redirectingPath");
+        if (redirectingPath == null)
+          redirectingPath = '/';
+        console.log("path took from storage: "+redirectingPath);
+        // clear storage for next routing
+        localStorage.removeItem("redirectingPath");
+
+        this._router.navigate([redirectingPath]);
       },
       err => console.log(err)
     );

@@ -12,4 +12,9 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
   }
 
+  public clickOnKorisnikHandler(){
+    console.log("storing /profil as root");
+    localStorage.setItem("redirectingPath","/profil");
+  }
+
 }
