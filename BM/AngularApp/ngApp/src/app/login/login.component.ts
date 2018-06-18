@@ -22,9 +22,19 @@ export class LoginComponent implements OnInit {
   loginUser() {
     this._auth.loginUser(this.loginUserData).subscribe(
       res => {
-        console.log(res);
+
         localStorage.setItem('token', res.token);
-        this._router.navigate(['/special']);
+        localStorage.setItem("loggedUserData", JSON.stringify(res.userData));
+        localStorage.setItem("userType", res.userData.tipKorisnika);
+
+        let redirectingPath = localStorage.getItem("redirectingPath");
+        if (redirectingPath == null)
+          redirectingPath = '/';
+        console.log("path took from storage: "+redirectingPath);
+        // clear storage for next routing
+        localStorage.removeItem("redirectingPath");
+
+        this._router.navigate([redirectingPath]);
       },
       err => console.log(err)
     );

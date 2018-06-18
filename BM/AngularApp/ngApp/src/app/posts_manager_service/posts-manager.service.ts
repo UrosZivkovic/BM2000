@@ -20,10 +20,39 @@ export class PostsManagerService {
     return this._http.get<any>(this._allPostsUrl);
   }
 
-  public getNextPart(_lastPostIndex: number) {
-    // napravi rutu na server
-    return this._http.get<any>(this._nextPartOfPostsUrl);
+  public getNextPart(_startingIndex: number, _lastIndex: number) {
+    return this._http.post<any>(this._nextPartOfPostsUrl, {firstIndex: _startingIndex, lastIndex: _lastIndex});
   }
 
+  public savePostsToLocalStorage(newPosts: any[]) {
+    // get posts as string
+    let postsFromStorage = localStorage.getItem("currentPosts");
+
+    // place for posts as array
+    let storedArray;
+
+    if (postsFromStorage != null) {
+      // if posts exists in local storage create array from them
+      storedArray = JSON.parse(postsFromStorage);
+    } else {
+      storedArray = [];
+    }
+
+    // save again all posts
+    localStorage.setItem("currentPosts", JSON.stringify(storedArray.concat(newPosts)));
+
+  }
+
+  public getLastPostIndex(): number {
+    let storedValue = localStorage.getItem("lastPostIndex");
+    if (storedValue != null)
+      return parseInt(storedValue);
+    else
+      return 0;
+  }
+
+  public saveLastPostIndex(index) {
+    localStorage.setItem("lastPostIndex", index);
+  }
 
 }

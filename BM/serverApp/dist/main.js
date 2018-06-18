@@ -41,12 +41,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _register_register_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./register/register.component */ "./src/app/register/register.component.ts");
 /* harmony import */ var _auth_guard__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./auth.guard */ "./src/app/auth.guard.ts");
 /* harmony import */ var _vest_vest_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./vest/vest.component */ "./src/app/vest/vest.component.ts");
+/* harmony import */ var _korisnik_korisnik_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./korisnik/korisnik.component */ "./src/app/korisnik/korisnik.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -81,6 +83,10 @@ var routes = [
     {
         path: 'show_posts',
         component: _vest_vest_component__WEBPACK_IMPORTED_MODULE_7__["VestComponent"]
+    },
+    {
+        path: 'profil',
+        component: _korisnik_korisnik_component__WEBPACK_IMPORTED_MODULE_8__["KorisnikComponent"]
     }
 ];
 var AppRoutingModule = /** @class */ (function () {
@@ -117,7 +123,19 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
+<<<<<<< HEAD
 module.exports = "<nav class=\"navbar navbar-default\" style=\"margin-bottom: 0px\">\n  <div class=\"container-fluid\">\n    <!-- Brand and toggle get grouped for better mobile display -->\n    <div class=\"navbar-header\">\n      <button type=\"button\" class=\"navbar-toggle collapsed\" data-toggle=\"collapse\"\n              data-target=\"#bs-example-navbar-collapse-1\" aria-expanded=\"false\">\n        <span class=\"sr-only\">Toggle navigation</span>\n        <span class=\"icon-bar\"></span>\n        <span class=\"icon-bar\"></span>\n        <span class=\"icon-bar\"></span>\n      </button>\n      <a class=\"navbar-brand\" href=\"#\">BloodMaster2000</a>\n    </div>\n\n    <!-- Collect the nav links, forms, and other content for toggling -->\n    <div class=\"collapse navbar-collapse\" id=\"bs-example-navbar-collapse-1\">\n      <ul class=\"nav navbar-nav\">\n        <li class=\"active\"><a routerLink=\"/show_posts\">Home <span class=\"sr-only\">(current)</span></a></li>\n        <li class=\"active\"><a routerLink=\"/show_posts\">Vesti <span class=\"sr-only\">(current)</span></a></li>\n      </ul>\n      <form class=\"navbar-form navbar-left\">\n        <div class=\"form-group\">\n          <input type=\"text\" class=\"form-control\" placeholder=\"Search\">\n        </div>\n        <button type=\"submit\" class=\"btn btn-default\">Trazi</button>\n      </form>\n      <ul class=\"nav navbar-nav navbar-right\">\n        <li><a class=\"nav-link\" *ngIf=\"!_authService.loggedIn()\" routerLink=\"/login\" routerLinkActive=\"active\"><span\n          class=\"glyphicon glyphicon-log-in\"></span> Login</a></li>\n        <li><a class=\"nav-link\" *ngIf=\"!_authService.loggedIn()\" routerLink=\"/register\" routerLinkActive=\"active\">Register</a>\n        </li>\n        <li><a style=\"cursor:pointer\" *ngIf=\"_authService.loggedIn()\" class=\"nav-link\"\n               (click)=\"_authService.logoutUser()\"><span class=\"glyphicon glyphicon-log-out\"></span> Logout</a></li>\n      </ul>\n    </div><!-- /.navbar-collapse -->\n  </div><!-- /.container-fluid -->\n</nav>\n<div>\n  <router-outlet></router-outlet>\n  <app-korisnik2></app-korisnik2>\n</div>\n"
+=======
+<<<<<<< HEAD
+module.exports = "<nav class=\"navbar navbar-default\" style=\"margin-bottom: 0px\">\n  <div class=\"container-fluid\">\n    <!-- Brand and toggle get grouped for better mobile display -->\n    <div class=\"navbar-header\">\n      <button type=\"button\" class=\"navbar-toggle collapsed\" data-toggle=\"collapse\"\n              data-target=\"#bs-example-navbar-collapse-1\" aria-expanded=\"false\">\n        <span class=\"sr-only\">Toggle navigation</span>\n        <span class=\"icon-bar\"></span>\n        <span class=\"icon-bar\"></span>\n        <span class=\"icon-bar\"></span>\n      </button>\n      <a class=\"navbar-brand\" href=\"/\">BloodMaster2000</a>\n    </div>\n\n    <!-- Collect the nav links, forms, and other content for toggling -->\n    <div class=\"collapse navbar-collapse\" id=\"bs-example-navbar-collapse-1\">\n      <ul class=\"nav navbar-nav\">\n        <li class=\"active\"><a routerLink=\"/show_posts\">Home <span class=\"sr-only\">(current)</span></a></li>\n        <li class=\"active\"><a routerLink=\"/show_posts\">Vesti <span class=\"sr-only\">(current)</span></a></li>\n      </ul>\n      <form class=\"navbar-form navbar-left\">\n        <div class=\"form-group\">\n          <input type=\"text\" class=\"form-control\" placeholder=\"Search\">\n        </div>\n        <button type=\"submit\" class=\"btn btn-default\">Trazi</button>\n      </form>\n      <ul class=\"nav navbar-nav navbar-right\">\n\n        <li><a class=\"nav-link\" *ngIf=\"_authService.loggedIn()\" routerLink=\"/profil\" routerLinkActive=\"active\">Profil</a></li>\n\n        <li><a class=\"nav-link\" *ngIf=\"!_authService.loggedIn()\" routerLink=\"/login\" routerLinkActive=\"active\"><span\n          class=\"glyphicon glyphicon-log-in\"></span> Login</a></li>\n        <li><a class=\"nav-link\" *ngIf=\"!_authService.loggedIn()\" routerLink=\"/register\" routerLinkActive=\"active\">Register</a>\n        </li>\n        <li><a style=\"cursor:pointer\" *ngIf=\"_authService.loggedIn()\" class=\"nav-link\"\n               (click)=\"_authService.logoutUser()\"><span class=\"glyphicon glyphicon-log-out\"></span> Logout</a></li>\n      </ul>\n    </div><!-- /.navbar-collapse -->\n  </div><!-- /.container-fluid -->\n</nav>\n<div>\n  <router-outlet></router-outlet>\n</div>\n"
+=======
+<<<<<<< HEAD
+module.exports = "<nav class=\"navbar navbar-default\">\n  <div class=\"container-fluid\">\n    <!-- Brand and toggle get grouped for better mobile display -->\n    <div class=\"navbar-header\">\n      <button type=\"button\" class=\"navbar-toggle collapsed\" data-toggle=\"collapse\" data-target=\"#bs-example-navbar-collapse-1\"\n        aria-expanded=\"false\">\n        <span class=\"sr-only\">Toggle navigation</span>\n        <span class=\"icon-bar\"></span>\n        <span class=\"icon-bar\"></span>\n        <span class=\"icon-bar\"></span>\n      </button>\n      <a class=\"navbar-brand\" href=\"#\">BloodMaster2000</a>\n    </div>\n\n    <!-- Collect the nav links, forms, and other content for toggling -->\n    <div class=\"collapse navbar-collapse\" id=\"bs-example-navbar-collapse-1\">\n      <ul class=\"nav navbar-nav\">\n        <li class=\"active\">\n          <a href=\"#\">Home\n            <span class=\"sr-only\">(current)</span>\n          </a>\n        </li>\n        <li class=\"active\">\n          <a href=\"#\">Vesti\n            <span class=\"sr-only\">(current)</span>\n          </a>\n        </li>\n      </ul>\n      <form class=\"navbar-form navbar-left\">\n        <div class=\"form-group\">\n          <input type=\"text\" class=\"form-control\" placeholder=\"Search\">\n        </div>\n        <button type=\"submit\" class=\"btn btn-default\">Submit</button>\n      </form>\n      <ul class=\"nav navbar-nav navbar-right\">\n        <li>\n          <a class=\"nav-link\" *ngIf=\"!_authService.loggedIn()\" routerLink=\"/login\" routerLinkActive=\"active\">Login</a>\n        </li>\n        <li>\n          <a class=\"nav-link\" *ngIf=\"!_authService.loggedIn()\" routerLink=\"/register\" routerLinkActive=\"active\">Register</a>\n        </li>\n        <li>\n          <a style=\"cursor:pointer\" *ngIf=\"_authService.loggedIn()\" class=\"nav-link\" (click)=\"_authService.logoutUser()\">Logout</a>\n        </li>\n      </ul>\n    </div>\n    <!-- /.navbar-collapse -->\n  </div>\n  <!-- /.container-fluid -->\n</nav>\n<div>\n  <router-outlet></router-outlet>\n</div>\n"
+=======
+module.exports = "<nav class=\"navbar navbar-default\" style=\"margin-bottom: 0px\">\n  <div class=\"container-fluid\">\n    <!-- Brand and toggle get grouped for better mobile display -->\n    <div class=\"navbar-header\">\n      <button type=\"button\" class=\"navbar-toggle collapsed\" data-toggle=\"collapse\" data-target=\"#bs-example-navbar-collapse-1\" aria-expanded=\"false\">\n        <span class=\"sr-only\">Toggle navigation</span>\n        <span class=\"icon-bar\"></span>\n        <span class=\"icon-bar\"></span>\n        <span class=\"icon-bar\"></span>\n      </button>\n      <a class=\"navbar-brand\" href=\"#\">BloodMaster2000</a>\n    </div>\n\n    <!-- Collect the nav links, forms, and other content for toggling -->\n    <div class=\"collapse navbar-collapse\" id=\"bs-example-navbar-collapse-1\">\n      <ul class=\"nav navbar-nav\">\n        <li class=\"active\"><a href=\"#\">Home <span class=\"sr-only\">(current)</span></a></li>\n        <li class=\"active\"><a href=\"#\">Vesti <span class=\"sr-only\">(current)</span></a></li>\n      </ul>\n      <form class=\"navbar-form navbar-left\">\n        <div class=\"form-group\">\n          <input type=\"text\" class=\"form-control\" placeholder=\"Search\">\n        </div>\n        <button type=\"submit\" class=\"btn btn-default\">Trazi</button>\n      </form>\n      <ul class=\"nav navbar-nav navbar-right\">\n        <li><a class=\"nav-link\" *ngIf=\"!_authService.loggedIn()\" routerLink=\"/login\" routerLinkActive=\"active\"><span class=\"glyphicon glyphicon-log-in\"></span> Login</a></li>\n        <li><a class=\"nav-link\" *ngIf=\"!_authService.loggedIn()\" routerLink=\"/register\" routerLinkActive=\"active\" >Register</a></li>\n        <li><a style= \"cursor:pointer\" *ngIf=\"_authService.loggedIn()\" class=\"nav-link\" (click)=\"_authService.logoutUser()\"><span class=\"glyphicon glyphicon-log-out\"></span> Logout</a></li>\n      </ul>\n    </div><!-- /.navbar-collapse -->\n  </div><!-- /.container-fluid -->\n</nav>\n<div>\n  <router-outlet></router-outlet>\n  <app-korisnik></app-korisnik>\n</div>"
+>>>>>>> ab8452b5e568de781201f22114cf54f1b2f73714
+>>>>>>> duci
+>>>>>>> master
 
 /***/ }),
 
@@ -837,7 +855,8 @@ var NormalEComponent = /** @class */ (function () {
         this._eventService.getNormalEvents().subscribe(function (res) {
             _this.events = res;
         }, function (err) {
-            console.log("\n\n\n\n\n GRESKA:      " + err + "\n\n\n\n\n\n");
+            console.log("greska kod normal sa servera");
+            console.log(err);
         });
     };
     NormalEComponent = __decorate([
@@ -1009,7 +1028,7 @@ var RegisterComponent = /** @class */ (function () {
         this._auth.registerUser(this.registerUserData)
             .subscribe(function (res) {
             console.log(res);
-            // localStorage.setItem('token',res.token)
+            //localStorage.setItem('token',res.token);
             _this._router.navigate(['/login']);
         }, function (err) { return console.log(err); });
     };
