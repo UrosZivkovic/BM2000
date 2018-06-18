@@ -44,14 +44,8 @@ export class ServerConfigurationService {
     return this.getFullServerAddress() + '/novosti/all';
   }
 
-<<<<<<< HEAD
-  public getNextPartOfPostsUrl() {
-    // podesi novu rutu na serveru
-    return this.getFullServerAddress() + '/novosti/next';
-=======
   public getNextPartOfPostsUrl(){
     return this.getFullServerAddress()+"/novosti/interval";
->>>>>>> 0158dcfc1df1a2df7b45244e4f33eb4dababb185
   }
 
 }

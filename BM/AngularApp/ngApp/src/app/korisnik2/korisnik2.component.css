@@ -1,0 +1,13 @@
+#sidebar {
+    margin-left:0px; 
+    padding: 0px;
+    float: left;
+    width: 17.70%;
+    height: 192.7vh;
+    background-color: lightgray;
+    position: fixed;
+}
+
+.nav-item {
+    padding: 0px;
+}
