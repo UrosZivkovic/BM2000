@@ -19,7 +19,7 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: '/informacije',
+    path: 'informacije',
     redirectTo:'/home',
     pathMatch:'full'
   },

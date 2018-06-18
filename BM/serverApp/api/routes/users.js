@@ -34,7 +34,7 @@ router.get('/register/realUser', (req, res) => {
         email: "z@z",
         password: "z",
         ime: "Zaposleni ",
-        preizime: "Prezime zaposlenog",
+        prezime: "Prezime zaposlenog",
         krvnaGrupa: "0",
         obavestenja: ["obavestenje1", "obavestenje2", "obavestenje3", "ime sigurno jos"],
         poruke: ["prva poruka", "druga poruka", "treca poruka"],
