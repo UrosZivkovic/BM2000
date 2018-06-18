@@ -17,6 +17,7 @@ import { VestComponent } from './vest/vest.component';
 import { KorisnikComponent } from './korisnik/korisnik.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { HomeComponent } from './home/home.component';
+import { Korisnik2Component } from './korisnik2/korisnik2.component';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { HomeComponent } from './home/home.component';
     VestComponent,
     KorisnikComponent,
     NavbarComponent,
-    HomeComponent
+    HomeComponent,
+    Korisnik2Component
   ],
   imports: [
     BrowserModule,
