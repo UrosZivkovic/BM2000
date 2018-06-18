@@ -26,6 +26,31 @@ router.post('/register', (req, res) => {
         }
     })
 })
+router.get('/register/realUser', (req, res) => {
+
+
+    const user = new User({
+        _id: new mongoose.Types.ObjectId(),
+        email: "d@d",
+        password: "d",
+        ime: "Ime korisnika",
+        preizime: "Prezime korisnika",
+        krvnaGrupa: "AB0-",
+        obavestenja: ["obavestenje1", "obavestenje2", "obavestenje3", "ime sigurno jos"],
+        poruke: ["prva poruka", "druga poruka", "treca poruka"]
+    });
+
+    user.save((error, regUser) => {
+        if (error) {
+            console.log(error);
+        } else {
+            let payload = {subject: regUser._id}
+            let token = jwt.sign(payload, "secretKey")
+            console.log("User added to database: \n"+user);
+            res.status(200).send({token});
+        }
+    });
+});
 
 router.post('/login', (req, res) => {
     let userData = req.body;

@@ -7,13 +7,15 @@ import {Component, OnInit} from '@angular/core';
 })
 export class KorisnikComponent implements OnInit {
 
-  private user;
+  private user = {};
 
   constructor() {
   }
 
   ngOnInit() {
+    console.log(localStorage.getItem("loggedUserData"));
     this.user = JSON.parse(localStorage.getItem("loggedUserData"));
+    console.log("ATTENTION \n\n\n\n\n" + this.user);
   }
 
 }
