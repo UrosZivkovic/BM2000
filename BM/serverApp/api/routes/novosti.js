@@ -5,6 +5,7 @@ const mongoose = require('mongoose');
 const fs = require('fs');
 const path = require('path');
 const jwt = require("jsonwebtoken");
+const Obavestenje = require ('../models/obavestenje');
 
 router.get('/', (req, res, next) => {
     res.status(200).json({
@@ -34,7 +35,12 @@ router.get("next", function (req, res, next) {
 
 });
 
-
+router.get("/or", (req,res) => { 
+    Novost.find({$or:[{"_id": "5b26c8c035a9811544bfbcad"},{"_id": "5b26c8ed35a9811544bfbcae"}]},(error2,result2)=>{
+        console.log(result2);
+        res.status(200).send(result2);
+    })
+})
 router.post('/add', (req, res, next) => {
 
     const novost = new Novost({
@@ -57,7 +63,54 @@ router.post('/add', (req, res, next) => {
     })
 });
 
-<<<<<<< HEAD
+router.post("/deleteall", (req,res)=> {
+    console.log("delete all");
+    Novost.deleteMany({} ,err => {
+        res.status(200).send("obrisano");
+    })
+})
+
+
+router.post("/getObavestenja",(req,res)=>{
+    console.log("uslo u getObv");
+    Novost.findOne({_id:req.body.id},(error,data)=>{
+        if(error){
+            res.status(404).send(error);
+        }else{
+            
+            
+            console.log(data);
+            console.log("--------------------------")
+            let data2 = data.obavestenja.map(function(val,ind){
+                return {"_id":val.idObavestenja};
+            })
+            console.log(...data2);
+            Obavestenje.find({$or:[...data2]},(error2,result2)=>{
+                console.log(result2);
+                res.status(200).send(result2);
+            })
+            
+        }
+        
+    })
+})
+
+router.post('/dodajObavestenje',(req,res) => {
+    let trenutnoObavestenje = {idObavestenja:req.body.idObavestenja};
+    console.log(trenutnoObavestenje);
+    Novost.findOneAndUpdate({_id:req.body.id},{$push :{obavestenja:trenutnoObavestenje}},(error, user)=>{
+        console.log("proslo");
+        if(error){
+            res.status(404).send(error)
+        }else{
+          res.status(200).send(user);  
+        }
+    })
+    
+   
+})
+
+
 router.post("/delete", (req,res,next)=> {
     const id =req.body.id;
     Novost.remove({_id:id})
@@ -75,10 +128,10 @@ router.post("/delete", (req,res,next)=> {
 
 });
 
-router.post('/interval',(req,res,next)=>{
-=======
+
+
+
 router.post('/interval', (req, res, next) => {
->>>>>>> 0158dcfc1df1a2df7b45244e4f33eb4dababb185
     console.log("stigao");
     const indexOd = req.body.firstIndex;
     const indexDo = req.body.lastIndex;

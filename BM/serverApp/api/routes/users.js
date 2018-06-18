@@ -5,6 +5,8 @@ const mongoose = require('mongoose');
 const fs = require('fs');
 const path = require('path');
 const jwt = require("jsonwebtoken");
+const Novost = require('../models/novost');
+const Obavestenje = require('../models/obavestenje');
 
 
 router.post('/register', (req, res) => {
@@ -26,6 +28,41 @@ router.post('/register', (req, res) => {
         }
     })
 })
+
+router.post("/kreiraj",(req,res,nest)=>{
+    let userData=req.body;
+    console.log(userData);
+    const user = new User({
+        _id: new mongoose.Types.ObjectId(),
+        email:userData.email,
+        password:userData.password,
+        ime:userData.ime,
+        prezime:userData.prezime,
+        krvnaGrupa:userData.krvnaGrupa,
+        tipKorisnika:userData.tipKorisnika
+
+    })
+
+    user.save((error, regUser) => {
+        if (error) {
+            console.log(error);
+        } else {
+            let payload = {subject: regUser._id}
+            let token = jwt.sign(payload, "secretKey")
+            res.status(200).send({token});
+        }
+    })
+    
+});
+
+router.post('/addobv',(req,res,next) => {
+    let id = req.body.id;
+    let idObavestenja = req.body.obv;
+    console.log(req.body.id);
+    console.log (req.body.obv);
+    User.update({_id:req.body.id},{$push :{obavestenja:idObavestenja}})
+});
+
 router.get('/register/realUser', (req, res) => {
 
 
@@ -52,6 +89,32 @@ router.get('/register/realUser', (req, res) => {
         }
     });
 });
+
+router.post("/getNovost",(req,res)=>{
+    
+    User.findOne({_id:req.body.id},(error,user)=>{
+        if(error){
+            res.status(404).send(error);
+        }else{
+            
+            
+            
+            let user2 = user.novost.map(function(val,ind){
+                return {"_id":val.idNovosti};
+            })
+            
+            Novost.find({$or:[...user2]},(error2,result2)=>{
+                console.log(result2);
+                res.status(200).send(result2);
+            })
+            
+        }
+        
+    })
+})
+
+
+
 router.get('/removeUser', (req, res) => {
     User.remove({tipKorisnika: "zaposleni"}, function (err) {
         if (err) {
@@ -63,6 +126,27 @@ router.get('/removeUser', (req, res) => {
         }
     })
 });
+
+router.post('/DodajNovost',(req,res) => {
+    let trenutnaNovost = {idNovosti:req.body.idNovosti};
+    console.log(trenutnaNovost);
+    User.findOneAndUpdate({_id:req.body.id},{$push :{novost:trenutnaNovost}},(error, user)=>{
+        if(error){
+            res.status(404).send(error)
+        }else{
+          res.status(200).send(user);  
+        }
+    })
+    
+   
+})
+
+router.post("/deleteall", (req,res)=> {
+    console.log("delete all");
+    User.deleteMany({} ,err => {
+        res.status(200).send("obrisano");
+    })
+})
 
 router.post('/login', (req, res) => {
     let userData = req.body;
@@ -92,6 +176,7 @@ router.post('/login', (req, res) => {
 
 
 })
+
 router.get('/all', (req, res, next) => {
     User.find()
         .exec()

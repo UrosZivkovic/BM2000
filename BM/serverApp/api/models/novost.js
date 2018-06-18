@@ -5,7 +5,8 @@ const novostSchema = mongoose.Schema({
     idZavoda: String,
     naslov: String,
     sadrzaj: String,
-    datum: String
+    datum: String,
+    obavestenja:[{idObavestenja:String}]
 
 });
 

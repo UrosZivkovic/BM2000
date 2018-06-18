@@ -8,8 +8,9 @@ const userSchema = mongoose.Schema({
     prezime: String,
     krvnaGrupa: String,
     obavestenja: [String],
-    poruke: [String],
-    tipKorisnika: String
+    poruke: [{idPoruke:String}],
+    tipKorisnika: String,
+    novost: [{idNovosti:String}]
 });
 
 module.exports = mongoose.model('user', userSchema);

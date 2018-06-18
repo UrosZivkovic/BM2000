@@ -132,6 +132,12 @@ router.get('/all',(req,res,next)=>{
         })
     });
 
+    router.get("/or", (req,res) => { 
+        Obavestenje.find({$or:[{"_id": "5b26c95935a9811544bfbcaf"},{"_id": "5b26c96f35a9811544bfbcb0"}]},(error2,result2)=>{
+            console.log(result2);
+            res.status(200).send(result2);
+        })
+    })
 
 
     module.exports = router;
