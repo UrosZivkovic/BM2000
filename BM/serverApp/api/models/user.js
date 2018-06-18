@@ -7,8 +7,8 @@ const userSchema = mongoose.Schema({
     ime:String,
     prezime:String,
     krvnaGrupa:String,
-    obavestenja:[String],
-    poruke:[String],
+    obavestenja:[{idObavestenja:String}],
+    poruke:[{idPoruke : String}],
     
     
 

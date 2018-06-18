@@ -16,7 +16,7 @@ export class EventService {
     this._eventsSpecialUrl = this._serverConfig.getEventsSpecialUrl();
   }
 
-  getNormalEvents(){
+  getNormalEvents() {
     return this.http.get<any>(this._eventsNormalUrl);
   }
 

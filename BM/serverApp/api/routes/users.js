@@ -27,6 +27,25 @@ router.post('/register', (req,res)=> {
     })
 })
 
+/*router.post('/addobv',(req,res,next) => {
+    let id = req.body.id;
+
+    User.findById({_id:req.body.is},(err,user)=>{
+        if(err){
+            console.log(err)
+        } 
+        else{
+            if (!user){
+                res.status(401).send("nema korisnika");
+            }
+            else{
+                res.status(200).send({user})
+            }
+        }
+        
+    })
+})*/
+
 router.post('/login', (req,res)=> {
    let userData = req.body;
 
@@ -65,5 +84,10 @@ router.get('/all',(req,res,next)=>{
         })
     })
     });    
+
+
+
+
+
 
 module.exports = router;

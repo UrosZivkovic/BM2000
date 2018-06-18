@@ -5,15 +5,15 @@ import {Injectable} from '@angular/core';
 })
 export class ServerConfigurationService {
 
-  private ipAddress = "192.168.0.172";
+  private ipAddress = '192.168.0.172';
   // 192.168.0.172
-  private portNum = "3030";
+  private portNum = '3030';
 
   constructor() {
   }
 
   public getFullServerAddress() {
-    return "http://" + this.ipAddress + ":" + this.portNum;
+    return 'http://' + this.ipAddress + ':' + this.portNum;
   }
 
   public getIpAddress() {
@@ -25,28 +25,28 @@ export class ServerConfigurationService {
   }
 
   public getLoginUrl() {
-    return this.getFullServerAddress() + "/users/login";
+    return this.getFullServerAddress() + '/users/login';
   }
 
   public getRegisterUrl() {
-    return this.getFullServerAddress() + "/users/register";
+    return this.getFullServerAddress() + '/users/register';
   }
 
   public getEventsNormalUrl() {
-    return this.getFullServerAddress() + "/products/normal";
+    return this.getFullServerAddress() + '/products/normal';
   }
 
   public getEventsSpecialUrl() {
-    return this.getFullServerAddress() + "/products/special";
+    return this.getFullServerAddress() + '/products/special';
   }
 
-  public getAllPostsUrl(){
-    return this.getFullServerAddress()+"/novosti/all";
+  public getAllPostsUrl() {
+    return this.getFullServerAddress() + '/novosti/all';
   }
 
-  public getNextPartOfPostsUrl(){
+  public getNextPartOfPostsUrl() {
     // podesi novu rutu na serveru
-    return this.getFullServerAddress()+"/novosti/next";
+    return this.getFullServerAddress() + '/novosti/next';
   }
 
 }

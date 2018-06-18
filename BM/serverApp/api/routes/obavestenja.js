@@ -117,7 +117,7 @@ router.get('/all',(req,res,next)=>{
             idZavoda :req.body.idZavoda,
             naslov :req.body.naslov,
             sadrzaj :req.body.sadrzaj,
-            datum: req.body.datum
+            datum: req.body.datum 
         });
     
         obavestenje.save()//mongoosova fja koja cuva
