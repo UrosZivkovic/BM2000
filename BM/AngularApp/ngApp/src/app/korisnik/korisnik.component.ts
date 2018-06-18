@@ -5,6 +5,7 @@ import {Component, OnInit} from '@angular/core';
   templateUrl: './korisnik.component.html',
   styleUrls: ['./korisnik.component.css']
 })
+
 export class KorisnikComponent implements OnInit {
 
   private user = {};
