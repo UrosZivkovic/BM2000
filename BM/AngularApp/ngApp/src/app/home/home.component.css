@@ -2,11 +2,6 @@
     width:  100%;
     height: inherit;
 }
-
-.btn-group * {
-    border-radius: 10%;
-}
-
 button {
     width:  30%;
     height: inherit;
@@ -14,12 +9,9 @@ button {
 }
 @media (max-width: 600px) {
     [class*="btn-"] {
-        width: 75%;
+        width: 100%;
         margin: 10px;
         box-sizing: border-box;
         padding: 0;
-        float: none;
-        left: 12.5%;
-        right: 12.5%;
     }   
 }
