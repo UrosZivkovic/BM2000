@@ -1,6 +1,5 @@
 import {NgModule} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
-import {SpecialEComponent} from './special-e/special-e.component';
 import {NormalEComponent} from './normal-e/normal-e.component';
 import {LoginComponent} from './login/login.component';
 import {RegisterComponent} from './register/register.component';
@@ -12,17 +11,12 @@ const routes: Routes = [
   {
 
     path: '',
-    redirectTo: '/normal',
+    redirectTo: '/home',
     pathMatch: 'full'
   },
   {
-    path: 'normal',
+    path: 'home',
     component: NormalEComponent
-  },
-  {
-    path: 'special',
-    component: SpecialEComponent,
-    canActivate: [AuthGuard]
   },
   {
     path: 'login',

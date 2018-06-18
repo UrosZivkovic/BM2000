@@ -15,7 +15,6 @@ export class KorisnikComponent implements OnInit {
   ngOnInit() {
     console.log(localStorage.getItem("loggedUserData"));
     this.user = JSON.parse(localStorage.getItem("loggedUserData"));
-    console.log("ATTENTION \n\n\n\n\n" + this.user);
   }
 
 }

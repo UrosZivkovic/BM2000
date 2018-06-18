@@ -15,8 +15,6 @@ export class NormalEComponent implements OnInit {
 
   ngOnInit() {
 
-    console.log("SALJE SE ZAHTEV " + this._eventService.getEventsNormalUrl());
-
     let _this = this;
 
     this._eventService.getNormalEvents().subscribe(

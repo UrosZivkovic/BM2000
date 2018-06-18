@@ -31,13 +31,14 @@ router.get('/register/realUser', (req, res) => {
 
     const user = new User({
         _id: new mongoose.Types.ObjectId(),
-        email: "d@d",
-        password: "d",
-        ime: "Ime korisnika",
-        preizime: "Prezime korisnika",
-        krvnaGrupa: "AB0-",
+        email: "z@z",
+        password: "z",
+        ime: "Zaposleni ",
+        preizime: "Prezime zaposlenog",
+        krvnaGrupa: "0",
         obavestenja: ["obavestenje1", "obavestenje2", "obavestenje3", "ime sigurno jos"],
-        poruke: ["prva poruka", "druga poruka", "treca poruka"]
+        poruke: ["prva poruka", "druga poruka", "treca poruka"],
+        tipKorisnika:"zaposleni"
     });
 
     user.save((error, regUser) => {
@@ -50,6 +51,17 @@ router.get('/register/realUser', (req, res) => {
             res.status(200).send({token});
         }
     });
+});
+router.get('/removeUser', (req, res) => {
+    User.remove({tipKorisnika:"zaposleni"},function(err){
+        if(err){
+            console.log("shit happened");
+            res.status(304).send("shit")
+        }else{
+            console.log("sve ooookeeee");
+            res.status(200).send("sve ooook");
+        }
+    })
 });
 
 router.post('/login', (req, res) => {
@@ -68,7 +80,7 @@ router.post('/login', (req, res) => {
                 console.log("Wrong password");
                 res.status(401).send("invalid pass")//password
             } else {
-                console.log("Valid data... user loged in");
+                console.log("Valid data... user logged in");
                 let payload = {subject: User._id}
                 let token = jwt.sign(payload, "secretKey")
                 res.status(200).send({token: token, userData: user});

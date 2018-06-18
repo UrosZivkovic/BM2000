@@ -35,6 +35,12 @@ export class AuthService {
   logoutUser() {
     localStorage.removeItem('token');
     localStorage.removeItem("loggedUserData");
+    localStorage.removeItem("userType");
     this._router.navigate(['/normal']);
   }
+
+  getUserType() {
+    return localStorage.getItem("userType");
+  }
+
 }

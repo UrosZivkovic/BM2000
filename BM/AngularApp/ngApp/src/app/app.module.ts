@@ -8,7 +8,6 @@ import {AppComponent} from './app.component';
 import {RegisterComponent} from './register/register.component';
 import {LoginComponent} from './login/login.component';
 import {NormalEComponent} from './normal-e/normal-e.component';
-import {SpecialEComponent} from './special-e/special-e.component';
 import {AuthService} from './auth.service';
 import {EventService} from './event.service';
 import {AuthGuard} from './auth.guard';
@@ -24,7 +23,6 @@ import {NavbarComponent} from './navbar/navbar.component';
     RegisterComponent,
     LoginComponent,
     NormalEComponent,
-    SpecialEComponent,
     VestComponent,
     KorisnikComponent,
     NavbarComponent
