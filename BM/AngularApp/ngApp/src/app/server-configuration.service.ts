@@ -40,6 +40,13 @@ export class ServerConfigurationService {
     return this.getFullServerAddress() + "/products/special";
   }
 
+  public getAllPostsUrl(){
+    return this.getFullServerAddress()+"/novosti/all";
+  }
 
+  public getNextPartOfPostsUrl(){
+    // podesi novu rutu na serveru
+    return this.getFullServerAddress()+"/novosti/next";
+  }
 
 }

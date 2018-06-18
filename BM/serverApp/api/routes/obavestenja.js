@@ -13,6 +13,7 @@ router.get('/',(req,res,next)=>{
     });
     
 router.get('/all',(req,res,next)=>{
+    console.log("prosloGet");
     Obavestenje.find()
     .exec()
     .then(docs => {
@@ -25,7 +26,69 @@ router.get('/all',(req,res,next)=>{
             error:err
         })
     })
-    });    
+    });   
+    router.post('/interval1',(req,res,next)=>{
+        console.log("prosloGet");
+        Obavestenje.find()
+        .exec()
+        .then(docs => {
+            var niz = docs;
+            var drugi;
+            drugi = niz.slice(0,3);
+            console.log(docs);
+            res.status(200).json(drugi);
+        })
+        .catch(err=> {
+            console.log(err);
+            res.status(500).json({
+                error:err
+            })
+        })
+        });   
+
+
+
+    router.post('/interval',(req,res,next)=>{
+        console.log("stigao");
+        const indexOd =req.body.firstIndex;
+        const indexDo = req.body.lastIndex;
+        console.log(indexOd,indexDo);
+        Obavestenje.find()
+        .exec()
+        .then(docs => {
+            var niz = docs;
+            var drugi;
+            if(niz.length>indexOd){
+                if (niz.length > indexDo){
+
+                    
+                    drugi = niz.slice(indexOd,indexDo - indexOd + 1);
+                    
+                    res.status(200).json(drugi);
+    
+                }else{
+                   
+                    drugi = niz.slice(indexOd);
+                    
+                    res.status(200).json(drugi);
+                }
+            }else
+            return res.status(404).json({
+                message : "prevelik je pocetni index, nema toliko objava"
+            })
+            
+            
+        })
+        .catch(err=> {
+            console.log(err);
+            res.status(500).json({
+                error:err
+            })
+        })
+        });    
+
+
+
     router.post('/add',(req,res,next)=>{
         // const prod = {
         //     name:req.body.name,

@@ -4,13 +4,14 @@
       <div class="col-lg-8 mx-auto" *ngFor="let vest of vesti">
         <ul>
           <li>
-            <h2 class="card-title">{{vest.naslov.}}</h2>
+            <h2 class="card-title">{{vest.naslov}}</h2>
             <p class="card-text">{{vest.sadrzaj}}</p> <!-- kako staviti kratak sadrzaj -->
             <a href="#" class="btn btn-primary">Procitaj jos</a>
             <hr>
           </li>
         </ul>
       </div>
+      <button (click)="dodajPostClick()">Dodaj post</button>
     </div>
   </div>
 </section>

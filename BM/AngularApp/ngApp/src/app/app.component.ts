@@ -8,6 +8,7 @@ import { ServerConfigurationService } from './server-configuration.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
+
 export class AppComponent implements  OnInit{
   private ROOT_URL = '';
 
@@ -24,7 +25,7 @@ export class AppComponent implements  OnInit{
   ngOnInit(): void {
     document.addEventListener(
       'backbutton',
-      function() {
+      function () {
         alert('el si morao ');
       },
       false

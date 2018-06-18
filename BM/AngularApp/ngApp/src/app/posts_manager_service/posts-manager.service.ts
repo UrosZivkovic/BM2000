@@ -8,21 +8,22 @@ import {ServerConfigurationService} from "../server-configuration.service";
 
 export class PostsManagerService {
 
-  private postArray = [];
-
-  private lastPostIndex;
+  private _allPostsUrl;
+  private _nextPartOfPostsUrl;
 
   constructor(private _http: HttpClient, private _serverConfig: ServerConfigurationService) {
-    this.lastPostIndex = 0;
+    this._allPostsUrl = this._serverConfig.getAllPostsUrl();
+    this._nextPartOfPostsUrl = this._serverConfig.getNextPartOfPostsUrl();
   }
 
   public getAllPosts() {
-    // sets this.postsArray to fetched array
+    return this._http.get<any>(this._allPostsUrl);
   }
 
-  public getNextPart() {
-    // gets next part of posts and adds them to this.postArray
-    // last post index in this.lastPostIndex
+  public getNextPart(_lastPostIndex: number) {
+    // napravi rutu na server
+    return this._http.get<any>(this._nextPartOfPostsUrl);
   }
+
 
 }
