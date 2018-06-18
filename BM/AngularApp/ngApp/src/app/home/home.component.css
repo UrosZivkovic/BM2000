@@ -1,17 +1,6 @@
-.container-center {
-    position: fixed;
-    top: 33.33%;
-    left: 50%;
-    -webkit-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-    height: 30vh;
-    width: 80vw;
-}
-
 .btn-group {
     width:  100%;
     height: inherit;
-    border-radius: 0%;
 }
 
 .btn-group * {
@@ -23,14 +12,14 @@ button {
     height: inherit;
     margin: 3.333333%;
 }
-
 @media (max-width: 600px) {
     [class*="btn-"] {
-        width: 300px;
-        margin: 0;
+        width: 75%;
+        margin: 10px;
         box-sizing: border-box;
         padding: 0;
         float: none;
+        left: 12.5%;
+        right: 12.5%;
     }   
 }
-
