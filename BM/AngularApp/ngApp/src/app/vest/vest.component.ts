@@ -56,7 +56,7 @@ export class VestComponent implements OnInit {
         _this._vesti = _this._vesti.concat(res);
         _this._lastPostIndex += count;
 
-        console.log("Received: "+String(res));
+        console.log("Received: " + String(res));
 
         _this._postsManager.saveLastPostIndex(_this._lastPostIndex);
         _this._postsManager.savePostsToLocalStorage(res);
