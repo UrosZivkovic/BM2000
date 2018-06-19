@@ -91,18 +91,19 @@ router.get('/register/realUser', (req, res) => {
 });
 
 router.post("/getNovost",(req,res)=>{
-    
+    console.log (req.body.id);
     User.findOne({_id:req.body.id},(error,user)=>{
+        console.log(user);
         if(error){
             res.status(404).send(error);
         }else{
-            
-            
+             
+        
             
             let user2 = user.novost.map(function(val,ind){
                 return {"_id":val.idNovosti};
             })
-            
+            console.log(user2);
             Novost.find({$or:[...user2]},(error2,result2)=>{
                 console.log(result2);
                 res.status(200).send(result2);
@@ -113,6 +114,47 @@ router.post("/getNovost",(req,res)=>{
     })
 })
 
+
+
+router.post("/getObavestenje",(req,res)=>{
+    
+    User.findOne({_id:req.body.id},(error,user)=>{
+        if(error){
+            res.status(404).send(error);
+        }else{
+            
+            
+            console.log(user)
+            let user2 = user.novost.map(function(val,ind){
+                return {"_id":val.idNovosti};
+            })
+            console.log("Novosti:");
+            console.log(user2); 
+            console.log('obavestenja')
+            Novost.find({$or:[...user2]},(error2,data1)=>{
+                
+                let niz = [];
+                data1.forEach(val=>{
+                    val.obavestenja.forEach(val2=>{
+                        niz.push(val2);
+                    })
+                })
+
+                
+                let data2 = niz.map(function(val,ind){
+                    return {"_id":val.idObavestenja};
+                }) 
+                console.log(...data2);
+                Obavestenje.find({$or:[...data2]},(error2,result2)=>{
+                    console.log(result2);
+                    res.status(200).send(result2);
+                })
+            })
+            
+        }
+        
+    })
+})
 
 
 router.get('/removeUser', (req, res) => {
