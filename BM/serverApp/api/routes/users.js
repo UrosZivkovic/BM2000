@@ -115,8 +115,7 @@ router.post("/getNovost",(req,res)=>{
 })
 
 
-
-router.post("/getObavestenje",(req,res)=>{
+router.post("/getObavestenja",(req,res)=>{
     
     User.findOne({_id:req.body.id},(error,user)=>{
         if(error){
@@ -169,7 +168,7 @@ router.get('/removeUser', (req, res) => {
     })
 });
 
-router.post('/DodajNovost',(req,res) => {
+router.post('/DodajNovosti',(req,res) => {
     let trenutnaNovost = {idNovosti:req.body.idNovosti};
     console.log(trenutnaNovost);
     User.findOneAndUpdate({_id:req.body.id},{$push :{novost:trenutnaNovost}},(error, user)=>{
