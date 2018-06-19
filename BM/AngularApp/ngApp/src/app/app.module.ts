@@ -18,7 +18,11 @@ import {ZavodComponent} from './zavod/zavod.component';
 import {HomeComponent} from './home/home.component';
 import {Korisnik2Component} from "./korisnik2/korisnik2.component";
 import { SadrzajKorisnikaComponent } from './sadrzaj-korisnika/sadrzaj-korisnika.component';
+<<<<<<< HEAD
 import { NovostComponent } from './novost/novost.component';
+=======
+import { ZavodInformacijeComponent } from './zavod-informacije/zavod-informacije.component';
+>>>>>>> duci_test
 
 @NgModule({
   declarations: [
@@ -35,8 +39,13 @@ import { NovostComponent } from './novost/novost.component';
     HomeComponent,
     VestComponent,
     SadrzajKorisnikaComponent,
+<<<<<<< HEAD
     NovostComponent
   ],
+=======
+    ZavodInformacijeComponent
+],
+>>>>>>> duci_test
   imports: [
     BrowserModule,
     FormsModule,

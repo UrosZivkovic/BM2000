@@ -10,6 +10,8 @@ import {PostsManagerService} from "../posts_manager_service/posts-manager.servic
 })
 export class Korisnik2Component implements OnInit {
 
+  private _activeTab;
+
   private _user;
 
   private _novosti = [];
@@ -72,6 +74,14 @@ export class Korisnik2Component implements OnInit {
       }
 
     }
+  }
+
+  private saveClickHistory(event) {
+    // ako nije prvi klik klikni na poslednje dugme
+    if (this._activeTab)
+      this._activeTab.click();
+    // zapamti na sta je kliknuto
+    this._activeTab = event.currentTarget;
   }
 
 }
