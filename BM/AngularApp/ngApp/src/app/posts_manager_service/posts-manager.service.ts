@@ -30,7 +30,7 @@ export class PostsManagerService {
 
   public savePostsToLocalStorage(newPosts: any[]) {
     // get posts as string
-    let postsFromStorage = localStorage.getItem("currentPosts");
+    const postsFromStorage = localStorage.getItem('currentPosts');
 
     // place for posts as array
     let storedArray;
@@ -43,29 +43,32 @@ export class PostsManagerService {
     }
 
     // save again all posts
-    localStorage.setItem("currentPosts", JSON.stringify(storedArray.concat(newPosts)));
+    localStorage.setItem('currentPosts', JSON.stringify(storedArray.concat(newPosts)));
 
   }
 
   public getLastPostIndex(): number {
-    let storedValue = localStorage.getItem("lastPostIndex");
+    const storedValue = localStorage.getItem('lastPostIndex');
+    // tslint:disable-next-line:curly
     if (storedValue != null)
+      // tslint:disable-next-line:radix
       return parseInt(storedValue);
+    // tslint:disable-next-line:curly
     else
       return 0;
   }
 
   public saveLastPostIndex(index) {
-    localStorage.setItem("lastPostIndex", index);
+    localStorage.setItem('lastPostIndex', index);
   }
 
   public getUserContent_Novosti(userId) {
-    console.log("Sending request for pracene_novosti on: "+this._userContent_NovostiUrl);
+    console.log('Sending request for pracene_novosti on: ' + this._userContent_NovostiUrl);
     return this._http.post<any>(this._userContent_NovostiUrl, {id: userId});
   }
 
   public getUserContent_Obavestenja(userId) {
-    console.log("Sending request for pracene_obavestenja on: "+this._userContent_ObavestenjaUrl);
+    console.log('Sending request for pracene_obavestenja on: ' + this._userContent_ObavestenjaUrl);
     return this._http.post<any>(this._userContent_ObavestenjaUrl, {id: userId});
   }
 

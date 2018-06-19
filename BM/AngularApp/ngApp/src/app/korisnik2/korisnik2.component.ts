@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {AuthService} from "../auth.service";
-import {Router} from "@angular/router";
-import {PostsManagerService} from "../posts_manager_service/posts-manager.service";
+import {AuthService} from '../auth.service';
+import {Router} from '@angular/router';
+import {PostsManagerService} from '../posts_manager_service/posts-manager.service';
 
 @Component({
   selector: 'app-korisnik2',
@@ -27,24 +27,24 @@ export class Korisnik2Component implements OnInit {
 
   ngOnInit() {
 
-    let _this = this;
+    const _this = this;
 
     if (!this._authService.loggedIn()) {
       this._router.navigate(['/login']);
     } else {
 
-      this._user = JSON.parse(localStorage.getItem("loggedUserData"));
+      this._user = JSON.parse(localStorage.getItem('loggedUserData'));
 
-      this._novosti = JSON.parse(localStorage.getItem("_pracene_novosti"));
+      this._novosti = JSON.parse(localStorage.getItem('_pracene_novosti'));
       // ukoliko podaci jos nisu pribavljeni (prvi put posecuje stranicu profil)
       if (this._novosti == null) {
         this._postsManager.getUserContent_Novosti(this._user._id).subscribe(
           function (data) {
-            console.log("GOT DATA: \n\n\n\n"+data);
+            console.log('GOT DATA: \n\n\n\n' + data);
             _this._novosti = data;
           },
           function (err) {
-            console.log("ERROR");
+            console.log('ERROR');
             console.log(err);
           }
         );
@@ -54,7 +54,7 @@ export class Korisnik2Component implements OnInit {
 
       }
 
-      this._obavestenja = JSON.parse(localStorage.getItem("_obavestenja"));
+      this._obavestenja = JSON.parse(localStorage.getItem('_obavestenja'));
       // ukoliko podaci jos nisu pribavljeni (prvi put posecuje stranicu profil)
       if (this._novosti == null) {
         this._postsManager.getUserContent_Obavestenja(this._user._id).subscribe(
@@ -63,7 +63,7 @@ export class Korisnik2Component implements OnInit {
 
           },
           function (err) {
-            console.log("ERROR");
+            console.log('ERROR');
             console.log(err);
           }
         );
@@ -78,6 +78,7 @@ export class Korisnik2Component implements OnInit {
 
   private saveClickHistory(event) {
     // ako nije prvi klik klikni na poslednje dugme
+    // tslint:disable-next-line:curly
     if (this._activeTab)
       this._activeTab.click();
     // zapamti na sta je kliknuto
