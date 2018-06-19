@@ -5,11 +5,7 @@ import {Injectable} from '@angular/core';
 })
 export class ServerConfigurationService {
 
-<<<<<<< HEAD
   private ipAddress = '192.168.0.100';
-=======
-  private ipAddress = '192.168.131.135';
->>>>>>> duci_test
   // 192.168.0.172
   private portNum = '3030';
 
