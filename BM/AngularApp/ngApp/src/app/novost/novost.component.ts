@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-novost',
@@ -7,7 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NovostComponent implements OnInit {
 
-  constructor() { }
+  public _dataId;
+
+  public _naslov = "neki tamo naslov";
+  public _sadrzaj = "neki tamo sadrzaj";
+
+  constructor() {
+  }
 
   ngOnInit() {
   }

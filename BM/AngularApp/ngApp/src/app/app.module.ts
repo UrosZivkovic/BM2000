@@ -17,9 +17,10 @@ import {NavbarComponent} from './navbar/navbar.component';
 import {ZavodComponent} from './zavod/zavod.component';
 import {HomeComponent} from './home/home.component';
 import {Korisnik2Component} from "./korisnik2/korisnik2.component";
-import { SadrzajKorisnikaComponent } from './sadrzaj-korisnika/sadrzaj-korisnika.component';
-import { NovostComponent } from './novost/novost.component';
+import {SadrzajKorisnikaComponent} from './sadrzaj-korisnika/sadrzaj-korisnika.component';
+import {NovostComponent} from './novost/novost.component';
 import {ZavodInformacijeComponent} from "./zavod-informacije/zavod-informacije.component";
+import {ListaNovostiComponent} from "./lista-novosti/lista-novosti.component";
 
 @NgModule({
   declarations: [
@@ -37,8 +38,9 @@ import {ZavodInformacijeComponent} from "./zavod-informacije/zavod-informacije.c
     VestComponent,
     SadrzajKorisnikaComponent,
     NovostComponent,
-    ZavodInformacijeComponent
-],
+    ZavodInformacijeComponent,
+    ListaNovostiComponent
+  ],
   imports: [
     BrowserModule,
     FormsModule,
