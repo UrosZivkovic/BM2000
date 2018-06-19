@@ -10,10 +10,14 @@ export class PostsManagerService {
 
   private _allPostsUrl;
   private _nextPartOfPostsUrl;
+  private _userContent_NovostiUrl;
+  private _userContent_ObavestenjaUrl;
 
   constructor(private _http: HttpClient, private _serverConfig: ServerConfigurationService) {
     this._allPostsUrl = this._serverConfig.getAllPostsUrl();
     this._nextPartOfPostsUrl = this._serverConfig.getNextPartOfPostsUrl();
+    this._userContent_ObavestenjaUrl = this._serverConfig.getUserContent_NovostiUrl();
+    this._userContent_NovostiUrl = this._serverConfig.getUserContent_ObavestenjaUrl();
   }
 
   public getAllPosts() {
@@ -53,6 +57,22 @@ export class PostsManagerService {
 
   public saveLastPostIndex(index) {
     localStorage.setItem("lastPostIndex", index);
+  }
+
+  public getUserContent_Novosti(userId) {
+    return this._http.post<any>(this._userContent_NovostiUrl, {id: userId});
+  }
+
+  public getUserContent_Obavestenja(userId) {
+    return this._http.post<any>(this._userContent_ObavestenjaUrl, {id: userId});
+  }
+
+  public savePraceneNovostiToLocalStorage(novosti: any[]) {
+
+  }
+
+  public saveObavestenjaToLocalStorage(obavestenja: any[]) {
+
   }
 
 }

@@ -48,4 +48,12 @@ export class ServerConfigurationService {
     return this.getFullServerAddress()+"/novosti/interval";
   }
 
+  public getUserContent_ObavestenjaUrl(){
+    return this.getFullServerAddress()+"/users/getObavestenja";
+  }
+
+  public getUserContent_NovostiUrl(){
+    return this.getFullServerAddress()+"/users/getNovosti";
+  }
+
 }

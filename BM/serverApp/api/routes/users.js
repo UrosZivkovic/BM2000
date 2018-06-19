@@ -90,14 +90,12 @@ router.get('/register/realUser', (req, res) => {
     });
 });
 
-router.post("/getNovost",(req,res)=>{
+router.post("/getNovosti",(req,res)=>{
     
     User.findOne({_id:req.body.id},(error,user)=>{
         if(error){
             res.status(404).send(error);
         }else{
-            
-            
             
             let user2 = user.novost.map(function(val,ind){
                 return {"_id":val.idNovosti};

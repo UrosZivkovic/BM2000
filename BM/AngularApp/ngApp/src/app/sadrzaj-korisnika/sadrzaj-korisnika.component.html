@@ -20,21 +20,39 @@
   <div class="col">
     <div class="collapse multi-collapse" id="tabSaPracenimNovostima">
       <div class="card card-body">
-        prikaz novosti koje korisnik prati
+
+        <div class="col-lg-8 mx-auto" *ngFor="let _novost of _novosti">
+          <h2 class="card-title">{{_novost.naslov}}</h2>
+          <p class="card-text">{{_novost.sadrzaj}}</p>
+          <a href="#" class="btn btn-primary">Procitaj jos</a>
+        </div>
+
       </div>
     </div>
   </div>
   <div class="col">
     <div class="collapse multi-collapse" id="tabSaProcitanimObavestenjima">
       <div class="card card-body">
-        prikaz procitanih obavestenja
+
+        <div class="col-lg-8 mx-auto" *ngFor="let _obavestenje of _obavestenja.procitana">
+          <h2 class="card-title">{{_obavestenje.naslov}}</h2>
+          <p class="card-text">{{_obavestenje.sadrzaj}}</p>
+          <a href="#" class="btn btn-primary">Procitaj jos</a>
+        </div>
+
       </div>
     </div>
   </div>
   <div class="col">
     <div class="collapse multi-collapse" id="tabSaNeprocitanimObavestenjima">
       <div class="card card-body">
-        prikaz neprocitanih obavestenja
+
+        <div class="col-lg-8 mx-auto" *ngFor="let _obavestenje of _obavestenja.neprocitana">
+          <h2 class="card-title">{{_obavestenje.naslov}}</h2>
+          <p class="card-text">{{_obavestenje.sadrzaj}}</p>
+          <a href="#" class="btn btn-primary">Procitaj jos</a>
+        </div>
+
       </div>
     </div>
   </div>
