@@ -59,7 +59,9 @@
   <div class="col">
     <div class="collapse multi-collapse" id="tabIstorijeDavanja">
       <div class="card card-body">
-        istorija davanja korisnika
+        <h3 *ngFor="let _datum of _user.istorijaDavanja">
+          {{_datum}}
+        </h3>
       </div>
     </div>
   </div>

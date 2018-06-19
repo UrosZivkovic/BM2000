@@ -11,10 +11,12 @@ export class SadrzajKorisnikaComponent implements OnInit {
 
   private _activeTab;
 
-  private _novosti;
+  private _user;
+
+  private _novosti: [{}];
   private _obavestenja = {
-    procitana: [],
-    neprocitana: []
+    procitana: [{}],
+    neprocitana: [{}]
   };
 
   constructor(private _authService: AuthService, private _postsManager: PostsManagerService) {
@@ -23,6 +25,7 @@ export class SadrzajKorisnikaComponent implements OnInit {
 
   ngOnInit() {
     if (this._authService.loggedIn()) {
+      this._user = JSON.parse(localStorage.getItem("loggedUserData"));
       this._novosti = JSON.parse(localStorage.getItem("_pracene_novosti"));
       this._obavestenja = JSON.parse(localStorage.getItem("_obavestenja"));
     }
