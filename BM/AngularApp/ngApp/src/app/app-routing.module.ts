@@ -28,7 +28,7 @@ const routes: Routes = [
   },
   {
     path: 'home',
-    component: ListaNovostiComponent
+    component: HomeComponent
   },
   {
     path: 'login',
