@@ -5,7 +5,7 @@ import {Injectable} from '@angular/core';
 })
 export class ServerConfigurationService {
 
-  private ipAddress = '192.168.0.172';
+  private ipAddress = 'localhost';
   // 192.168.0.172
   private portNum = '3030';
 
@@ -44,16 +44,26 @@ export class ServerConfigurationService {
     return this.getFullServerAddress() + '/novosti/all';
   }
 
-  public getNextPartOfPostsUrl(){
-    return this.getFullServerAddress()+"/novosti/interval";
+  public getNextPartOfPostsUrl() {
+    return this.getFullServerAddress() + '/novosti/interval';
   }
 
-  public getUserContent_ObavestenjaUrl(){
-    return this.getFullServerAddress()+"/users/getObavestenja";
+  public getUserContent_ObavestenjaUrl() {
+    return this.getFullServerAddress() + '/users/getObavestenja';
   }
 
-  public getUserContent_NovostiUrl(){
-    return this.getFullServerAddress()+"/users/getNovosti";
+  public getUserContent_NovostiUrl() {
+    return this.getFullServerAddress() + '/users/getNovosti';
   }
 
+  public getUserSendForm() {
+    return this.getFullServerAddress() + '/users/kreiraj';
+  }
+
+  public getNovostSendForm() {
+    return this.getFullServerAddress() + '/novosti/add';
+  }
+  public getObavestenjeSendForm() {
+    return this.getFullServerAddress() + '/obavestenja/add';
+  }
 }

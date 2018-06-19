@@ -34,13 +34,13 @@ export class AuthService {
 
   logoutUser() {
     localStorage.removeItem('token');
-    localStorage.removeItem("loggedUserData");
-    localStorage.removeItem("userType");
+    localStorage.removeItem('loggedUserData');
+    localStorage.removeItem('userType');
     this._router.navigate(['/home']);
   }
 
   getUserType() {
-    return localStorage.getItem("userType");
+    return localStorage.getItem('userType');
   }
 
 }

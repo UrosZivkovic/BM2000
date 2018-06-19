@@ -1,0 +1,33 @@
+<div class="row pt-5">
+  <div class="col-md-6 mx-auto">
+    <div class="card rounded-0">
+      <div class="card-header">
+        <h3 class="mb-0">Obavestenje</h3>
+      </div>
+      <div class="card-body">
+        <form class="form">
+          
+          <div class="form-group">
+            <label for="">Zavod</label>
+            <input [(ngModel)]="userData.idZavoda" name="idZavoda" type="text" class="form-control rounded-0" required>
+          </div>
+          <div class="form-group">
+            <label for="">Naslov</label>
+            <input [(ngModel)]="userData.naslov" name="naslov" type="text" class="form-control rounded-0" required>
+          </div>
+          <div class="form-group">
+            <label for="">Datum</label>
+            <input [(ngModel)]="userData.datum" name="datum" type="text" class="form-control rounded-0" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="">Tekst</label>
+            <textarea style="height:300px" [(ngModel)]="userData.sadrzaj" name="sadrzaj" rows="10" class="form-control" aria-label="With textarea"></textarea>
+          </div>
+          <br>
+          <button (click)="submitForm()" type="button" class="btn btn-primary float-right">Register</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

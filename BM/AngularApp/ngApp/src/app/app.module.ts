@@ -16,8 +16,11 @@ import {KorisnikComponent} from './korisnik/korisnik.component';
 import {NavbarComponent} from './navbar/navbar.component';
 import {ZavodComponent} from './zavod/zavod.component';
 import {HomeComponent} from './home/home.component';
-import {Korisnik2Component} from "./korisnik2/korisnik2.component";
+import {Korisnik2Component} from './korisnik2/korisnik2.component';
 import { SadrzajKorisnikaComponent } from './sadrzaj-korisnika/sadrzaj-korisnika.component';
+import { UserFormComponent } from './user-form/user-form.component';
+import { NovostFormComponent } from './novost-form/novost-form.component';
+import { ObavestenjeFormaComponent } from './obavestenje-forma/obavestenje-forma.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +36,10 @@ import { SadrzajKorisnikaComponent } from './sadrzaj-korisnika/sadrzaj-korisnika
     ZavodComponent,
     HomeComponent,
     VestComponent,
-    SadrzajKorisnikaComponent
+    SadrzajKorisnikaComponent,
+    UserFormComponent,
+    NovostFormComponent,
+    ObavestenjeFormaComponent
   ],
   imports: [
     BrowserModule,

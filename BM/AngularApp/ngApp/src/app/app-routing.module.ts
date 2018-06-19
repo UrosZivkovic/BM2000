@@ -2,10 +2,13 @@ import {NgModule} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
 import {LoginComponent} from './login/login.component';
 import {RegisterComponent} from './register/register.component';
-import {VestComponent} from "./vest/vest.component";
-import {KorisnikComponent} from "./korisnik/korisnik.component";
-import {HomeComponent} from "./home/home.component";
-import {Korisnik2Component} from "./korisnik2/korisnik2.component";
+import {VestComponent} from './vest/vest.component';
+import {KorisnikComponent} from './korisnik/korisnik.component';
+import {HomeComponent} from './home/home.component';
+import {Korisnik2Component} from './korisnik2/korisnik2.component';
+import {UserFormComponent} from './user-form/user-form.component';
+import {NovostFormComponent} from './novost-form/novost-form.component';
+import {ObavestenjeFormaComponent} from './obavestenje-forma/obavestenje-forma.component';
 
 const routes: Routes = [
   {
@@ -21,8 +24,8 @@ const routes: Routes = [
   },
   {
     path: 'informacije',
-    redirectTo:'/home',
-    pathMatch:'full'
+    redirectTo: '/home',
+    pathMatch: 'full'
   },
   {
     path: 'home',
@@ -43,6 +46,18 @@ const routes: Routes = [
   {
     path: 'profil',
     component: Korisnik2Component
+  },
+  {
+    path: 'userForm',
+    component: UserFormComponent
+  },
+  {
+    path: 'novostForm',
+    component: NovostFormComponent
+  },
+  {
+    path: 'obavestenjeForm',
+    component: ObavestenjeFormaComponent
   }
 
 ];
