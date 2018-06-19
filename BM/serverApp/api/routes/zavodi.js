@@ -12,6 +12,18 @@ router.get('/',(req,res,next)=>{
     })
     });
     
+    router.post("/getZavod",(req,res)=>{
+        console.log("uslo u getObv");
+        Novost.findOne({_id:req.body.id},(error,data)=>{
+            if(error){
+                res.status(404).send(error);
+            }else{
+                res.status(200).send(data);
+            }
+            
+        })
+    })
+        
 router.get('/all',(req,res,next)=>{
     Zavod.find()
     .exec()

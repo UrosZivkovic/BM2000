@@ -17,7 +17,6 @@ router.get('/all', (req, res, next) => {
     Novost.find()
         .exec()
         .then(docs => {
-            console.log(docs);
             res.status(200).json(docs);
         })
         .catch(err => {

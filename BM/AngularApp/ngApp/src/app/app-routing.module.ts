@@ -6,6 +6,7 @@ import {VestComponent} from "./vest/vest.component";
 import {KorisnikComponent} from "./korisnik/korisnik.component";
 import {HomeComponent} from "./home/home.component";
 import {Korisnik2Component} from "./korisnik2/korisnik2.component";
+import {NovostComponent} from "./novost/novost.component";
 
 const routes: Routes = [
   {
@@ -26,7 +27,7 @@ const routes: Routes = [
   },
   {
     path: 'home',
-    component: HomeComponent
+    component: NovostComponent
   },
   {
     path: 'login',

@@ -38,6 +38,7 @@ export class Korisnik2Component implements OnInit {
       if (this._novosti == null) {
         this._postsManager.getUserContent_Novosti(this._user._id).subscribe(
           function (data) {
+            console.log("GOT DATA: \n\n\n\n"+data);
             _this._novosti = data;
           },
           function (err) {
