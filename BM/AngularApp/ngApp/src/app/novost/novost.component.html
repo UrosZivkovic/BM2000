@@ -1,0 +1,34 @@
+<div class="card">
+  <div class="card-header" role="tab">
+    <h5 class="mb-0">
+      <a class="collapsed" data-toggle="activ" data-target="#{_dataId}" aria-expanded="false">
+        {{_naslov}}
+      </a>
+    </h5>
+  </div>
+
+  <div id="{{_dataId}}" class="collapse" role="tabpanel" aria-labelledby="headingOne">
+    <div class="card-block">
+      {{_sadrzaj}}
+    </div>
+  </div>
+</div>
+
+<div class="border-box" id="panels">
+  <div class="quarter-panel panel" *ngFor="let item of quarterDataList;let i1 = index">
+    <h2>{{item.year}}</h2>
+    <div class="item-hover" *ngFor="let count of item.quarterData;let i = index"
+         (click)="setClickedRow((i+'_'+item.year))" [class.active]="((i+'_'+item.year)) == selectedRow">
+      <br>
+      {{count.view}}-{{count.count}}
+    </div>
+
+    <div data-parent="#panels" data-toggle="collapse" [attr.data-target]="'#openPanel'+ i1"
+         class="row display-inline-mode">
+      <h4 [ngClass]="{'flipped': isActive[i1] }" (click)="isActive=[];isActive[i1] = !isActive[i1];">Details
+      </h4>&nbsp;&nbsp;&nbsp;
+    </div>
+    <div class="collapse" id="openPanel{{i1}}">
+      This is {{item.year}} panel
+    </div>
+  </div>

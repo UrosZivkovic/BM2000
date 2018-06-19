@@ -1,74 +1,87 @@
-<p>
-  <button class="btn btn-primary" type="button" data-toggle="collapse" aria-expanded="false"
-          data-target="#tabSaPracenimNovostima" (click)="saveClickHistory($event)">Novositi koje pratite
-  </button>
-  <button class="btn btn-primary" type="button" data-toggle="collapse" aria-expanded="false"
-          data-target="#tabSaProcitanimObavestenjima" (click)="saveClickHistory($event)">Procitana obavestenja
-  </button>
-  <button class="btn btn-primary" type="button" data-toggle="collapse" aria-expanded="false"
-          data-target="#tabSaNeprocitanimObavestenjima" (click)="saveClickHistory($event)">Neprocitana obavestenja
-  </button>
-  <button class="btn btn-primary" type="button" data-toggle="collapse" aria-expanded="false"
-          data-target="#tabIstorijeDavanja" (click)="saveClickHistory($event)">Istorija davanja
-  </button>
-  <button class="btn btn-primary" type="button" data-toggle="collapse" aria-expanded="false"
-          data-target="#tabIstorijePrisustvaDogadjajima" (click)="saveClickHistory($event)">Istorija pristva dogadjajim
-  </button>
-</p>
+<div class="container-fluid">
+<<<<<<< HEAD
+  <div class="col-xl-4 col-offset-6 centered">
+=======
+  <div class="col-xl-10 col-offset-6 centered">
+>>>>>>> duci_test
+    <div class="btn-group" role="group" style="height: 5vh">
+      <button class="btn btn-primary" type="button" data-toggle="collapse" aria-expanded="false" data-target="#tabSaPracenimNovostima"
+              (click)="saveClickHistory($event)">Novosti
+      </button>
+      <button class="btn btn-primary" type="button" data-toggle="collapse" aria-expanded="false" data-target="#tabSaProcitanimObavestenjima"
+              (click)="saveClickHistory($event)">Procitana obavestenja
+      </button>
+      <button class="btn btn-primary" type="button" data-toggle="collapse" aria-expanded="false" data-target="#tabSaNeprocitanimObavestenjima"
+              (click)="saveClickHistory($event)">Neprocitana obavestenja
+      </button>
+      <button class="btn btn-primary" type="button" data-toggle="collapse" aria-expanded="false" data-target="#tabIstorijeDavanja"
+              (click)="saveClickHistory($event)">Istorija davanja
+      </button>
+      <button class="btn btn-primary" type="button" data-toggle="collapse" aria-expanded="false" data-target="#tabIstorijePrisustvaDogadjajima"
+<<<<<<< HEAD
+              (click)="saveClickHistory($event)">Istorija prisustva dogadjajima
+=======
+        (click)="saveClickHistory($event)">Moji dogadjaji
+>>>>>>> duci_test
+      </button>
+    </div>
 
-<div class="row">
-  <div class="col">
-    <div class="collapse multi-collapse" id="tabSaPracenimNovostima">
-      <div class="card card-body">
 
-        <div class="col-lg-8 mx-auto" *ngFor="let _novost of _novosti">
-          <h2 class="card-title">{{_novost.naslov}}</h2>
-          <p class="card-text">{{_novost.sadrzaj}}</p>
-          <a href="#" class="btn btn-primary">Procitaj jos</a>
+    <div class="row">
+      <div class="col">
+        <div class="collapse multi-collapse" id="tabSaPracenimNovostima">
+          <div class="card card-body">
+
+            <div class="col-lg-8 mx-auto" *ngFor="let _novost of _novosti">
+              <h2 class="card-title">{{_novost.naslov}}</h2>
+              <p class="card-text">{{_novost.sadrzaj}}</p>
+              <a href="#" class="btn btn-primary">Procitaj jos</a>
+            </div>
+
+          </div>
         </div>
-
       </div>
-    </div>
-  </div>
-  <div class="col">
-    <div class="collapse multi-collapse" id="tabSaProcitanimObavestenjima">
-      <div class="card card-body">
+      <div class="col">
+        <div class="collapse multi-collapse" id="tabSaProcitanimObavestenjima">
+          <div class="card card-body">
 
-        <div class="col-lg-8 mx-auto" *ngFor="let _obavestenje of _obavestenja.procitana">
-          <h2 class="card-title">{{_obavestenje.naslov}}</h2>
-          <p class="card-text">{{_obavestenje.sadrzaj}}</p>
-          <a href="#" class="btn btn-primary">Procitaj jos</a>
+            <div class="col-lg-8 mx-auto" *ngFor="let _obavestenje of _obavestenja.procitana">
+              <h2 class="card-title">{{_obavestenje.naslov}}</h2>
+              <p class="card-text">{{_obavestenje.sadrzaj}}</p>
+              <a href="#" class="btn btn-primary">Procitaj jos</a>
+            </div>
+
+          </div>
         </div>
-
       </div>
-    </div>
-  </div>
-  <div class="col">
-    <div class="collapse multi-collapse" id="tabSaNeprocitanimObavestenjima">
-      <div class="card card-body">
+      <div class="col">
+        <div class="collapse multi-collapse" id="tabSaNeprocitanimObavestenjima">
+          <div class="card card-body">
 
-        <div class="col-lg-8 mx-auto" *ngFor="let _obavestenje of _obavestenja.neprocitana">
-          <h2 class="card-title">{{_obavestenje.naslov}}</h2>
-          <p class="card-text">{{_obavestenje.sadrzaj}}</p>
-          <a href="#" class="btn btn-primary">Procitaj jos</a>
+            <div class="col-lg-8 mx-auto" *ngFor="let _obavestenje of _obavestenja.neprocitana">
+              <h2 class="card-title">{{_obavestenje.naslov}}</h2>
+              <p class="card-text">{{_obavestenje.sadrzaj}}</p>
+              <a href="#" class="btn btn-primary">Procitaj jos</a>
+            </div>
+
+          </div>
         </div>
-
       </div>
-    </div>
-  </div>
-  <div class="col">
-    <div class="collapse multi-collapse" id="tabIstorijeDavanja">
-      <div class="card card-body">
-        <h3 *ngFor="let _datum of _user.istorijaDavanja">
-          {{_datum}}
-        </h3>
+      <div class="col">
+        <div class="collapse multi-collapse" id="tabIstorijeDavanja">
+          <div class="card card-body">
+            <h3 *ngFor="let _datum of _user.istorijaDavanja">
+              {{_datum}}
+            </h3>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
-  <div class="col">
-    <div class="collapse multi-collapse" id="tabIstorijePrisustvaDogadjajima">
-      <div class="card card-body">
-        istorija prisustvovanja dogadjajima
+      <div class="col">
+        <div class="collapse multi-collapse" id="tabIstorijePrisustvaDogadjajima">
+          <div class="card card-body">
+            istorija prisustvovanja dogadjajima
+          </div>
+        </div>
       </div>
     </div>
   </div>

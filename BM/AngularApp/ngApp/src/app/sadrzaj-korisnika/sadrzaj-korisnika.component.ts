@@ -11,7 +11,7 @@ export class SadrzajKorisnikaComponent implements OnInit {
 
   private _activeTab;
 
-  private _user;
+  private _user={};
 
   private _novosti: [{}];
   private _obavestenja = {
