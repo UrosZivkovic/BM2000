@@ -17,6 +17,7 @@ import {NavbarComponent} from './navbar/navbar.component';
 import {ZavodComponent} from './zavod/zavod.component';
 import {HomeComponent} from './home/home.component';
 import {Korisnik2Component} from "./korisnik2/korisnik2.component";
+import { SadrzajKorisnikaComponent } from './sadrzaj-korisnika/sadrzaj-korisnika.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import {Korisnik2Component} from "./korisnik2/korisnik2.component";
     Korisnik2Component,
     ZavodComponent,
     HomeComponent,
-    VestComponent
+    VestComponent,
+    SadrzajKorisnikaComponent
   ],
   imports: [
     BrowserModule,
