@@ -29,17 +29,17 @@ router.post('/register', (req, res) => {
     })
 })
 
-router.post("/kreiraj",(req,res,nest)=>{
-    let userData=req.body;
+router.post("/kreiraj", (req, res, nest) => {
+    let userData = req.body;
     console.log(userData);
     const user = new User({
         _id: new mongoose.Types.ObjectId(),
-        email:userData.email,
-        password:userData.password,
-        ime:userData.ime,
-        prezime:userData.prezime,
-        krvnaGrupa:userData.krvnaGrupa,
-        tipKorisnika:userData.tipKorisnika
+        email: userData.email,
+        password: userData.password,
+        ime: userData.ime,
+        prezime: userData.prezime,
+        krvnaGrupa: userData.krvnaGrupa,
+        tipKorisnika: userData.tipKorisnika
 
     })
 
@@ -52,15 +52,15 @@ router.post("/kreiraj",(req,res,nest)=>{
             res.status(200).send({token});
         }
     })
-    
+
 });
 
-router.post('/addobv',(req,res,next) => {
+router.post('/addobv', (req, res, next) => {
     let id = req.body.id;
     let idObavestenja = req.body.obv;
     console.log(req.body.id);
-    console.log (req.body.obv);
-    User.update({_id:req.body.id},{$push :{obavestenja:idObavestenja}})
+    console.log(req.body.obv);
+    User.update({_id: req.body.id}, {$push: {obavestenja: idObavestenja}})
 });
 
 router.get('/register/realUser', (req, res) => {
@@ -90,27 +90,26 @@ router.get('/register/realUser', (req, res) => {
     });
 });
 
-router.post("/getNovosti",(req,res)=>{
-    
-    User.findOne({_id:req.body.id},(error,user)=>{
-        if(error){
+router.post("/getNovosti", (req, res) => {
+
+    User.findOne({_id: req.body.id}, (error, user) => {
+        if (error) {
             res.status(404).send(error);
-        }else{
-            
-            let user2 = user.novost.map(function(val,ind){
-                return {"_id":val.idNovosti};
-            })
-            
-            Novost.find({$or:[...user2]},(error2,result2)=>{
+        } else {
+
+            console.log("For user: " + user.ime);
+
+            let user2 = user.novost.map(function (val, ind) {
+                return {"_id": val.idNovosti};
+            });
+
+            Novost.find({$or: [...user2]}, (error2, result2) => {
                 console.log(result2);
                 res.status(200).send(result2);
-            })
-            
+            });
         }
-        
-    })
-})
-
+    });
+});
 
 
 router.get('/removeUser', (req, res) => {
@@ -125,23 +124,27 @@ router.get('/removeUser', (req, res) => {
     })
 });
 
-router.post('/DodajNovost',(req,res) => {
-    let trenutnaNovost = {idNovosti:req.body.idNovosti};
+router.post('/DodajNovost', (req, res) => {
+    let trenutnaNovost = {idNovosti: req.body.idNovosti};
     console.log(trenutnaNovost);
-    User.findOneAndUpdate({_id:req.body.id},{$push :{novost:trenutnaNovost}},(error, user)=>{
-        if(error){
-            res.status(404).send(error)
-        }else{
-          res.status(200).send(user);  
-        }
-    })
-    
-   
-})
+    User.findOneAndUpdate({_id: req.body.id}, {$push: {novost: trenutnaNovost}},
+        (error, user) => {
+            if (error) {
+                res.status(404).send(error)
+            } else {
+                res.status(200).send(user);
+            }
+        })
+});
 
-router.post("/deleteall", (req,res)=> {
+router.get("/novaNovost", function (req, res) {
+
+});
+
+
+router.post("/deleteall", (req, res) => {
     console.log("delete all");
-    User.deleteMany({} ,err => {
+    User.deleteMany({}, err => {
         res.status(200).send("obrisano");
     })
 })
@@ -189,10 +192,6 @@ router.get('/all', (req, res, next) => {
             })
         })
 });
-
-
-
-
 
 
 module.exports = router;

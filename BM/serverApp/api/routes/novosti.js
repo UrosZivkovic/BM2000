@@ -40,7 +40,7 @@ router.get("/or", (req,res) => {
         console.log(result2);
         res.status(200).send(result2);
     })
-})
+});
 router.post('/add', (req, res, next) => {
 
     const novost = new Novost({
@@ -68,7 +68,7 @@ router.post("/deleteall", (req,res)=> {
     Novost.deleteMany({} ,err => {
         res.status(200).send("obrisano");
     })
-})
+});
 
 
 router.post("/getObavestenja",(req,res)=>{

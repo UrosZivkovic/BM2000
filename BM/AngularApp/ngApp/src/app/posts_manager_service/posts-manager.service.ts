@@ -60,10 +60,12 @@ export class PostsManagerService {
   }
 
   public getUserContent_Novosti(userId) {
+    console.log("Sending request for pracene_novosti on: "+this._userContent_NovostiUrl);
     return this._http.post<any>(this._userContent_NovostiUrl, {id: userId});
   }
 
   public getUserContent_Obavestenja(userId) {
+    console.log("Sending request for pracene_obavestenja on: "+this._userContent_ObavestenjaUrl);
     return this._http.post<any>(this._userContent_ObavestenjaUrl, {id: userId});
   }
 
@@ -71,7 +73,7 @@ export class PostsManagerService {
 
   }
 
-  public saveObavestenjaToLocalStorage(obavestenja: any[]) {
+  public saveObavestenjaToLocalStorage(obavestenja: {}) {
 
   }
 

@@ -12,7 +12,7 @@ export class Korisnik2Component implements OnInit {
 
   private _user;
 
-  private _novosti = {};
+  private _novosti = [];
 
   private _obavestenja = {
     procitana: [],
@@ -45,6 +45,10 @@ export class Korisnik2Component implements OnInit {
             console.log(err);
           }
         );
+
+        // save novosti to local storage
+        this._postsManager.savePraceneNovostiToLocalStorage(this._novosti);
+
       }
 
       this._obavestenja = JSON.parse(localStorage.getItem("_obavestenja"));
@@ -60,11 +64,13 @@ export class Korisnik2Component implements OnInit {
             console.log(err);
           }
         );
+
+        // save obavestenja to local storage
+        this._postsManager.saveObavestenjaToLocalStorage(this._obavestenja);
+
       }
 
-
     }
-
   }
 
 }

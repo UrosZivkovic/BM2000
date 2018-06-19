@@ -1,4 +1,6 @@
 import {Component, OnInit} from '@angular/core';
+import {AuthService} from "../auth.service";
+import {PostsManagerService} from "../posts_manager_service/posts-manager.service";
 
 @Component({
   selector: 'app-sadrzaj-korisnika',
@@ -9,10 +11,21 @@ export class SadrzajKorisnikaComponent implements OnInit {
 
   private _activeTab;
 
-  constructor() {
+  private _novosti;
+  private _obavestenja = {
+    procitana: [],
+    neprocitana: []
+  };
+
+  constructor(private _authService: AuthService, private _postsManager: PostsManagerService) {
+
   }
 
   ngOnInit() {
+    if (this._authService.loggedIn()) {
+      this._novosti = JSON.parse(localStorage.getItem("_pracene_novosti"));
+      this._obavestenja = JSON.parse(localStorage.getItem("_obavestenja"));
+    }
   }
 
   private saveClickHistory(event) {
