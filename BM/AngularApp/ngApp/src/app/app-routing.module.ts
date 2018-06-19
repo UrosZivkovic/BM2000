@@ -27,7 +27,7 @@ const routes: Routes = [
   },
   {
     path: 'home',
-    component: ZavodComponent
+    component: HomeComponent
   },
   {
     path: 'login',
