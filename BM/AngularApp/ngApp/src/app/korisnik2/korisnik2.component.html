@@ -28,56 +28,130 @@
 </div> -->
 
 <div id="wrapper">
-    <div id="sidebar-wrapper">
-      <div class = "col-xs-6 col-lg-8 sidebar" id="sidebar" role="navigation">
-        <ul class="nav nav-tabs|pills" id="navId">
-          <li class="nav-item">
-            <a class="nav-link active">Ime</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active">Prezime</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active">Email</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active">Krvna grupa</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active">Broj davanja</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active">Datum poslednjeg davanja</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active">Obavestenja</a>
-          </li>
-          <hr>
-          <li class="nav-item">
-            <a class="nav-link active">Logout</a>
-          </li>
-        </ul>
+  <div id="sidebar-wrapper">
+    <div class="col-xl-4 col-lg-8 sidebar" id="sidebar" role="navigation">
+      <ul class="nav nav-tabs|pills" id="navId">
+        <li class="nav-item">
+          <a class="nav-link active">Ime</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active">Prezime</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active">Email</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active">Krvna grupa</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active">Broj davanja</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active">Datum poslednjeg davanja</a>
+        </li>
+        <hr>
+        <li class="nav-item">
+          <a class="nav-link active" data-toggle="collapse" aria-expanded="false" data-target="#tabSaPracenimNovostima"
+          (click)="saveClickHistory($event)">Novosti</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" data-toggle="collapse" aria-expanded="false" data-target="#tabSaProcitanimObavestenjima"
+          (click)="saveClickHistory($event)">Procitana obavestenja</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" data-toggle="collapse" aria-expanded="false" data-target="#tabSaNeprocitanimObavestenjima"
+          (click)="saveClickHistory($event)">Neprocitana obavestenja</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" data-toggle="collapse" aria-expanded="false" data-target="#tabIstorijeDavanja"
+          (click)="saveClickHistory($event)">Istorija davanja</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" data-toggle="collapse" aria-expanded="false" data-target="#tabIstorijePrisustvaDogadjajima"
+          (click)="saveClickHistory($event)">Moji dogadjaji</a>
+        </li>
+        <hr>
+        <li class="nav-item">
+          <a class="nav-link active">Logout</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div id="page-content-wrapper">
+    <div class="page-content">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+
+            <div class="row">
+              <div class="col">
+                <div class="collapse multi-collapse" id="tabSaPracenimNovostima">
+                  <div class="card card-body">
+        
+                    <div class="col-lg-8 mx-auto" *ngFor="let _novost of _novosti">
+                      <h2 class="card-title">{{_novost.naslov}}</h2>
+                      <p class="card-text">{{_novost.sadrzaj}}</p>
+                      <a href="#" class="btn btn-primary">Procitaj jos</a>
+                    </div>
+        
+                  </div>
+                </div>
+              </div>
+              <div class="col">
+                <div class="collapse multi-collapse" id="tabSaProcitanimObavestenjima">
+                  <div class="card card-body">
+        
+                    <div class="col-lg-8 mx-auto" *ngFor="let _obavestenje of _obavestenja.procitana">
+                      <h2 class="card-title">{{_obavestenje.naslov}}</h2>
+                      <p class="card-text">{{_obavestenje.sadrzaj}}</p>
+                      <a href="#" class="btn btn-primary">Procitaj jos</a>
+                    </div>
+        
+                  </div>
+                </div>
+              </div>
+              <div class="col">
+                <div class="collapse multi-collapse" id="tabSaNeprocitanimObavestenjima">
+                  <div class="card card-body">
+        
+                    <div class="col-lg-8 mx-auto" *ngFor="let _obavestenje of _obavestenja.neprocitana">
+                      <h2 class="card-title">{{_obavestenje.naslov}}</h2>
+                      <p class="card-text">{{_obavestenje.sadrzaj}}</p>
+                      <a href="#" class="btn btn-primary">Procitaj jos</a>
+                    </div>
+        
+                  </div>
+                </div>
+              </div>
+              <div class="col">
+                <div class="collapse multi-collapse" id="tabIstorijeDavanja">
+                  <div class="card card-body">
+                    <h3 *ngFor="let _datum of _user.istorijaDavanja">
+                      {{_datum}}
+                    </h3>
+                  </div>
+                </div>
+              </div>
+              <div class="col">
+                <div class="collapse multi-collapse" id="tabIstorijePrisustvaDogadjajima">
+                  <div class="card card-body">
+                    istorija prisustvovanja dogadjajima
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
       </div>
     </div>
-  <div id="page-content-wrapper">
-      <div class="page-content">
-          <div class="container">
-              <div class="row">
-                  <div class="col-md-12">
-
-                    <app-sadrzaj-korisnika></app-sadrzaj-korisnika>
-
-                  </div>
-              </div>
-          </div>
-      </div>
   </div>
 </div>
 
 
 
 
-  <!-- <div class="wrapper">
+<!-- <div class="wrapper">
 
     <nav id="sidebar">
 
