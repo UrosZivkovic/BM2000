@@ -41,6 +41,7 @@ export class AuthService {
     localStorage.removeItem("novostiZavod1");
     localStorage.removeItem("novostiZavod2");
     localStorage.removeItem("novostiZavod3");
+    localStorage.removeItem("zavodiStorage");
     this._router.navigate(['/home']);
   }
 

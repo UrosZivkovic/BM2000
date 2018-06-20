@@ -73,11 +73,12 @@ export class ServerConfigurationService {
     console.log('adresa pribaljena');
     return this.getFullServerAddress() + '/users/davanjeKrvi';
   }
+  public getZavodNovostiInterval() {
+    return this.getFullServerAddress() + '/novosti/zavodNovostiInterval';
+  }
+
   public getObrisiUserForm() {
     return this.getFullServerAddress() + '/users/removeUser';
-  }
-  public getZavodNovostiInterval() {
-    return this.getFullServerAddress() + '/zavod/NovostiInterval';
   }
 
   public getDefaultNovosti() {
