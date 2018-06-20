@@ -1,6 +1,6 @@
 <div class="card">
   <div class="card-header" role="tab">
-    <h2 class="mb-0" >
+    <h2 class="mb-0">
       <a type="button" class=" btn btn-secondary btn-block" data-parent="#accordion"
          data-toggle="collapse" href="#{{_dataId}}" aria-expanded="false">
         {{_naslov}}
@@ -11,11 +11,9 @@
   <div id="{{_dataId}}" class="collapse" role="tabpanel">
     <div class="container">
       <h1>Blockquotes</h1>
-      <p>The blockquote element is used to present content from another source:</p>
-      <blockquote>
-        <div>{{_sadrzaj}}</div>
-        <footer>From WWF's website</footer>
-      </blockquote>
+      <p>The blockquote element:</p>
+      <div>{{_sadrzaj}}</div>
+      <footer>From WWF's website</footer>
     </div>
 
     <div *ngIf="_authService.loggedIn()" class="btn-group" role="group" aria-label="Basic example">

@@ -1,0 +1,20 @@
+<div class="row pt-5">
+  <div class="col-md-6 mx-auto">
+    <div class="card rounded-0">
+      <div class="card-header">
+        <h3 class="mb-0">Kreiraj Korisnika</h3>
+      </div>
+      <div class="card-body">
+        <form class="form">
+
+          <div class="form-group">
+            <label for="">Broj Davaoca</label>
+            <input [(ngModel)]="userData.brojDavaoca" name="brojDavaoca" type="text" class="form-control rounded-0" required>
+          </div>
+         
+          <button (click)="submitForm()" type="button" class="btn btn-primary float-right">Kreiraj</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
