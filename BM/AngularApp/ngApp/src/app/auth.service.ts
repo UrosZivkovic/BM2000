@@ -41,7 +41,7 @@ export class AuthService {
 
   getUserType() {
     return "davalac";
-    return localStorage.getItem('userType');
+    // return localStorage.getItem('userType');
   }
 
 }

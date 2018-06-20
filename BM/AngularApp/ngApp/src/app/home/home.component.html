@@ -1,9 +1,3 @@
-<div class="container-fluid">
-  <div class="col-xl-4 col-offset-8 centered">
-    <div class="btn-group" role="group" style="height: 30vh">
-      <button type="button" class="btn btn-light" routerLink="/izborZavoda" style="border-radius: 20%">Zavod</button>
-      <button type="button" class="btn btn-light" routerLink="/profil" (click)="clickOnKorisnikHandler()" style="border-radius: 20%">Korisnik</button>
-      <button type="button" class="btn btn-light" style="border-radius: 20%">Informacije</button>
-    </div>
-  </div>
+<div>
+  <app-lista-novosti [_listaNovosti]="_defaultPost"></app-lista-novosti>
 </div>

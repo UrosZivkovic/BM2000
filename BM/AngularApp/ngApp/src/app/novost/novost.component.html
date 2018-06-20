@@ -1,7 +1,7 @@
 <div class="card">
   <div class="card-header" role="tab">
     <h2 class="mb-0">
-      <a class="collapsed btn btn-outline-secondary btn-lg" data-parent="#accordion" data-toggle="collapse"
+      <a class="collapsed btn btn-secondary btn-block" data-parent="#accordion" data-toggle="collapse"
          href="#{{_dataId}}"
          aria-expanded="false">
         {{_naslov}}
@@ -29,7 +29,9 @@
         pracenjem
       </button>
 
-      <button *ngIf="_authService.getUserType().toLowerCase()=='zaposleni'" type="button" class="btn btn-default">Dodaj obavestenje</button>
+      <button *ngIf="_authService.getUserType().toLowerCase()=='zaposleni'" type="button" class="btn btn-default">Dodaj
+        obavestenje
+      </button>
     </div>
 
   </div>
