@@ -39,7 +39,7 @@ a {
     width: 100%;
   }
   
-  @media (max-width:400) {
+  @media (max-width:700) {
   
       #wrapper {
         padding-left: 0;
@@ -61,4 +61,23 @@ a {
       }
   
   }
+
+  .btn-group {
+    width:  100%;
+    height: inherit;
+}
+button {
+    width:  23%;
+    height: inherit;
+    margin: 0px;
+}
+@media (max-width: 700px) {
+    [class*="btn-"] {
+        width: 90%;
+        margin-top: 2px;
+        box-sizing: border-box;
+        padding: 0;
+    }   
+}
+
 
