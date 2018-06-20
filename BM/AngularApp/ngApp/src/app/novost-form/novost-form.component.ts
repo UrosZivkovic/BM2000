@@ -9,7 +9,7 @@ export class NovostFormComponent implements OnInit {
   userData = {};
   constructor(private _formeService: FormeService) { }
   submitForm() {
-    this.userData['datum'] = Date.now();
+    this.userData['date'] = Date.now();
     const user = JSON.parse(localStorage.getItem('loggedUserData'));
     // console.log(user.idZavoda );
     this.userData['idZavoda'] = user.idZavoda;
