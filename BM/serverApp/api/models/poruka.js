@@ -7,7 +7,8 @@ const porukaSchema = mongoose.Schema({
     prezime: String,
     brojDavaoca:String,
     poruka: String,
-    idZavoda:String
+    idZavoda:String,
+    date: String
 });
 
 module.exports = mongoose.model('poruka', porukaSchema);

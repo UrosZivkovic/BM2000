@@ -128,23 +128,25 @@ router.post('/davanjeKrvi', (req, res) => {
 })
 
 router.post("/getNovosti", (req, res) => {
-
+    console.log("uslo u novosti");
     User.findOne({_id: req.body.id}, (error, user) => {
         if (error) {
             res.status(404).send(error);
         } else {
 
-            console.log("For user: " + user.ime);
-
+            console.log("Ovde ? For user: " + user.ime);
+            if(user.novost.length!==0){
             let user2 = user.novost.map(function (val, ind) {
                 return {"_id": val.idNovosti};
             });
-
+            console.log
             Novost.find({$or: [...user2]}, (error2, result2) => {
                 console.log("Novosti for user: ");
                 console.log(result2);
                 res.status(200).send(result2);
-            });
+            });}else{
+                return res.status(200).send({});
+            }
         }
     });
 });
@@ -157,7 +159,7 @@ router.post("/getObavestenja", (req, res) => {
             res.status(404).send(error);
         } else {
 
-
+            
             console.log(user);
             let user2 = user.novost.map(function (val, ind) {
                 return {"_id": val.idNovosti};
@@ -167,25 +169,30 @@ router.post("/getObavestenja", (req, res) => {
 
             console.log("REQUESTED oobavestenja: \n\n\n\n")
             Novost.find({$or: [...user2]}, (error2, data1) => {
-
+               //console.log("ovde");
+               //console.log(data1);
+                if(data1!==undefined){
+                    //console.log("udje");
                 let niz = [];
                 data1.forEach(val => {
                     val.obavestenja.forEach(val2 => {
                         niz.push(val2);
                     });
                 });
-
+                //console.log("prodje");
 
                 let data2 = niz.map(function (val, ind) {
                     return {"_id": val.idObavestenja};
                 });
 
-                console.log(...data2);
+                console.log("data 2 rzb",...data2);
 
                 Obavestenje.find({$or: [...data2]}, (error2, result2) => {
                     console.log(result2);
                     res.status(200).send(result2);
-                });
+                });}else{
+                    res.status(200).send({});
+                }
             });
         }
     });

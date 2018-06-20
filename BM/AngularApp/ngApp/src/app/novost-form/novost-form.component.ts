@@ -16,7 +16,7 @@ export class NovostFormComponent implements OnInit {
     // this.userData['idZavoda'] = localStorage.getItem(this.userData)
     console.log(this.userData);
 
-     this._formeService.sendUserForm(this.userData)
+     this._formeService.sendNovostiForm(this.userData)
      .subscribe(res => {
       console.log(res); },
        err => console.log(err));

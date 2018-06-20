@@ -70,7 +70,7 @@ router.post('/zavodNovostiInterval', (req, res, next) => {
     Novost.find()
         .where('idZavoda')
         .equals(req.body.idZavoda)
-        .sort('date')
+        .sort('-date')
         .exec()
         .then(docs => {
             var niz = docs;
@@ -91,7 +91,8 @@ router.post('/zavodNovostiInterval', (req, res, next) => {
             } else
                 return res.status(200).json({
                     naslov: "Index ot ouf range",
-                    sadrzaj: "Click to find out more"
+                    sadrzaj: "Click to find out more",
+                    id:"1"
                 });
 
 
@@ -188,7 +189,7 @@ router.post('/interval', (req, res, next) => {
     const indexDo = req.body.lastIndex;
     console.log(indexOd, indexDo);
     Novost.find()
-        .sort('date')
+        .sort('-date')
         .exec()
         .then(docs => {
             var niz = docs;

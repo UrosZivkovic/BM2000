@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {FormeService} from "../forme.service";
+import {FormeService} from '../forme.service';
 
 @Component({
   selector: 'app-blezenje-davanja-form',
@@ -17,6 +17,8 @@ export class BlezenjeDavanjaFormComponent implements OnInit {
   }
 
   submitForm() {
+    console.log({id: this._brojDavaoca, date: Date.now()});
+
     this._formService.sendZabeleziDavanje({id: this._brojDavaoca, date: Date.now()});
     // tamo u funkciji na serveru on uzima id a ja mu to ne saljem, saljem mu neki tamo broj davaoca
   }
