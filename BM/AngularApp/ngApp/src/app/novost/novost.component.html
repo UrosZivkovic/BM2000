@@ -2,7 +2,7 @@
   <div class="card-header" role="tab">
     <h2 class="mb-0">
       <a type="button" class=" btn btn-secondary btn-block" data-parent="#accordion"
-              data-toggle="collapse" href="#{{_dataId}}" aria-expanded="false">
+         data-toggle="collapse" href="#{{_dataId}}" aria-expanded="false">
         {{_naslov}}
       </a>
     </h2>
@@ -18,7 +18,7 @@
       </blockquote>
     </div>
 
-    <div *ngIf="!_authService.loggedIn()" class="btn-group" role="group" aria-label="Basic example">
+    <div *ngIf="_authService.loggedIn()" class="btn-group" role="group" aria-label="Basic example">
 
       <button type="button" class="btn btn-info" (click)="_postsManager.subscribeToPost(_dataId)">Prati novost
       </button>
@@ -28,10 +28,20 @@
         pracenjem
       </button>
 
-      <button *ngIf="_authService.getUserType().toLowerCase()=='zaposleni'" type="button" class="btn btn-default">Dodaj
-        obavestenje
+      <button *ngIf="_authService.getUserType().toLowerCase()=='zaposleni'" class="btn btn-primary" type="button"
+              data-toggle="collapse" data-target="#dodajObavestenjeForm"
+              aria-expanded="false" aria-controls="dodajObavestenjeForm">
+        Dodaj obavestenje
       </button>
+
     </div>
+
+    <div class="collapse" id="dodajObavestenjeForm">
+      <div class="card card-body">
+        <app-obavestenje-forma></app-obavestenje-forma>
+      </div>
+    </div>
+
 
   </div>
 </div>
