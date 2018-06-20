@@ -70,6 +70,7 @@ export class ServerConfigurationService {
   }
 
   public getZabeleziDavanjeUrl() {
+    console.log('adresa pribaljena');
     return this.getFullServerAddress() + '/users/davanjeKrvi';
   }
   public getZavodNovostiInterval() {
