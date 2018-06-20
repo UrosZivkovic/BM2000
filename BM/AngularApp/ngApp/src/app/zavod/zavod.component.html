@@ -3,22 +3,45 @@
     <div class="col-xl-4 col-lg-8 sidebar" id="sidebar" role="navigation">
       <ul class="nav nav-tabs|pills" id="navId">
         <li class="nav-item">
+          <a class="nav-link active">ID</a>
+        </li>
+        <li class="nav-item">
           <a class="nav-link active">Drzava</a>
         </li>
         <li class="nav-item">
           <a class="nav-link active">Grad</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active">Naziv zavoda</a>
-        </li>
-        <li class="nav-item">
           <a class="nav-link active">Adresa</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link active">Novosti</a>  <!-- treba da se otvore informacije kad se pritisne -->
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active">Dogadjaji</a>  <!-- treba da se otvore informacije kad se pritisne -->
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active">Informacije</a> <!-- treba da se otvore informacije kad se pritisne -->
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active">Posalji poruku</a> <!-- treba da se otvore informacije kad se pritisne -->
+        </li>
         <hr>
-
-        <app-pretraga-zavod></app-pretraga-zavod>
-
+        <li *ngFor="let _zavod of _listaZavoda" class="nav-item">
+          <a class="nav-link active">{{_zavod.naziv}}</a> <!-- treba da se otvore informacije kad se pritisne -->
+        </li>
       </ul>
+      <p>
+        <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample"
+                aria-expanded="false" aria-controls="collapseExample">
+          Dodatni izbor zavoda
+        </button>
+      </p>
+      <div class="collapse" id="collapseExample">
+        <div class="card card-body">
+          <app-pretraga-zavod></app-pretraga-zavod>
+        </div>
+      </div>
     </div>
   </div>
   <div id="page-content-wrapper">
@@ -26,65 +49,7 @@
       <div class="container">
         <div class="row">
           <div class="col-md-12">
-
-            <div class="row">
-              <div class="col">
-                <div class="collapse multi-collapse" id="tabSaPracenimNovostima">
-                  <div class="card card-body">
-
-                    <div class="col-lg-8 mx-auto" *ngFor="let _novost of _novosti">
-                      <h2 class="card-title">{{_novost.naslov}}</h2>
-                      <p class="card-text">{{_novost.sadrzaj}}</p>
-                      <a href="#" class="btn btn-primary">Procitaj jos</a>
-                    </div>
-
-                  </div>
-                </div>
-              </div>
-              <div class="col">
-                <div class="collapse multi-collapse" id="tabSaProcitanimObavestenjima">
-                  <div class="card card-body">
-
-                    <div class="col-lg-8 mx-auto" *ngFor="let _obavestenje of _obavestenja.procitana">
-                      <h2 class="card-title">{{_obavestenje.naslov}}</h2>
-                      <p class="card-text">{{_obavestenje.sadrzaj}}</p>
-                      <a href="#" class="btn btn-primary">Procitaj jos</a>
-                    </div>
-
-                  </div>
-                </div>
-              </div>
-              <div class="col">
-                <div class="collapse multi-collapse" id="tabSaNeprocitanimObavestenjima">
-                  <div class="card card-body">
-
-                    <div class="col-lg-8 mx-auto" *ngFor="let _obavestenje of _obavestenja.neprocitana">
-                      <h2 class="card-title">{{_obavestenje.naslov}}</h2>
-                      <p class="card-text">{{_obavestenje.sadrzaj}}</p>
-                      <a href="#" class="btn btn-primary">Procitaj jos</a>
-                    </div>
-
-                  </div>
-                </div>
-              </div>
-              <div class="col">
-                <div class="collapse multi-collapse" id="tabIstorijeDavanja">
-                  <div class="card card-body">
-                    <h3 *ngFor="let _datum of _user.istorijaDavanja">
-                      {{_datum}}
-                    </h3>
-                  </div>
-                </div>
-              </div>
-              <div class="col">
-                <div class="collapse multi-collapse" id="tabIstorijePrisustvaDogadjajima">
-                  <div class="card card-body">
-                    istorija prisustvovanja dogadjajima
-                  </div>
-                </div>
-              </div>
-            </div>
-
+            <app-zavod-informacije></app-zavod-informacije>
           </div>
         </div>
       </div>
