@@ -45,6 +45,12 @@
              (click)="saveClickHistory($event)">Moji dogadjaji</a>
         </li>
         <hr>
+        <li class="nav-item">
+          <a class="nav-link active" data-toggle="collapse" aria-expanded="false"
+             data-target="#pregled_poruka_form"
+             (click)="saveClickHistory($event)">Pregled poruka</a>
+        </li>
+        <hr>
       </ul>
     </div>
   </div>
@@ -74,6 +80,7 @@
                     aria-expanded="false" aria-controls="brisanje_naloga_form" (click)="saveClickHistory($event)">
               Brisanje naloga
             </button>
+
           </div>
         </div>
         <div class="collapse" id="dodavanje_korisnika_form">
@@ -94,6 +101,11 @@
         <div class="collapse" id="brisanje_naloga_form">
           <div class="card card-body">
             <app-brisanje-naloga></app-brisanje-naloga>
+          </div>
+        </div>
+        <div class="collapse" id="pregled_poruka_form">
+          <div class="card card-body">
+            <app-poruka *ngFor="let _poruka of _primljene_poruke" ></app-poruka>
           </div>
         </div>
 
@@ -124,6 +136,14 @@
 
                     <app-lista-novosti [_listaNovosti]="_obavestenja.neprocitana"></app-lista-novosti>
 
+                    <div class="container example2">
+                      <div class="row">
+                        <div class="col-md-2 col-xs-2 col1 center-block">
+                          <button class="btn btn-primary center-block" (click)="getNextNovosti(2)"> Jos novosti</button>
+                        </div>
+                      </div>
+                    </div>
+
                   </div>
                 </div>
               </div>
@@ -139,12 +159,11 @@
               <div class="col">
                 <div class="collapse multi-collapse" id="tabIstorijePrisustvaDogadjajima">
                   <div class="card card-body">
-                    <app-lista-novosti [_listaNovosti]="_istorijaDogadjaj"></app-lista-novosti>
+                    <app-lista-novosti [_listaNovosti]="_istorijaDogadjaja"></app-lista-novosti>
                   </div>
                 </div>
               </div>
             </div>
-
           </div>
         </div>
       </div>

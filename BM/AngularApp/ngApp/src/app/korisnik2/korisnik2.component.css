@@ -1,14 +1,15 @@
 #sidebar {
-    margin-left:0px; 
-    padding: 0px;
-    float: left;
-    width: 100%;
-    height: 100%;
-    background-color: lightgray;
+  margin-left: 0px;
+  padding: 0px;
+  float: left;
+  width: 100%;
+  height: 100%;
+  background-color: lightgray;
 }
+
 .nav-item {
-    padding: 0px;
-    
+  padding: 0px;
+
 }
 
 a {
@@ -16,73 +17,101 @@ a {
 }
 
 #wrapper {
-    padding-left: 173px;
-    transition: all 0.4s ease 0s;
-    padding-right: 0px;
-    margin-right: 0px;
-    width: inherit - 173px;
-  }
-  
-  #sidebar-wrapper {
-    margin-left: -172.5px;
-    left: 172.5px;
-    width: 172.5px;
-    background: #CCC;
-    position: fixed;
-    height: 100%;
-    overflow-y: auto;
-    z-index: 1000;
-    transition: all 0.4s ease 0s;
-  }
-  
-  #page-content-wrapper {
-    width: 100%;
-  }
-  
-  @media (max-width:700) {
-  
-      #wrapper {
-        padding-left: 0;
-      }
-  
-      #sidebar-wrapper {
-        left: 0;
-      }
-  
-      #wrapper.active {
-        position: relative;
-        left: 250px;
-      }
-  
-      #wrapper.active #sidebar-wrapper {
-        left: 250px;
-        width: 250px;
-        transition: all 0.4s ease 0s;
-      }
-  
+  padding-left: 173px;
+  transition: all 0.4s ease 0s;
+  padding-right: 0px;
+  margin-right: 0px;
+  width: inherit -173px;
+}
+
+#sidebar-wrapper {
+  margin-left: -172.5px;
+  left: 172.5px;
+  width: 172.5px;
+  background: #CCC;
+  position: fixed;
+  height: 100%;
+  overflow-y: auto;
+  z-index: 1000;
+  transition: all 0.4s ease 0s;
+}
+
+#page-content-wrapper {
+  width: 100%;
+}
+
+@media (max-width: 700) {
+
+  #wrapper {
+    padding-left: 0;
   }
 
-  .btn-group {
-    width:  100%;
-    height: inherit;
+  #sidebar-wrapper {
+    left: 0;
+  }
+
+  #wrapper.active {
+    position: relative;
+    left: 250px;
+  }
+
+  #wrapper.active #sidebar-wrapper {
+    left: 250px;
+    width: 250px;
+    transition: all 0.4s ease 0s;
+  }
+
 }
+
+.btn-group {
+  width: 100%;
+  height: inherit;
+}
+
 button {
-    width:  23%;
-    height: inherit;
-    margin: 0px;
+  width: 23%;
+  height: inherit;
+  margin: 0px;
 }
+
 @media (max-width: 700px) {
-    [class*="btn-"] {
-        width: 90%;
-        margin-top: 2px;
-        box-sizing: border-box;
-        padding: 0;
-    }   
-    
-    .btn {
-      height: 10vh;
-    }
-    
+  [class*="btn-"] {
+    width: 90%;
+    margin-top: 2px;
+    box-sizing: border-box;
+    padding: 0;
+  }
+
+  .btn {
+    height: 10vh;
+  }
+
 }
+
+.fullscreen {
+  left: 0;
+  right: 0;
+}
+
+.col-xs-4 {
+  background: green;
+  height: 200px;
+  /*margin: 0 auto;*/
+  /*float:none;*/
+}
+
+.center-block {
+  float: none;
+}
+
+h3 {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.example2 {
+  margin-top: 20px;
+}
+
 
 

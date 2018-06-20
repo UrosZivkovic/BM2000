@@ -42,7 +42,7 @@
           </a>
         </li>
         <!--<li class="nav-item">-->
-          <!--<a class="nav-link active">Dogadjaji</a>  &lt;!&ndash; treba da se otvore informacije kad se pritisne &ndash;&gt;-->
+        <!--<a class="nav-link active">Dogadjaji</a>  &lt;!&ndash; treba da se otvore informacije kad se pritisne &ndash;&gt;-->
         <!--</li>-->
         <li class="nav-item">
           <a (click)="saveClickHistory($event)" class="nav-link active" data-toggle="collapse"
@@ -85,14 +85,24 @@
             <div class="collapse" id="listaNovosti">
               <div class="card card-body">
                 <app-lista-novosti [_listaNovosti]="_listaPostova"></app-lista-novosti>
+
+                <div class="container example2">
+                  <div class="row">
+                    <div class="col-md-2 col-xs-2 col1 center-block">
+                      <button class="btn btn-primary center-block" (click)="getNextPosts(2)"> Jos novosti</button>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
 
             <div class="collapse" id="informacijeComponent">
               <div class="card card-body">
                 <app-zavod-informacije></app-zavod-informacije>
+                <app-zavod-informacije></app-zavod-informacije>
               </div>
             </div>
+            
             <div class="collapse" id="porukaComponent">
               <div class="card card-body">
                 <app-text-input></app-text-input>

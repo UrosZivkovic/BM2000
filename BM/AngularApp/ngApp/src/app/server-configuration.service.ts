@@ -5,8 +5,7 @@ import {Injectable} from '@angular/core';
 })
 export class ServerConfigurationService {
 
-  private ipAddress = 'localhost';
-  // private ipAddress = '192.168.0.100';
+  private ipAddress = '192.168.0.100';
   // 192.168.0.172
   private portNum = '3030';
 
@@ -89,10 +88,23 @@ export class ServerConfigurationService {
   public getZavodiUrl() {
     return this.getFullServerAddress() + '/zavodi/all';
   }
+<<<<<<< HEAD
+
+  public getAddObavestenjeUrl(){
+    return this.getFullServerAddress()+'/obavestenja/add';
+  }
+
+  public getAddObavestenjaToNovost(){
+    return this.getFullServerAddress()+'/novosti/dodajObavestenje';
+  }
+
+
+=======
   public getBrisanjeNalogaForm() {
     return this.getFullServerAddress() + '/users/removeUser';
   }
   public getPosaljiPoruku() {
     return this.getFullServerAddress() + '/poruke/add';
   }
+>>>>>>> 9e3bdcea75fa29173f8e01ea5eaf25077dcef6b5
 }
