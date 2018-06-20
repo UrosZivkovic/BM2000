@@ -70,7 +70,7 @@ router.post('/zavodNovostiInterval', (req, res, next) => {
     Novost.find()
         .where('idZavoda')
         .equals(req.body.idZavoda)
-        .sort('date')
+        .sort('-date')
         .exec()
         .then(docs => {
             var niz = docs;
@@ -188,7 +188,7 @@ router.post('/interval', (req, res, next) => {
     const indexDo = req.body.lastIndex;
     console.log(indexOd, indexDo);
     Novost.find()
-        .sort('date')
+        .sort('-date')
         .exec()
         .then(docs => {
             var niz = docs;
