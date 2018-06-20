@@ -15,7 +15,6 @@ export class ListaNovostiComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log("neki sit");
     console.log(this._listaNovosti);
   }
 

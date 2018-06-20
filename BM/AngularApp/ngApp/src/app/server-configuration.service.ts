@@ -75,4 +75,17 @@ export class ServerConfigurationService {
   public getObrisiUserForm() {
     return this.getFullServerAddress() + '/users/removeUser';
   }
+  public getZavodNovostiInterval(){
+    return this.getFullServerAddress()+'/zavod/NovostiInterval';
+  }
+
+  public getDefaultNovosti(){
+    // firstIndex lastIndex
+    return this.getFullServerAddress()+'/novosti/interval'
+  }
+
+  public getZavodiUrl(){
+    return this.getFullServerAddress()+'/zavodi/all';
+  }
+
 }

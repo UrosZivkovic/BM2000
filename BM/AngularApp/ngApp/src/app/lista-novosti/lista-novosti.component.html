@@ -1,5 +1,5 @@
 <div id="accordion" role="tablist" aria-multiselectable="true">
   <div *ngFor="let _novost of _listaNovosti">
-    <app-novost [_dataId]="_novost.id" [_naslov]="_novost.naslov" [_sadrzaj]="_novost.sadrzaj"></app-novost>
+    <app-novost [_dataId]="_novost._id" [_naslov]="_novost.naslov" [_sadrzaj]="_novost.sadrzaj"></app-novost>
   </div>
 </div>

@@ -1,9 +1,9 @@
 <div id="wrapper">
   <div id="sidebar-wrapper">
     <div class="col-xl-4 col-lg-8 sidebar" id="sidebar" role="navigation">
-      <ul class="nav nav-tabs|pills" id="navId">
+      <ul *ngIf="_prikazaniZavod > -1" class="nav nav-tabs|pills" id="nav1Id">
         <li class="nav-item">
-          <a class="nav-link active">{{_listaZavoda[_prikazaniZavod].id}}</a>
+          <a class="nav-link active">{{_listaZavoda[_prikazaniZavod].idZavoda }}</a>
         </li>
         <li class="nav-item">
           <a class="nav-link active">{{_listaZavoda[_prikazaniZavod].drzava}}</a>
@@ -13,6 +13,20 @@
         </li>
         <li class="nav-item">
           <a class="nav-link active">{{_listaZavoda[_prikazaniZavod].adresa}}</a>
+        </li>
+      </ul>
+      <ul *ngIf="_prikazaniZavod==-1" class="nav nav-tabs|pills" id="nav2Id">
+        <li class="nav-item">
+          <a class="nav-link active">IDZavoda</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active">Drzava</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active">Grad</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active">Adresa zavoda</a>
         </li>
       </ul>
       <hr>
@@ -42,7 +56,8 @@
         <!--ZAVODI         SU        OVDE      -->
 
         <li *ngFor="let _zavod of _listaZavoda" class="nav-item">
-          <a class="nav-link active" (click)="prikaziOZavodu(_zavod)" >{{_zavod.naziv}}</a> <!-- treba da se otvore informacije kad se pritisne -->
+          <a class="nav-link active" (click)="prikaziOZavodu(_zavod)">{{_zavod.naziv}}</a>
+          <!-- treba da se otvore informacije kad se pritisne -->
         </li>
       </ul>
 

@@ -36,6 +36,11 @@ export class AuthService {
     localStorage.removeItem('token');
     localStorage.removeItem('loggedUserData');
     localStorage.removeItem('userType');
+    localStorage.removeItem("defaultNovosti");
+    localStorage.removeItem("lastDefaultNovostiIndex");
+    localStorage.removeItem("novostiZavod1");
+    localStorage.removeItem("novostiZavod2");
+    localStorage.removeItem("novostiZavod3");
     this._router.navigate(['/home']);
   }
 
