@@ -81,4 +81,8 @@ export class ServerConfigurationService {
     return this.getFullServerAddress()+'/novosti/interval'
   }
 
+  public getZavodiUrl(){
+    return this.getFullServerAddress()+'/zavodi/all';
+  }
+
 }

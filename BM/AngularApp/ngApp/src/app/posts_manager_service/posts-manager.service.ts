@@ -162,5 +162,13 @@ export class PostsManagerService {
     localStorage.setItem("defaultNovosti", JSON.stringify(storedArray.concat(data)));
   }
 
+  public getZavodi() {
+    return this._http.get<any>(this._serverConfig.getZavodiUrl());
+  }
+
+  public saveZavodi(data) {
+    localStorage.setItem("zavodiStorage", data);
+  }
+
 
 }
