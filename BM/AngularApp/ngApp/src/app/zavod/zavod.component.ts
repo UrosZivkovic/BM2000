@@ -18,7 +18,7 @@ export class ZavodComponent implements OnInit {
 
   private _lastPostIndexZavod;
 
-  constructor(private _postsManger: PostsManagerService) {
+  constructor(private _postsManager: PostsManagerService) {
 
   }
 
@@ -35,17 +35,25 @@ export class ZavodComponent implements OnInit {
     } else {
       console.log("loading zavodi from server");
 
-      this._postsManger.getZavodi().subscribe(
+      this._postsManager.getZavodi().subscribe(
         function (data) {
           _this._listaZavoda = data;
         },
         function (err) {
           console.log("Greska pri pribavljanju zavoda sa servera");
           console.log(err);
+        },
+        function () {
+          let lastPrikazaniZavod = _this._postsManager.getLastPrikazaniZavod();
+          if (lastPrikazaniZavod > -1) {
+            _this._prikazaniZavod = lastPrikazaniZavod;
+            _this.loadNovostiForZavod();
+          }
         }
       );
-
     }
+
+
   }
 
   ngOnInit() {
@@ -87,15 +95,15 @@ export class ZavodComponent implements OnInit {
 
     let drugaVrednost = parseInt(_this._lastPostIndexZavod) + count;
     console.log("Druga vrednsot je: " + drugaVrednost);
+    console.log("Id je : " + this._listaZavoda[this._prikazaniZavod].idZavoda);
 
-
-    this._postsManger.getNextPostsZavod(this._lastPostIndexZavod, drugaVrednost,
+    this._postsManager.getNextPostsZavod(this._lastPostIndexZavod, drugaVrednost,
       this._listaZavoda[this._prikazaniZavod].idZavoda).subscribe(
       function (data) {
         console.log(data);
         _this._listaPostova = _this._listaPostova.concat(data);
-        _this._postsManger.saveLastPostIndexZavod(_this._lastPostIndexZavod, _this._listaZavoda[_this._prikazaniZavod].idZavoda);
-        _this._postsManger.savePostsZavod(data, _this._listaZavoda[_this._prikazaniZavod].idZavoda);
+        _this._postsManager.saveLastPostIndexZavod(_this._lastPostIndexZavod, _this._listaZavoda[_this._prikazaniZavod].idZavoda);
+        _this._postsManager.savePostsZavod(data, _this._listaZavoda[_this._prikazaniZavod].idZavoda);
       },
       function (err) {
         console.log("Error in getting posts for zavod");
@@ -110,12 +118,12 @@ export class ZavodComponent implements OnInit {
 
     this._prikazaniZavod = this._listaZavoda.indexOf(trazeniZavod);
 
-    this._postsManger.savePrikazaniZavod(this._prikazaniZavod);
+    this._postsManager.savePrikazaniZavod(this._prikazaniZavod);
 
     if (stariPrikazaniZavod != this._prikazaniZavod) {
       this._listaPostova = [];
 
-      this._lastPostIndexZavod = this._postsManger.getLastPostIndexZavod(this._listaZavoda[this._prikazaniZavod].idZavoda);
+      this._lastPostIndexZavod = this._postsManager.getLastPostIndexZavod(this._listaZavoda[this._prikazaniZavod].idZavoda);
 
       this.loadNovostiForZavod();
     }

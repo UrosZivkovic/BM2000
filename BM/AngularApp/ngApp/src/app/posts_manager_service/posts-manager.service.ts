@@ -130,12 +130,13 @@ export class PostsManagerService {
   }
 
 
-  public getNextPostsZavod(firstIndex, lastIndex,idZavoda) {
+  public getNextPostsZavod(firstIndex, lastIndex, idZavoda) {
     return this._http.post<any>(this._serverConfig.getZavodNovostiInterval(), {
-      fistIndex: firstIndex,
+      firstIndex: firstIndex,
       lastIndex: lastIndex,
-      idZavoda:idZavoda
+      idZavoda: idZavoda
     });
+
   }
 
   public saveLastPostIndexZavod(index, idZavod) {

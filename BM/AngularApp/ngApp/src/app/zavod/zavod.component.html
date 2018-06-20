@@ -17,6 +17,9 @@
       </ul>
       <ul *ngIf="_prikazaniZavod==-1" class="nav nav-tabs|pills" id="nav2Id">
         <li class="nav-item">
+          <a class="nav-link active" style="background-color: red">IZABERI ZAVOD</a>
+        </li>
+        <li class="nav-item">
           <a class="nav-link active">IDZavoda</a>
         </li>
         <li class="nav-item">
@@ -38,9 +41,9 @@
             Novosti
           </a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link active">Dogadjaji</a>  <!-- treba da se otvore informacije kad se pritisne -->
-        </li>
+        <!--<li class="nav-item">-->
+          <!--<a class="nav-link active">Dogadjaji</a>  &lt;!&ndash; treba da se otvore informacije kad se pritisne &ndash;&gt;-->
+        <!--</li>-->
         <li class="nav-item">
           <a (click)="saveClickHistory($event)" class="nav-link active" data-toggle="collapse"
              href="#informacijeComponent" role="button" aria-expanded="false"
