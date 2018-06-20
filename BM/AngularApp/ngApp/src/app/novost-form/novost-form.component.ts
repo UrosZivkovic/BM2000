@@ -9,11 +9,16 @@ export class NovostFormComponent implements OnInit {
   userData = {};
   constructor(private _formeService: FormeService) { }
   submitForm() {
-
+    this.userData['datum'] = Date.now();
+    const user = JSON.parse(localStorage.getItem('loggedUserData'));
+    // console.log(user.idZavoda );
+    this.userData['idZavoda'] = user.idZavoda;
+    // this.userData['idZavoda'] = localStorage.getItem(this.userData)
     console.log(this.userData);
-    this._formeService.sendUserForm(this.userData)
+
+     this._formeService.sendUserForm(this.userData)
      .subscribe(res => {
-     console.log(res); },
+      console.log(res); },
        err => console.log(err));
     }
   ngOnInit() {

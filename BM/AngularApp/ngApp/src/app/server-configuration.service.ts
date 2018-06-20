@@ -75,17 +75,17 @@ export class ServerConfigurationService {
   public getObrisiUserForm() {
     return this.getFullServerAddress() + '/users/removeUser';
   }
-  public getZavodNovostiInterval(){
-    return this.getFullServerAddress()+'/zavod/NovostiInterval';
+  public getZavodNovostiInterval() {
+    return this.getFullServerAddress() + '/zavod/NovostiInterval';
   }
 
-  public getDefaultNovosti(){
+  public getDefaultNovosti() {
     // firstIndex lastIndex
-    return this.getFullServerAddress()+'/novosti/interval'
+    return this.getFullServerAddress() + '/novosti/interval';
   }
 
-  public getZavodiUrl(){
-    return this.getFullServerAddress()+'/zavodi/all';
+  public getZavodiUrl() {
+    return this.getFullServerAddress() + '/zavodi/all';
   }
 
 }

@@ -6,12 +6,13 @@ import { FormeService } from '../forme.service';
   styleUrls: ['./obavestenje-forma.component.css']
 })
 export class ObavestenjeFormaComponent implements OnInit {
+
   userData = {};
 
   constructor(private _formeService: FormeService) { }
 
   submitForm() {
-
+    this.userData['datum'] = Date.now();
     console.log(this.userData);
     this._formeService.sendObavestenjeForm(this.userData)
      .subscribe(res => {

@@ -12,7 +12,7 @@ router.get('/', (req, res, next) => {
         message: "it works for get zavod"
     })
 });
-
+ 
 router.get('/all', (req, res, next) => {
     Novost.find()
         .exec()

@@ -17,6 +17,7 @@ const userRoutes = require("../api/routes/users");
 const zavodRoutes = require("../api/routes/zavodi");
 const obavestenjeRoutes = require("../api/routes/obavestenja");
 const novostRoutes = require("../api/routes/novosti");
+const porukaRoutes = require('../api/routes/poruke');
 
 app.use(morgan("dev")); //za logovanje zahteva
 app.use(bodyParser.urlencoded({extended: false})); //samo prosti zahtevi
@@ -38,7 +39,7 @@ app.use("/users", userRoutes);
 app.use("/obavestenja", obavestenjeRoutes);
 app.use("/novosti", novostRoutes);
 app.use("/zavodi", zavodRoutes);
-
+app.use("/poruke",porukaRoutes);
 app.use(express.static(path.join(__dirname + "/../dist/")));
 
 //app.use('/',(req,res,next)=>{res.status(200).json({message:"it works!"})});
