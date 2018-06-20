@@ -16,23 +16,17 @@ import {KorisnikComponent} from './korisnik/korisnik.component';
 import {NavbarComponent} from './navbar/navbar.component';
 import {ZavodComponent} from './zavod/zavod.component';
 import {HomeComponent} from './home/home.component';
-<<<<<<< HEAD
 // import {Korisnik2Component} from './korisnik2/korisnik2.component';
 // import { SadrzajKorisnikaComponent } from './sadrzaj-korisnika/sadrzaj-korisnika.component';
 import { UserFormComponent } from './user-form/user-form.component';
 import { NovostFormComponent } from './novost-form/novost-form.component';
 import { ObavestenjeFormaComponent } from './obavestenje-forma/obavestenje-forma.component';
-import {Korisnik2Component} from './korisnik2/korisnik2.component';
-import {SadrzajKorisnikaComponent} from './sadrzaj-korisnika/sadrzaj-korisnika.component';
 import {NovostComponent} from './novost/novost.component';
-import {ZavodInformacijeComponent} from './zavod-informacije/zavod-informacije.component';
 import {ListaNovostiComponent} from './lista-novosti/lista-novosti.component';
-=======
-import {Korisnik2Component} from "./korisnik2/korisnik2.component";
+import {Korisnik2Component} from './korisnik2/korisnik2.component';
 import { SadrzajKorisnikaComponent } from './sadrzaj-korisnika/sadrzaj-korisnika.component';
 import { ZavodInformacijeComponent } from './zavod-informacije/zavod-informacije.component';
 import { PretragaZavodComponent } from './pretraga-zavod/pretraga-zavod.component';
->>>>>>> duci_test
 
 @NgModule({
   declarations: [
@@ -49,19 +43,15 @@ import { PretragaZavodComponent } from './pretraga-zavod/pretraga-zavod.componen
     HomeComponent,
     VestComponent,
     SadrzajKorisnikaComponent,
-<<<<<<< HEAD
     UserFormComponent,
     NovostFormComponent,
     ObavestenjeFormaComponent,
     NovostComponent,
     ZavodInformacijeComponent,
-    ListaNovostiComponent
-  ],
-=======
+    ListaNovostiComponent,
     ZavodInformacijeComponent,
     PretragaZavodComponent
 ],
->>>>>>> duci_test
   imports: [
     BrowserModule,
     FormsModule,
