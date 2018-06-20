@@ -99,13 +99,14 @@ router.post('/ukloniNovost', (req, res) => {
             res.status(404).send(err)
         } else {
             console.log(data);
-            let element = data.novost.filter(el=>{  
-                 if(el.idNovosti=== req.body.idNovosti){
-                   }return el;
+            let element = data.novost.filter(el => {
+                if (el.idNovosti === req.body.idNovosti) {
+                }
+                return el;
             })
-            element.forEach((el,i)=> {
-               //data.novost.indexOf(el));
-                data.novost.splice(data.novost.indexOf(el),1);
+            element.forEach((el, i) => {
+                //data.novost.indexOf(el));
+                data.novost.splice(data.novost.indexOf(el), 1);
             });
             //console.log(data.novost.indexOf(element[0]));
             res.status(200).send(data.novost);
@@ -136,16 +137,17 @@ router.post("/getNovosti", (req, res) => {
         } else {
 
             console.log("Ovde ? For user: " + user.ime);
-            if(user.novost.length!==0){
-            let user2 = user.novost.map(function (val, ind) {
-                return {"_id": val.idNovosti};
-            });
-            console.log
-            Novost.find({$or: [...user2]}, (error2, result2) => {
-                console.log("Novosti for user: ");
-                console.log(result2);
-                res.status(200).send(result2);
-            });}else{
+            if (user.novost.length !== 0) {
+                let user2 = user.novost.map(function (val, ind) {
+                    return {"_id": val.idNovosti};
+                });
+                console.log
+                Novost.find({$or: [...user2]}, (error2, result2) => {
+                    console.log("Novosti for user: ");
+                    console.log(result2);
+                    res.status(200).send(result2);
+                });
+            } else {
                 return res.status(200).send({});
             }
         }
@@ -160,7 +162,7 @@ router.post("/getObavestenja", (req, res) => {
             res.status(404).send(error);
         } else {
 
-            
+
             console.log(user);
             let user2 = user.novost.map(function (val, ind) {
                 return {"_id": val.idNovosti};
@@ -170,28 +172,29 @@ router.post("/getObavestenja", (req, res) => {
 
             console.log("REQUESTED oobavestenja: \n\n\n\n")
             Novost.find({$or: [...user2]}, (error2, data1) => {
-               //console.log("ovde");
-               //console.log(data1);
-                if(data1!==undefined){
+                //console.log("ovde");
+                //console.log(data1);
+                if (data1 !== undefined) {
                     //console.log("udje");
-                let niz = [];
-                data1.forEach(val => {
-                    val.obavestenja.forEach(val2 => {
-                        niz.push(val2);
+                    let niz = [];
+                    data1.forEach(val => {
+                        val.obavestenja.forEach(val2 => {
+                            niz.push(val2);
+                        });
                     });
-                });
-                //console.log("prodje");
+                    //console.log("prodje");
 
-                let data2 = niz.map(function (val, ind) {
-                    return {"_id": val.idObavestenja};
-                });
+                    let data2 = niz.map(function (val, ind) {
+                        return {"_id": val.idObavestenja};
+                    });
 
-                console.log("data 2 rzb",...data2);
+                    console.log("data 2 rzb", ...data2);
 
-                Obavestenje.find({$or: [...data2]}, (error2, result2) => {
-                    console.log(result2);
-                    res.status(200).send(result2);
-                });}else{
+                    Obavestenje.find({$or: [...data2]}, (error2, result2) => {
+                        console.log(result2);
+                        res.status(200).send(result2);
+                    });
+                } else {
                     res.status(200).send({});
                 }
             });
@@ -202,7 +205,7 @@ router.post("/getObavestenja", (req, res) => {
 
 router.post('/removeUser', (req, res) => {
     console.log(req.body);
-    User.deleteOne({brojDavaoca: req.body.brojDavaoca},(err)=> res.status(200).send(err)) 
+    User.deleteOne({brojDavaoca: req.body.brojDavaoca}, (err) => res.status(200).send(err))
 });
 
 router.post('/DodajNovost', (req, res) => {

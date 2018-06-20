@@ -12,7 +12,18 @@ export class Korisnik2Component implements OnInit {
 
   private _activeTab;
 
-  private _user;
+  private _user: {
+    _id: string,
+    email: string,
+    password: string,
+    ime: string,
+    prezime: string,
+    krvnaGrupa: string,
+    tipKorisnika: string,
+    bojDavaoca: string,
+    idZavoda: string,
+    davanja: [{ date: string }]
+  };
 
   private _novosti = [];
 
@@ -20,6 +31,8 @@ export class Korisnik2Component implements OnInit {
     procitana: [],
     neprocitana: []
   };
+
+  private _istorijaDogadjaja = [];
 
   constructor(private _authService: AuthService, private _router: Router, private _postsManager: PostsManagerService) {
 
@@ -35,31 +48,33 @@ export class Korisnik2Component implements OnInit {
 
       this._user = JSON.parse(localStorage.getItem('loggedUserData'));
 
-      this._novosti = JSON.parse(localStorage.getItem('_pracene_novosti'));
-      // ukoliko podaci jos nisu pribavljeni (prvi put posecuje stranicu profil)
-      if (this._novosti == null) {
+      let storedNovosti = localStorage.getItem("_pracene_novosti");
+
+      if (storedNovosti == null) {
         this._postsManager.getUserContent_Novosti(this._user._id).subscribe(
           function (data) {
-            console.log('GOT DATA: \n\n\n\n' + data);
+            console.log("getting novosti from server");
             _this._novosti = data;
+            _this._postsManager.savePraceneNovostiToLocalStorage(_this._novosti);
           },
           function (err) {
             console.log('ERROR');
             console.log(err);
           }
         );
-
-        // save novosti to local storage
-        this._postsManager.savePraceneNovostiToLocalStorage(this._novosti);
-
+      } else {
+        console.log("loadting novosti from storage");
+        this._novosti = JSON.parse(storedNovosti);
       }
 
-      this._obavestenja = JSON.parse(localStorage.getItem('_obavestenja'));
-      // ukoliko podaci jos nisu pribavljeni (prvi put posecuje stranicu profil)
-      if (this._novosti == null) {
+      let storedObavestenja = localStorage.getItem("_obavestenja");
+
+      if (storedObavestenja == null) {
         this._postsManager.getUserContent_Obavestenja(this._user._id).subscribe(
           function (data) {
+            console.log("getting obavestenja from server");
             _this._obavestenja = data;
+            _this._postsManager.saveObavestenjaToLocalStorage(_this._obavestenja);
 
           },
           function (err) {
@@ -67,10 +82,9 @@ export class Korisnik2Component implements OnInit {
             console.log(err);
           }
         );
-
-        // save obavestenja to local storage
-        this._postsManager.saveObavestenjaToLocalStorage(this._obavestenja);
-
+      } else {
+        console.log("loading obavestenja from storage");
+        this._obavestenja=JSON.parse(storedObavestenja);
       }
 
     }

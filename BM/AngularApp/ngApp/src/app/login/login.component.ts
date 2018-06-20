@@ -9,7 +9,6 @@ import {Router} from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-
   loginUserData = {};
 
   constructor(private _auth: AuthService,
@@ -30,7 +29,7 @@ export class LoginComponent implements OnInit {
         let redirectingPath = localStorage.getItem("redirectingPath");
         if (redirectingPath == null)
           redirectingPath = '/';
-        console.log("path took from storage: "+redirectingPath);
+        console.log("path took from storage: " + redirectingPath);
         // clear storage for next routing
         localStorage.removeItem("redirectingPath");
 

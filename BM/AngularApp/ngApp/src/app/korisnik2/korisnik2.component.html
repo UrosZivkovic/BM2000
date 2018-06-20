@@ -3,43 +3,46 @@
     <div class="col-xl-4 col-lg-8 sidebar" id="sidebar" role="navigation">
       <ul class="nav nav-tabs|pills" id="navId">
         <li class="nav-item">
-          <a class="nav-link active">Ime</a>
+          <a class="nav-link active">{{_user.ime}}</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active">Prezime</a>
+          <a class="nav-link active">{{_user.prezime}}</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active">Email</a>
+          <a class="nav-link active">{{_user.email}}</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active">Krvna grupa</a>
+          <a class="nav-link active">{{_user.krvnaGrupa}}</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active">Broj davanja</a>
+          <a class="nav-link active">{{_user.bojDavaoca}}</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active">Datum poslednjeg davanja</a>
+          <!--<a class="nav-link active">{{_user.davanja.pop().date}}</a>-->
         </li>
         <hr>
         <li class="nav-item">
           <a class="nav-link active" data-toggle="collapse" aria-expanded="false" data-target="#tabSaPracenimNovostima"
-          (click)="saveClickHistory($event)">Novosti</a>
+             (click)="saveClickHistory($event)">Novosti</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" data-toggle="collapse" aria-expanded="false" data-target="#tabSaProcitanimObavestenjima"
-          (click)="saveClickHistory($event)">Procitana obavestenja</a>
+          <a class="nav-link active" data-toggle="collapse" aria-expanded="false"
+             data-target="#tabSaProcitanimObavestenjima"
+             (click)="saveClickHistory($event)">Procitana obavestenja</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" data-toggle="collapse" aria-expanded="false" data-target="#tabSaNeprocitanimObavestenjima"
-          (click)="saveClickHistory($event)">Neprocitana obavestenja</a>
+          <a class="nav-link active" data-toggle="collapse" aria-expanded="false"
+             data-target="#tabSaNeprocitanimObavestenjima"
+             (click)="saveClickHistory($event)">Neprocitana obavestenja</a>
         </li>
         <li class="nav-item">
           <a class="nav-link active" data-toggle="collapse" aria-expanded="false" data-target="#tabIstorijeDavanja"
-          (click)="saveClickHistory($event)">Istorija davanja</a>
+             (click)="saveClickHistory($event)">Istorija davanja</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" data-toggle="collapse" aria-expanded="false" data-target="#tabIstorijePrisustvaDogadjajima"
-          (click)="saveClickHistory($event)">Moji dogadjaji</a>
+          <a class="nav-link active" data-toggle="collapse" aria-expanded="false"
+             data-target="#tabIstorijePrisustvaDogadjajima"
+             (click)="saveClickHistory($event)">Moji dogadjaji</a>
         </li>
         <hr>
       </ul>
@@ -52,9 +55,10 @@
         <!-- <app-privilegovana-strana></app-privilegovana-strana> -->
 
 
-        <div class="btn-toolbar" role="toolbar" aria-label="" *ngIf="_authService.getUserType().toLowerCase()=='zaposleni'">
-            <div class="btn-group" role="group" aria-label="">
-              <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#dodavanje_korisnika_form"
+        <div class="btn-toolbar" role="toolbar" aria-label=""
+             *ngIf="_authService.getUserType().toLowerCase()=='zaposleni'">
+          <div class="btn-group" role="group" aria-label="">
+            <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#dodavanje_korisnika_form"
                     aria-expanded="false" aria-controls="dodavanje_korisnika_form" (click)="saveClickHistory($event)">
               Dodavanje korisnika
             </button>
@@ -70,33 +74,32 @@
                     aria-expanded="false" aria-controls="brisanje_naloga_form" (click)="saveClickHistory($event)">
               Brisanje naloga
             </button>
-            </div>
           </div>
-          <div class="collapse" id="dodavanje_korisnika_form">
-            <div class="card card-body">
-              <app-user-form></app-user-form>
-            </div>
+        </div>
+        <div class="collapse" id="dodavanje_korisnika_form">
+          <div class="card card-body">
+            <app-user-form></app-user-form>
           </div>
-          <div class="collapse" id="dodavanje_novosti_form">
-            <div class="card card-body">
-              <app-novost-form></app-novost-form>
-            </div>
+        </div>
+        <div class="collapse" id="dodavanje_novosti_form">
+          <div class="card card-body">
+            <app-novost-form></app-novost-form>
           </div>
-          <div class="collapse" id="belezenje_davanja_form">
-            <div class="card card-body">
-              <app-blezenje-davanja-form></app-blezenje-davanja-form>
-            </div>
+        </div>
+        <div class="collapse" id="belezenje_davanja_form">
+          <div class="card card-body">
+            <app-blezenje-davanja-form></app-blezenje-davanja-form>
           </div>
-          <div class="collapse" id="brisanje_naloga_form">
-            <div class="card card-body">
-              cetvrti veliki neki pasusAnim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad
-              squid. Nihil anim
-              keffiyeh
-              helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
-            </div>
+        </div>
+        <div class="collapse" id="brisanje_naloga_form">
+          <div class="card card-body">
+            cetvrti veliki neki pasusAnim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry
+            richardson ad
+            squid. Nihil anim
+            keffiyeh
+            helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
           </div>
-          
-
+        </div>
 
 
         <div class="row">
@@ -106,13 +109,7 @@
               <div class="col">
                 <div class="collapse multi-collapse" id="tabSaPracenimNovostima">
                   <div class="card card-body">
-
-                    <div class="col-lg-8 mx-auto" *ngFor="let _novost of _novosti">
-                      <h2 class="card-title">{{_novost.naslov}}</h2>
-                      <p class="card-text">{{_novost.sadrzaj}}</p>
-                      <a href="#" class="btn btn-primary">Procitaj jos</a>
-                    </div>
-
+                    <app-lista-novosti [_listaNovosti]="_novosti"></app-lista-novosti>
                   </div>
                 </div>
               </div>
@@ -120,11 +117,7 @@
                 <div class="collapse multi-collapse" id="tabSaProcitanimObavestenjima">
                   <div class="card card-body">
 
-                    <div class="col-lg-8 mx-auto" *ngFor="let _obavestenje of _obavestenja.procitana">
-                      <h2 class="card-title">{{_obavestenje.naslov}}</h2>
-                      <p class="card-text">{{_obavestenje.sadrzaj}}</p>
-                      <a href="#" class="btn btn-primary">Procitaj jos</a>
-                    </div>
+                    <app-lista-novosti [_listaNovosti]="_obavestenja.procitana"></app-lista-novosti>
 
                   </div>
                 </div>
@@ -133,11 +126,7 @@
                 <div class="collapse multi-collapse" id="tabSaNeprocitanimObavestenjima">
                   <div class="card card-body">
 
-                    <div class="col-lg-8 mx-auto" *ngFor="let _obavestenje of _obavestenja.neprocitana">
-                      <h2 class="card-title">{{_obavestenje.naslov}}</h2>
-                      <p class="card-text">{{_obavestenje.sadrzaj}}</p>
-                      <a href="#" class="btn btn-primary">Procitaj jos</a>
-                    </div>
+                    <app-lista-novosti [_listaNovosti]="_obavestenja.neprocitana"></app-lista-novosti>
 
                   </div>
                 </div>
@@ -145,8 +134,8 @@
               <div class="col">
                 <div class="collapse multi-collapse" id="tabIstorijeDavanja">
                   <div class="card card-body">
-                    <h3 *ngFor="let _datum of _user.istorijaDavanja">
-                      {{_datum}}
+                    <h3 *ngFor="let _datum of _user.davanja">
+                      {{_datum.date}}
                     </h3>
                   </div>
                 </div>
@@ -154,7 +143,7 @@
               <div class="col">
                 <div class="collapse multi-collapse" id="tabIstorijePrisustvaDogadjajima">
                   <div class="card card-body">
-                    istorija prisustvovanja dogadjajima
+                    <app-lista-novosti [_listaNovosti]="_istorijaDogadjaj"></app-lista-novosti>
                   </div>
                 </div>
               </div>
