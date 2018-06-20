@@ -91,7 +91,8 @@ router.post('/zavodNovostiInterval', (req, res, next) => {
             } else
                 return res.status(200).json({
                     naslov: "Index ot ouf range",
-                    sadrzaj: "Click to find out more"
+                    sadrzaj: "Click to find out more",
+                    id:"1"
                 });
 
 
