@@ -1,0 +1,53 @@
+<div class="container-fluid">
+  <h4 class="page-header">Drzava:</h4>
+  <div class="row">
+    <div class="col-sm-3">
+      <select class="form-control">
+        <option value="+47">Norge (+47)</option>
+        <option value="+46">Sverige (+46)</option>
+        <option value="+45">Danmark (+45)</option>
+      </select>
+    </div>
+  </div>
+  <br />
+  <h4 class="page-header">Grad:</h4>
+  <div class="row">
+    <div class="col-sm-3">
+      <select class="form-control">
+        <option value="+47">Norge (+47)</option>
+        <option value="+46">Sverige (+46)</option>
+        <option value="+45">Danmark (+45)</option>
+      </select>
+    </div>
+  </div>
+  <br />
+  <h4 class="page-header">Zavod:</h4>
+  <div class="row">
+    <div class="col-sm-3">
+      <select class="form-control">
+        <option value="+47">Norge (+47)</option>
+        <option value="+46">Sverige (+46)</option>
+        <option value="+45">Danmark (+45)</option>
+      </select>
+    </div>
+  </div>
+  <br />
+  <button type="button" name="" id="" class="btn btn-dark"
+   btn-lg btn-block>Submit</button>
+</div>
+
+<script>$(document).ready(function () {
+    // convert selects already on the page at dom load
+    $('select.form-control').combobox();
+
+    $('#it').click(function (e) {
+      $('ul.dropdown-menu').toggle();
+    });
+
+    //  $('input').focus(function(e){
+    //    $('ul.dropdown-menu').toggle();
+    //  });
+
+  });
+
+</script>
