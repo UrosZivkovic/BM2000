@@ -47,6 +47,21 @@ export class PostsManagerService {
 
   }
 
+  public savePostsZavod(newPosts, idZavoda) {
+    const postsFromStorage = localStorage.getItem("novostiZavod" + idZavoda);
+
+    let storedArray;
+
+    if (postsFromStorage != null) {
+      storedArray = JSON.parse(postsFromStorage);
+    } else {
+      storedArray = [];
+    }
+
+    localStorage.setItem("novostiZavod" + idZavoda, JSON.stringify(storedArray.concat(newPosts)));
+
+  }
+
   public getLastPostIndex(): number {
     const storedValue = localStorage.getItem('lastPostIndex');
     // tslint:disable-next-line:curly
@@ -58,9 +73,31 @@ export class PostsManagerService {
       return 0;
   }
 
+  public getLastPostIndexZavod(idZavoda) {
+    const storedValue = localStorage.getItem("lastPostIndexZavod" + idZavoda);
+    if (storedValue != null)
+      return parseInt(storedValue);
+    else
+      return 0;
+  }
+
+  public getLastDefaultNovostiIndex() {
+    const storedValue = localStorage.getItem("lastDefaultNovostiIndex");
+    if (storedValue != null)
+      return parseInt(storedValue);
+    else
+      return 0;
+  }
+
+
   public saveLastPostIndex(index) {
     localStorage.setItem('lastPostIndex', index);
   }
+
+  public saveLastDefaultNovostiIndex(index) {
+    localStorage.setItem("lastDefaultNovostiIndex", index);
+  }
+
 
   public getUserContent_Novosti(userId) {
     console.log('Sending request for pracene_novosti on: ' + this._userContent_NovostiUrl);
@@ -81,7 +118,6 @@ export class PostsManagerService {
   }
 
   public userSubscribedToPost(postId: string) {
-    console.log("Posts manager " + postId);
     return true;
   }
 
@@ -89,8 +125,41 @@ export class PostsManagerService {
     console.log("Subscibing to " + postId);
   }
 
-  public unsubscribeFromPost( postId: string) {
+  public unsubscribeFromPost(postId: string) {
     console.log("Unsubscribing " + postId);
+  }
+
+
+  public getNextPostsZavod(firstIndex, lastIndex) {
+    return this._http.post<any>(this._serverConfig.getZavodNovostiInterval(), {
+      fistIndex: firstIndex,
+      lastIndex: lastIndex
+    });
+  }
+
+  public saveLastPostIndexZavod(index, idZavod) {
+    localStorage.setItem("lastPostIndexZavod" + idZavod, index);
+  }
+
+  public getDefaultNovosti(_firstIndex, _lastIndex) {
+    return this._http.post<any>(this._serverConfig.getDefaultNovosti(), {
+      firstIndex: _firstIndex,
+      lastIndex: _lastIndex
+    });
+  }
+
+  public saveDefaultNovosti(data) {
+    const postsFromStorage = localStorage.getItem("defaultNovosti");
+
+    let storedArray;
+
+    if (postsFromStorage != null) {
+      storedArray = JSON.parse(postsFromStorage);
+    } else {
+      storedArray = [];
+    }
+
+    localStorage.setItem("defaultNovosti", JSON.stringify(storedArray.concat(data)));
   }
 
 

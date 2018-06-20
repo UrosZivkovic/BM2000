@@ -72,4 +72,13 @@ export class ServerConfigurationService {
   public getZabeleziDavanjeUrl(){
     return this.getFullServerAddress()+'/users/davanjeKrvi';
   }
+  public getZavodNovostiInterval(){
+    return this.getFullServerAddress()+'/zavod/NovostiInterval';
+  }
+
+  public getDefaultNovosti(){
+    // firstIndex lastIndex
+    return this.getFullServerAddress()+'/novosti/interval'
+  }
+
 }

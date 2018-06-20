@@ -80,10 +80,50 @@ export class ZavodComponent implements OnInit {
 
   private _lastPostIndexZavod;
 
-  constructor(private _postsManger: PostsManagerService) {
+  constructor(private _postsManager: PostsManagerService) {
+    this._lastPostIndexZavod = this._postsManager.getLastPostIndexZavod("lastPostIndexZavod" + this._listaZavoda[this._prikazaniZavod].id);
+    console.log("_lastPostIndex set to : " + this._lastPostIndexZavod);
   }
 
   ngOnInit() {
+
+    let _this = this;
+
+    let savedPosts = localStorage.getItem("currentPostsZavod" + this._listaZavoda[this._prikazaniZavod].id);
+    console.log("INITIAL STORAGE STATE: \n" + savedPosts);
+    if (savedPosts != null) {
+
+      console.log("Loading posts from storage");
+
+      this._listaPostova = JSON.parse(savedPosts);
+
+    } else {
+
+      console.log("Sending request for posts");
+
+      this.getNextNovosti(2);
+
+    }
+
+  }
+
+  private getNextNovosti(count) {
+    //firstIndex lastIndex idZavoda
+    let _this = this;
+
+    this._postsManager.getNextPostsZavod(this._lastPostIndexZavod, this._lastPostIndexZavod + count).subscribe(
+      function (data) {
+        _this._listaPostova.concat(data);
+        _this._lastPostIndexZavod += count;
+
+        _this._postsManager.saveLastPostIndexZavod(_this._lastPostIndexZavod, _this._listaZavoda[_this._prikazaniZavod].id);
+        _this._postsManager.savePostsZavod(data, _this._listaZavoda[_this._prikazaniZavod].id);
+
+      },
+      function (err) {
+        console.log(err);
+      }
+    )
   }
 
   private saveClickHistory(event) {
@@ -99,14 +139,10 @@ export class ZavodComponent implements OnInit {
 
   }
 
-  private getNovosti() {
-  }
-
   private prikaziOZavodu(trazeniZavod) {
-    // ovo sigurno moze bolje, al necemo sad o tome
-    let _this = this;
 
     this._prikazaniZavod = this._listaZavoda.indexOf(trazeniZavod);
+
   }
 }
 
