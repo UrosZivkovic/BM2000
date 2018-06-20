@@ -12,6 +12,7 @@ import {ZavodInformacijeComponent} from "./zavod-informacije/zavod-informacije.c
 import {PretragaZavodComponent} from "./pretraga-zavod/pretraga-zavod.component";
 import {PrivilegovanaStranaComponent} from "./privilegovana-strana/privilegovana-strana.component";
 import {ZavodComponent} from "./zavod/zavod.component";
+import { InformacijeDavanjeComponent } from './informacije-davanje/informacije-davanje.component';
 
 const routes: Routes = [
   {
@@ -26,7 +27,7 @@ const routes: Routes = [
   },
   {
     path: 'informacije',
-    component: ZavodInformacijeComponent
+    component: InformacijeDavanjeComponent
   },
   {
     path: 'home',

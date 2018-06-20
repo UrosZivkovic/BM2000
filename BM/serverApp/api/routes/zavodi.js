@@ -44,14 +44,17 @@ router.post('/add', (req, res, next) => {
     //     name:req.body.name,
     //     price: req.body.price
     // };
-
+    console.log(req.body);
     const zavod = new Zavod({
         _id: new mongoose.Types.ObjectId(),
-        name: req.body.name,
-        price: req.body.price,
         idZavoda: req.body.idZavoda,
-        naslov: req.body.naslov,
-        sadrzaj: req.body.sadrzaj
+        drzava: req.body.drzava,
+        grad: req.body.grad,
+        naziv: req.body.naziv,
+        adresa: req.body.adresa,
+        informacije: req.body.informacije
+
+        
     });
 
     zavod.save()//mongoosova fja koja cuva
@@ -66,5 +69,8 @@ router.post('/add', (req, res, next) => {
     })
 });
 
+router.post("/deleteall",(req,res)=>{
+    Zavod.deleteMany({},err=>res.status(200).send(err))
+})
 
 module.exports = router;
