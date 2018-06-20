@@ -51,7 +51,7 @@ export class PostsManagerService {
     const storedValue = localStorage.getItem('lastPostIndex');
     // tslint:disable-next-line:curly
     if (storedValue != null)
-      // tslint:disable-next-line:radix
+    // tslint:disable-next-line:radix
       return parseInt(storedValue);
     // tslint:disable-next-line:curly
     else
@@ -79,5 +79,19 @@ export class PostsManagerService {
   public saveObavestenjaToLocalStorage(obavestenja: {}) {
 
   }
+
+  public userSubscribedToPost(postId: string) {
+    console.log("Posts manager " + postId);
+    return true;
+  }
+
+  public subscribeToPost(postId: string) {
+    console.log("Subscibing to " + postId);
+  }
+
+  public unsubscribeFromPost( postId: string) {
+    console.log("Unsubscribing " + postId);
+  }
+
 
 }

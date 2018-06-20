@@ -1,16 +1,37 @@
 <div class="card">
   <div class="card-header" role="tab">
-    <h5 class="mb-0">
-      <a class="collapsed" data-parent="#accordion" data-toggle="collapse" href="#{{_dataId}}"
+    <h2 class="mb-0">
+      <a class="collapsed btn btn-outline-secondary btn-lg" data-parent="#accordion" data-toggle="collapse"
+         href="#{{_dataId}}"
          aria-expanded="false">
         {{_naslov}}
       </a>
-    </h5>
+    </h2>
   </div>
 
   <div id="{{_dataId}}" class="collapse" role="tabpanel">
-    <div class="card-block">
-      {{_sadrzaj}}
+    <div class="container">
+      <h1>Blockquotes</h1>
+      <p>The blockquote element is used to present content from another source:</p>
+      <blockquote>
+        <div>{{_sadrzaj}}</div>
+        <footer>From WWF's website</footer>
+      </blockquote>
     </div>
+
+    <div *ngIf="!_authService.loggedIn()" class="btn-group" role="group" aria-label="Basic example">
+
+      <button type="button" class="btn btn-info" (click)="_postsManager.subscribeToPost({{_dataId}})">Prati novost</button>
+
+      <button *ngIf="_postsManager.userSubscribedToPost(_dataId)" type="button" class="btn btn-danger" (click)="_postsManager.unsubscribeFromPost({{_dataId}})">Prestani sa
+        pracenjem
+      </button>
+
+      <button type="button" class="btn btn-default">Dodaj obavestenje</button>
+      <!--*ngIf="_authService.getUserType().toLowerCase()=='zaposleni'"-->
+    </div>
+
   </div>
 </div>
+
+
