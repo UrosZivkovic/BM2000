@@ -21,9 +21,9 @@
 
     <div *ngIf="!_authService.loggedIn()" class="btn-group" role="group" aria-label="Basic example">
 
-      <button type="button" class="btn btn-info">Prati novost</button>
+      <button type="button" class="btn btn-info" (click)="_postsManager.subscribeToPost({{_dataId}})">Prati novost</button>
 
-      <button *ngIf="_postsManager.userSubscribedToPost(_dataId)" type="button" class="btn btn-danger">Prestani sa
+      <button *ngIf="_postsManager.userSubscribedToPost(_dataId)" type="button" class="btn btn-danger" (click)="_postsManager.unsubscribeFromPost({{_dataId}})">Prestani sa
         pracenjem
       </button>
 

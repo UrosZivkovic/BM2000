@@ -85,12 +85,12 @@ export class PostsManagerService {
     return true;
   }
 
-  public subscribeToPost(userId: string) {
-    console.log("Subscibing to " + userId);
+  public subscribeToPost(postId: string) {
+    console.log("Subscibing to " + postId);
   }
 
-  public unsubscribeFromPost(userId: string, postId: string) {
-    console.log("Unsubscribing" + userId + " from " + postId);
+  public unsubscribeFromPost( postId: string) {
+    console.log("Unsubscribing " + postId);
   }
 
 
