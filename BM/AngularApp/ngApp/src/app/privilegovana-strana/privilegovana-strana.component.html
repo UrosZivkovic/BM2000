@@ -1,5 +1,6 @@
-<p>
-  <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#dodavanje_korisnika_form"
+<div class="btn-toolbar" role="toolbar" aria-label="" *ngIf="_authService.getUserType().toLowerCase()=='zaposleni'">
+  <div class="btn-group" role="group" aria-label="">
+    <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#dodavanje_korisnika_form"
           aria-expanded="false" aria-controls="dodavanje_korisnika_form" (click)="saveClickHistory($event)">
     Dodavanje korisnika
   </button>
@@ -15,8 +16,8 @@
           aria-expanded="false" aria-controls="brisanje_naloga_form" (click)="saveClickHistory($event)">
     Brisanje naloga
   </button>
-</p>
-
+  </div>
+</div>
 <div class="collapse" id="dodavanje_korisnika_form">
   <div class="card card-body">
     <app-user-form></app-user-form>
