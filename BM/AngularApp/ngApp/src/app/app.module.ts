@@ -30,6 +30,10 @@ import { PretragaZavodComponent } from './pretraga-zavod/pretraga-zavod.componen
 import { Home2Component } from './home2/home2.component';
 import { PrivilegovanaStranaComponent } from './privilegovana-strana/privilegovana-strana.component';
 import { BlezenjeDavanjaFormComponent } from './blezenje-davanja-form/blezenje-davanja-form.component';
+import { InformacijeDavanjeComponent } from './informacije-davanje/informacije-davanje.component';
+import { ONamaFormComponent } from './o-nama-form/o-nama-form.component';
+import { ZnacajDavanjaKrviFormComponent } from './znacaj-davanja-krvi-form/znacaj-davanja-krvi-form.component';
+import { ProcesDavanjaKrviFormComponent } from './proces-davanja-krvi-form/proces-davanja-krvi-form.component';
 
 
 @NgModule({
@@ -57,7 +61,11 @@ import { BlezenjeDavanjaFormComponent } from './blezenje-davanja-form/blezenje-d
     PretragaZavodComponent,
     Home2Component,
     PrivilegovanaStranaComponent,
-    BlezenjeDavanjaFormComponent
+    BlezenjeDavanjaFormComponent,
+    InformacijeDavanjeComponent,
+    ONamaFormComponent,
+    ZnacajDavanjaKrviFormComponent,
+    ProcesDavanjaKrviFormComponent
 ],
   imports: [
     BrowserModule,
