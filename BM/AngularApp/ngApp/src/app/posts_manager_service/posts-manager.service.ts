@@ -167,7 +167,7 @@ export class PostsManagerService {
   }
 
   public saveZavodi(data) {
-    localStorage.setItem("zavodiStorage", data);
+    localStorage.setItem("zavodiStorage", JSON.stringify(data));
   }
 
 
