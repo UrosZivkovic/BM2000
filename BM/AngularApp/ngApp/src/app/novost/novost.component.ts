@@ -1,4 +1,6 @@
 import {Component, OnInit, Input} from '@angular/core';
+import {AuthService} from "../auth.service";
+import {PostsManagerService} from "../posts_manager_service/posts-manager.service";
 
 @Component({
   selector: 'app-novost',
@@ -9,15 +11,10 @@ export class NovostComponent implements OnInit {
 
   @Input() _dataId;
 
-<<<<<<< HEAD
-  @Input()_naslov = "neki tamo naslov";
+  @Input() _naslov = "neki tamo naslov";
   @Input() _sadrzaj = "neki tamo sadrzaj";
-=======
-  public _naslov = 'neki tamo naslov';
-  public _sadrzaj = 'neki tamo sadrzaj';
->>>>>>> 1cab45880b21580c4a3c30ff0d8ac530abbeca6c
 
-  constructor() {
+  constructor(private _authService: AuthService,private _postsManager:PostsManagerService) {
   }
 
   ngOnInit() {
