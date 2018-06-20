@@ -35,6 +35,7 @@ router.post("/add", (req, res, nest) => {
 
 router.get('/all', (req, res, next) => {
     Poruka.find()
+        .sort('-date')
         .exec()
         .then(docs => {
             console.log(docs);

@@ -70,7 +70,7 @@ export class ServerConfigurationService {
   }
 
   public getZabeleziDavanjeUrl() {
-    console.log('adresa pribaljena');
+    // console.log('adresa pribaljena');
     return this.getFullServerAddress() + '/users/davanjeKrvi';
   }
   public getZavodNovostiInterval() {
@@ -89,5 +89,10 @@ export class ServerConfigurationService {
   public getZavodiUrl() {
     return this.getFullServerAddress() + '/zavodi/all';
   }
-
+  public getObrisiUser() {
+    return this.getFullServerAddress() + '/poruke/removeUser';
+  }
+  public getPosaljiPoruku() {
+    return this.getFullServerAddress() + '/poruke/add';
+  }
 }

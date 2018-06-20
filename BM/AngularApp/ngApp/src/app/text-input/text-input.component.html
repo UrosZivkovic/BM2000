@@ -1,8 +1,8 @@
 <div class="col-lg-1 col-offset-6 centered">
   <div class="form-group">
     <label for="comment">Text:</label>
-    <textarea class="form-control" rows="5" id="comment"></textarea>
+    <textarea [(ngModel)]="userData.sadrzaj" name="sadrzaj" class="form-control" rows="5" id="comment"></textarea>
   </div>
-  <button type="button" name="" id="" class="btn btn-light" btn-lg btn-block>Posalji</button>
+  <button (click)="submitForm()" type="button" name="" id="" class="btn btn-light" btn-lg btn-block>Posalji</button>
 </div>
 
