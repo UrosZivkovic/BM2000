@@ -28,20 +28,18 @@
         pracenjem
       </button>
 
-      <button *ngIf="_authService.getUserType().toLowerCase()=='zaposleni'" class="btn btn-primary" type="button"
-              data-toggle="collapse" data-target="#dodajObavestenjeForm"
-              aria-expanded="false" aria-controls="dodajObavestenjeForm">
+      <a type="button" class=" btn btn-default"
+         data-toggle="collapse" href="#{{_dataId}}obavForm" aria-expanded="false">
         Dodaj obavestenje
-      </button>
+      </a>
 
     </div>
 
-    <div class="collapse" id="dodajObavestenjeForm">
+    <div class="collapse" id="{{_dataId}}obavForm">
       <div class="card card-body">
         <app-obavestenje-forma></app-obavestenje-forma>
       </div>
     </div>
-
 
   </div>
 </div>

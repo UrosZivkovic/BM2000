@@ -6,7 +6,7 @@
       </div>
       <div class="card-body">
         <form class="form">
-          
+
           <div class="form-group">
             <label for="">Zavod</label>
             <input [(ngModel)]="userData.idZavoda" name="idZavoda" type="text" class="form-control rounded-0" required>
@@ -19,13 +19,13 @@
             <label for="">Datum</label>
             <input [(ngModel)]="userData.datum" name="datum" type="text" class="form-control rounded-0" required>
           </div>
-          
-          
-            <div class="form-group">
-              <label for="">Tekst</label>
-              <textarea style="height:300px" [(ngModel)]="userData.sadrzaj" name="sadrzaj" rows="10" class="form-control" aria-label="With textarea"></textarea>
-            </div>
-            <br>
+
+          <div class="form-group">
+            <label for="">Tekst</label>
+            <textarea style="height:300px" [(ngModel)]="userData.sadrzaj" name="sadrzaj" rows="10" class="form-control"
+                      aria-label="With textarea"></textarea>
+          </div>
+          <br>
 
           <button (click)="submitForm()" type="button" class="btn btn-primary float-right">Register</button>
         </form>

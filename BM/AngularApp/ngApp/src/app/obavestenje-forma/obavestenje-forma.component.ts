@@ -7,7 +7,9 @@ import { FormeService } from '../forme.service';
 })
 export class ObavestenjeFormaComponent implements OnInit {
   userData = {};
+  
   constructor(private _formeService: FormeService) { }
+
   submitForm() {
 
     console.log(this.userData);
