@@ -3,6 +3,7 @@
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$">
       <excludeFolder url="file://$MODULE_DIR$/.tmp" />
+      <excludeFolder url="file://$MODULE_DIR$/mobileApp/node_modules/cordova-plugin-crosswalk-webview/platforms" />
       <excludeFolder url="file://$MODULE_DIR$/mobileApp/platforms" />
       <excludeFolder url="file://$MODULE_DIR$/mobileApp/plugins/cordova-plugin-crosswalk-webview/platforms" />
       <excludeFolder url="file://$MODULE_DIR$/temp" />

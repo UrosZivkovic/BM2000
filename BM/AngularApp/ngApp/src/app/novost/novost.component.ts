@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, Input} from '@angular/core';
 
 @Component({
   selector: 'app-novost',
@@ -7,10 +7,15 @@ import {Component, OnInit} from '@angular/core';
 })
 export class NovostComponent implements OnInit {
 
-  public _dataId;
+  @Input() _dataId;
 
+<<<<<<< HEAD
+  @Input()_naslov = "neki tamo naslov";
+  @Input() _sadrzaj = "neki tamo sadrzaj";
+=======
   public _naslov = 'neki tamo naslov';
   public _sadrzaj = 'neki tamo sadrzaj';
+>>>>>>> 1cab45880b21580c4a3c30ff0d8ac530abbeca6c
 
   constructor() {
   }

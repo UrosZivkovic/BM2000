@@ -7,10 +7,7 @@ import {Component, OnInit} from '@angular/core';
 })
 export class ListaNovostiComponent implements OnInit {
 
-  private _listaNovosti = [
-    {id: "1234", naslov: "Naslov 1", sadrzaj: "sadrzaj 1"},
-    {id: "4321", naslov: "naslov2", sadrzaj: "sadrzaj 2"}
-  ];
+  @Input() _listaNovosti ;
 
   constructor() {
   }
