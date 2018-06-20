@@ -98,10 +98,15 @@ router.post('/ukloniNovost', (req, res) => {
             res.status(404).send(err)
         } else {
             console.log(data);
-            let removeIndex = data.novost.map((val, i) => {
-                val.idNovosti
-            })//.indexOf(req.body.idNovosti)
-            console.log(removeIndex);
+            let element = data.novost.filter(el=>{  
+                 if(el.idNovosti=== req.body.idNovosti){
+                   }return el;
+            })
+            element.forEach((el,i)=> {
+               //data.novost.indexOf(el));
+                data.novost.splice(data.novost.indexOf(el),1);
+            });
+            //console.log(data.novost.indexOf(element[0]));
             res.status(200).send(data.novost);
         }
     })

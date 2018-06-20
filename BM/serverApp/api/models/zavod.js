@@ -7,7 +7,7 @@ const zavodSchema = mongoose.Schema({
     grad: String,
     adresa: String,
     naziv: String,
-    obavestenja: [String]
+    indofrmacije: String
 });
 
 module.exports = mongoose.model('Zavod', zavodSchema);
