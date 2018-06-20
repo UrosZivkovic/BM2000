@@ -25,17 +25,17 @@ export class ObavestenjeFormaComponent implements OnInit {
   _loggedUser: {
     _id: string
     email: string,
-    password: String,
-    ime: String,
-    prezime: String,
-    brojDavaoca: String,
-    krvnaGrupa: String,
-    obavestenja: [String],
-    poruke: [{ idPoruke: String }],
-    tipKorisnika: String,
-    novost: [{ idNovosti: String }],
-    davanja: [{ date: String }],
-    idZavoda: String
+    password: string,
+    ime: string,
+    prezime: string,
+    brojDavaoca: string,
+    krvnaGrupa: string,
+    obavestenja: [string],
+    poruke: [{ idPoruke: string }],
+    tipKorisnika: string,
+    novost: [{ idNovosti: string }],
+    davanja: [{ date: string }],
+    idZavoda: string
   };
 
   constructor(private _formeService: FormeService) {

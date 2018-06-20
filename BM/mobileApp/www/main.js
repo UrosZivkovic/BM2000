@@ -156,7 +156,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container-fluid\" style=\"margin-bottom: 50px; width: 100vw;\">\n  <nav class=\"navbar navbar-default navbar-fixed-top\">\n    <div class=\"container\" style=\"margin-left: 1px;\">\n      <div class=\"navbar-header\">\n        <button type=\"button\" class=\"navbar-toggle collapsed\" data-toggle=\"collapse\" data-target=\"#bs-example-navbar-collapse-1\"\n          aria-expanded=\"false\">\n          <span class=\"sr-only\">Toggle navigation</span>\n          <span class=\"icon-bar\"></span>\n          <span class=\"icon-bar\"></span>\n          <span class=\"icon-bar\"></span>\n        </button>\n        <a class=\"navbar-brand\" routerLink=\"/\">BloodMaster2000</a>\n      </div>\n\n      <!-- Collect the nav links, forms, and other content for toggling -->\n      <div class=\"collapse navbar-collapse\" id=\"bs-example-navbar-collapse-1\">\n        <ul class=\"nav navbar-nav\">\n          <li class=\"active\">\n            <a routerLink=\"/home\">Home\n              <span class=\"sr-only\">(current)</span>\n            </a>\n          </li>\n          <li class=\"active\">\n            <a routerLink=\"/informacije\">Informacije\n              <span class=\"sr-only\">(current)</span>\n            </a>\n          </li>\n          <li class=\"active\">\n            <a routerLink=\"/zavod\">Zavod\n              <span class=\"sr-only\">(current)</span>\n            </a>\n          </li>\n        </ul>\n\n        <ul class=\"nav navbar-nav navbar-right\">\n          <li>\n            <a class=\"nav-link\" *ngIf=\"_authService.loggedIn()\" routerLink=\"/profil\" routerLinkActive=\"active\">Moj nalog</a>\n          </li>\n\n          <li>\n            <a class=\"nav-link\" *ngIf=\"!_authService.loggedIn()\" routerLink=\"/login\" routerLinkActive=\"active\">\n              <span class=\"glyphicon glyphicon-log-in\"></span> Login</a>\n          </li>\n          <li>\n            <a style=\"cursor:pointer\" *ngIf=\"_authService.loggedIn()\" class=\"nav-link\" (click)=\"_authService.logoutUser()\">\n              <span class=\"glyphicon glyphicon-log-out\"></span> Logout</a>\n          </li>\n        </ul>\n      </div>\n    </div>\n  </nav>\n\n<div style=\"padding-top: 50px; padding-left: 10px;\">\n  <router-outlet></router-outlet>\n</div>\n</div>\n"
+module.exports = "<div class=\"container-fluid\" style=\"margin-bottom: 50px; width: 100vw;\">\n  <nav class=\"navbar navbar-default navbar-fixed-top\">\n    <div class=\"container\" style=\"margin-left: 1px;\">\n      <div class=\"navbar-header\">\n        <button type=\"button\" class=\"navbar-toggle collapsed\" data-toggle=\"collapse\" data-target=\"#bs-example-navbar-collapse-1\"\n          aria-expanded=\"false\">\n          <span class=\"sr-only\">Toggle navigation</span>\n          <span class=\"icon-bar\"></span>\n          <span class=\"icon-bar\"></span>\n          <span class=\"icon-bar\"></span>\n        </button>\n        <a class=\"navbar-brand\" routerLink=\"/\">BloodMaster2000</a>\n      </div>\n\n      <!-- Collect the nav links, forms, and other content for toggling -->\n      <div class=\"collapse navbar-collapse\" id=\"bs-example-navbar-collapse-1\">\n        <ul class=\"nav navbar-nav\">\n          <li class=\"active\">\n            <a routerLink=\"/home\">Home\n              <span class=\"sr-only\">(current)</span>\n            </a>\n          </li>\n          <li class=\"active\">\n            <a routerLink=\"/informacije\">Informacije\n              <span class=\"sr-only\">(current)</span>\n            </a>\n          </li>\n          <li class=\"active\">\n            <a routerLink=\"/zavod\">Zavod\n              <span class=\"sr-only\">(current)</span>\n            </a>\n          </li>\n        </ul>\n\n        <ul class=\"nav navbar-nav navbar-right\">\n          <li>\n            <a class=\"nav-link\" *ngIf=\"_authService.loggedIn()\" routerLink=\"/profil\" routerLinkActive=\"active\">Moj nalog</a>\n          </li>\n\n          <li>\n            <a class=\"nav-link\" *ngIf=\"!_authService.loggedIn()\" routerLink=\"/login\" routerLinkActive=\"active\">\n              <span class=\"glyphicon glyphicon-log-in\"></span> Login</a>\n          </li>\n          <li>\n            <a style=\"cursor:pointer\" *ngIf=\"_authService.loggedIn()\" class=\"nav-link\" (click)=\"_authService.logoutUser()\">\n              <span class=\"glyphicon glyphicon-log-out\"></span> Logout</a>\n          </li>\n        </ul>\n      </div>\n    </div>\n  </nav>\n\n<div style=\"padding-top: 50px; padding-left: 10px;\">\n  <!-- <router-outlet></router-outlet> -->\n  <app-zavod></app-zavod>\n</div>\n</div>\n"
 
 /***/ }),
 
@@ -264,6 +264,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _proces_davanja_krvi_form_proces_davanja_krvi_form_component__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(/*! ./proces-davanja-krvi-form/proces-davanja-krvi-form.component */ "./src/app/proces-davanja-krvi-form/proces-davanja-krvi-form.component.ts");
 /* harmony import */ var _bezbednost_davanja_krvi_form_bezbednost_davanja_krvi_form_component__WEBPACK_IMPORTED_MODULE_34__ = __webpack_require__(/*! ./bezbednost-davanja-krvi-form/bezbednost-davanja-krvi-form.component */ "./src/app/bezbednost-davanja-krvi-form/bezbednost-davanja-krvi-form.component.ts");
 /* harmony import */ var _obrisi_user_form_obrisi_user_form_component__WEBPACK_IMPORTED_MODULE_35__ = __webpack_require__(/*! ./obrisi-user-form/obrisi-user-form.component */ "./src/app/obrisi-user-form/obrisi-user-form.component.ts");
+/* harmony import */ var _poruka_poruka_component__WEBPACK_IMPORTED_MODULE_36__ = __webpack_require__(/*! ./poruka/poruka.component */ "./src/app/poruka/poruka.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -290,6 +291,7 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 // import {Korisnik2Component} from './korisnik2/korisnik2.component';
 // import { SadrzajKorisnikaComponent } from './sadrzaj-korisnika/sadrzaj-korisnika.component';
+
 
 
 
@@ -343,7 +345,8 @@ var AppModule = /** @class */ (function () {
                 _znacaj_davanja_krvi_form_znacaj_davanja_krvi_form_component__WEBPACK_IMPORTED_MODULE_32__["ZnacajDavanjaKrviFormComponent"],
                 _proces_davanja_krvi_form_proces_davanja_krvi_form_component__WEBPACK_IMPORTED_MODULE_33__["ProcesDavanjaKrviFormComponent"],
                 _bezbednost_davanja_krvi_form_bezbednost_davanja_krvi_form_component__WEBPACK_IMPORTED_MODULE_34__["BezbednostDavanjaKrviFormComponent"],
-                _obrisi_user_form_obrisi_user_form_component__WEBPACK_IMPORTED_MODULE_35__["ObrisiUserFormComponent"]
+                _obrisi_user_form_obrisi_user_form_component__WEBPACK_IMPORTED_MODULE_35__["ObrisiUserFormComponent"],
+                _poruka_poruka_component__WEBPACK_IMPORTED_MODULE_36__["PorukaComponent"]
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
@@ -726,10 +729,12 @@ var FormeService = /** @class */ (function () {
     FormeService.prototype.sendNovostiForm = function (user) {
         return this.http.post(this._serverConfig.getNovostSendForm(), user);
     };
-    FormeService.prototype.sendObavestenjeForm = function (user) {
-        console.log('doso do httpa----------------------------------------------');
-        console.log(this._serverConfig.getObavestenjeSendForm());
-        return this.http.post(this._serverConfig.getObavestenjeSendForm(), user);
+    FormeService.prototype.sendObavestenjeForm = function (obavestenje) {
+        console.log("dodaje obavestenje");
+        return this.http.post(this._serverConfig.getAddObavestenjeUrl(), obavestenje);
+    };
+    FormeService.prototype.addObavestenjeToNovost = function (podaci) {
+        return this.http.post(this._serverConfig.getAddObavestenjaToNovost(), podaci);
     };
     FormeService.prototype.sendZabeleziDavanje = function (davanje) {
         console.log('zabelezi');
@@ -758,7 +763,7 @@ var FormeService = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ""
+module.exports = ".fullscreen {\n    left: 0;\n    right: 0;\n    position: fixed;\n}"
 
 /***/ }),
 
@@ -769,7 +774,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div>\n  <app-lista-novosti [_listaNovosti]=\"_defaultPost\"></app-lista-novosti>\n</div>\n"
+module.exports = "<div class = \"fullscreen\">\n  <app-lista-novosti [_listaNovosti]=\"_defaultPost\"></app-lista-novosti>\n</div>\n"
 
 /***/ }),
 
@@ -1573,7 +1578,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"card\">\n  <div class=\"card-header\" role=\"tab\">\n    <h2 class=\"mb-0\" >\n      <a type=\"button\" class=\" btn btn-secondary btn-block\" data-parent=\"#accordion\"\n         data-toggle=\"collapse\" href=\"#{{_dataId}}\" aria-expanded=\"false\">\n        {{_naslov}}\n      </a>\n    </h2>\n  </div>\n\n  <div id=\"{{_dataId}}\" class=\"collapse\" role=\"tabpanel\">\n    <div class=\"container\">\n      <h1>Blockquotes</h1>\n      <p>The blockquote element is used to present content from another source:</p>\n      <blockquote>\n        <div>{{_sadrzaj}}</div>\n        <footer>From WWF's website</footer>\n      </blockquote>\n    </div>\n\n    <div *ngIf=\"_authService.loggedIn()\" class=\"btn-group\" role=\"group\" aria-label=\"Basic example\">\n\n      <button type=\"button\" class=\"btn btn-info\" (click)=\"_postsManager.subscribeToPost(_dataId)\">Prati novost\n      </button>\n\n      <button *ngIf=\"_postsManager.userSubscribedToPost(_dataId)\" type=\"button\" class=\"btn btn-danger\"\n              (click)=\"_postsManager.unsubscribeFromPost(_dataId)\">Prestani sa\n        pracenjem\n      </button>\n\n      <a type=\"button\" class=\" btn btn-default\"\n         data-toggle=\"collapse\" href=\"#{{_dataId}}obavForm\" aria-expanded=\"false\">\n        Dodaj obavestenje\n      </a>\n\n    </div>\n\n    <div class=\"collapse\" id=\"{{_dataId}}obavForm\">\n      <div class=\"card card-body\">\n        <app-obavestenje-forma></app-obavestenje-forma>\n      </div>\n    </div>\n\n  </div>\n</div>\n\n\n"
+module.exports = "<div class=\"card\">\n  <div class=\"card-header\" role=\"tab\">\n    <h2 class=\"mb-0\" >\n      <a type=\"button\" class=\" btn btn-secondary btn-block\" data-parent=\"#accordion\"\n         data-toggle=\"collapse\" href=\"#{{_dataId}}\" aria-expanded=\"false\">\n        {{_naslov}}\n      </a>\n    </h2>\n  </div>\n\n  <div id=\"{{_dataId}}\" class=\"collapse\" role=\"tabpanel\">\n    <div class=\"container\">\n      <h1>{{_naslov}}</h1>\n      <blockquote>\n        <div>{{_sadrzaj}}</div>\n      </blockquote>\n    </div>\n\n    <div *ngIf=\"_authService.loggedIn()\" class=\"btn-group\" role=\"group\" aria-label=\"Basic example\">\n\n      <button type=\"button\" class=\"btn btn-info\" (click)=\"_postsManager.subscribeToPost(_dataId)\">Prati novost\n      </button>\n\n      <button *ngIf=\"_postsManager.userSubscribedToPost(_dataId)\" type=\"button\" class=\"btn btn-danger\"\n              (click)=\"_postsManager.unsubscribeFromPost(_dataId)\">Prestani sa\n        pracenjem\n      </button>\n\n      <a type=\"button\" class=\" btn btn-default\"\n         data-toggle=\"collapse\" href=\"#{{_dataId}}obavForm\" aria-expanded=\"false\">\n        Dodaj obavestenje\n      </a>\n\n    </div>\n\n    <div class=\"collapse\" id=\"{{_dataId}}obavForm\">\n      <div class=\"card card-body\">\n        <app-obavestenje-forma [idPosta]=\"_dataId\"></app-obavestenje-forma>\n      </div>\n    </div>\n\n  </div>\n</div>\n\n\n"
 
 /***/ }),
 
@@ -1719,7 +1724,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"row pt-5\">\n  <div class=\"col-md-6 mx-auto\">\n    <div class=\"card rounded-0\">\n      <div class=\"card-header\">\n        <h3 class=\"mb-0\">Obavestenje</h3>\n      </div>\n      <div class=\"card-body\">\n        <form class=\"form\">\n\n          <div class=\"form-group\">\n            <label for=\"\">Zavod</label>\n            <input [(ngModel)]=\"userData.idZavoda\" name=\"idZavoda\" type=\"text\" class=\"form-control rounded-0\" required>\n          </div>\n          <div class=\"form-group\">\n            <label for=\"\">Naslov</label>\n            <input [(ngModel)]=\"userData.naslov\" name=\"naslov\" type=\"text\" class=\"form-control rounded-0\" required>\n          </div>\n          \n\n          <div class=\"form-group\">\n            <label for=\"\">Tekst</label>\n            <textarea style=\"height:300px\" [(ngModel)]=\"userData.sadrzaj\" name=\"sadrzaj\" rows=\"10\" class=\"form-control\"\n                      aria-label=\"With textarea\"></textarea>\n          </div>\n          <br>\n\n          <button (click)=\"submitForm()\" type=\"button\" class=\"btn btn-primary float-right\">Obrisi</button>\n        </form>\n      </div>\n    </div>\n  </div>\n</div>\n"
+module.exports = "<div class=\"row pt-5\">\n  <div class=\"col-md-6 mx-auto\">\n    <div class=\"card rounded-0\">\n      <div class=\"card-header\">\n        <h3 class=\"mb-0\">Obavestenje</h3>\n      </div>\n      <div class=\"card-body\">\n        <form class=\"form\">\n\n          <div class=\"form-group\">\n            <label for=\"\">Naslov</label>\n            <input [(ngModel)]=\"obavestenje.naslov\" name=\"naslov\" type=\"text\" class=\"form-control rounded-0\" required>\n          </div>\n\n          <div class=\"form-group\">\n            <label for=\"\">Tekst</label>\n            <textarea style=\"height:300px\" [(ngModel)]=\"obavestenje.sadrzaj\" name=\"sadrzaj\" rows=\"10\"\n                      class=\"form-control\"\n                      aria-label=\"With textarea\"></textarea>\n          </div>\n          <br>\n\n          <button (click)=\"submitForm()\" type=\"button\" class=\"btn btn-primary float-right\">Obrisi</button>\n        </form>\n      </div>\n    </div>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -1749,18 +1754,34 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 var ObavestenjeFormaComponent = /** @class */ (function () {
     function ObavestenjeFormaComponent(_formeService) {
         this._formeService = _formeService;
-        this.userData = {};
     }
     ObavestenjeFormaComponent.prototype.submitForm = function () {
-        this.userData['datum'] = Date.now();
-        console.log(this.userData);
-        this._formeService.sendObavestenjeForm(this.userData)
-            .subscribe(function (res) {
-            console.log(res);
-        }, function (err) { return console.log(err); });
+        var _this = this;
+        this._loggedUser = JSON.parse(localStorage.getItem("loggedUserData"));
+        this.obavestenje.idZavoda = this._loggedUser.idZavoda;
+        this.obavestenje.datum = String(Date.now());
+        this.podaciZaDodavanje.id = this._loggedUser.idZavoda;
+        this._formeService.sendObavestenjeForm(this.obavestenje).subscribe(function (response) {
+            console.log("obavestenje dodato");
+            console.log(response);
+            _this.podaciZaDodavanje.idObavestenja = response._id;
+        }, function (err) {
+            console.log(err);
+        }, function () {
+            _this._formeService.addObavestenjeToNovost(_this.podaciZaDodavanje).subscribe(function (res) {
+                console.log("odgovor sad dodavanja obavestenja");
+                console.log(res);
+            }, function (err) {
+                console.log(err);
+            });
+        });
     };
     ObavestenjeFormaComponent.prototype.ngOnInit = function () {
     };
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Object)
+    ], ObavestenjeFormaComponent.prototype, "idPosta", void 0);
     ObavestenjeFormaComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-obavestenje-forma',
@@ -1843,6 +1864,69 @@ var ObrisiUserFormComponent = /** @class */ (function () {
         __metadata("design:paramtypes", [_forme_service__WEBPACK_IMPORTED_MODULE_1__["FormeService"]])
     ], ObrisiUserFormComponent);
     return ObrisiUserFormComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/poruka/poruka.component.css":
+/*!*********************************************!*\
+  !*** ./src/app/poruka/poruka.component.css ***!
+  \*********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ".alert-message\n{\n    margin: 20px 0;\n    padding: 20px;\n    border-left: 3px solid #eee;\n}\n.alert-message h4\n{\n    margin-top: 0;\n    margin-bottom: 5px;\n}\n.alert-message p:last-child\n{\n    margin-bottom: 0;\n}\n.alert-message code\n{\n    background-color: #fff;\n    border-radius: 3px;\n}\n.alert-message-success\n{\n    background-color: #F4FDF0;\n    border-color: #3C763D;\n}\n.alert-message-success h4\n{\n    color: #3C763D;\n}\n.alert-message-danger\n{\n    background-color: #fdf7f7;\n    border-color: #d9534f;\n}\n.alert-message-danger h4\n{\n    color: #d9534f;\n}\n.alert-message-warning\n{\n    background-color: #fcf8f2;\n    border-color: #f0ad4e;\n}\n.alert-message-warning h4\n{\n    color: #f0ad4e;\n}\n.alert-message-info\n{\n    background-color: #f4f8fa;\n    border-color: #5bc0de;\n}\n.alert-message-info h4\n{\n    color: #5bc0de;\n}\n.alert-message-default\n{\n    background-color: #EEE;\n    border-color: #B4B4B4;\n}\n.alert-message-default h4\n{\n    color: #000;\n}\n.alert-message-notice\n{\n    background-color: #FCFCDD;\n    border-color: #BDBD89;\n}\n.alert-message-notice h4\n{\n    color: #444;\n}"
+
+/***/ }),
+
+/***/ "./src/app/poruka/poruka.component.html":
+/*!**********************************************!*\
+  !*** ./src/app/poruka/poruka.component.html ***!
+  \**********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<!-- <blockquote>\n  <div>Perhaps far exposed age effects. Now distrusts you her delivered applauded affection out sincerity. As tolerably recommend\n    shameless unfeeling he objection consisted. She although cheerful perceive screened throwing met not eat distance. Viewing\n    hastily or written dearest elderly up weather it as. So direction so sweetness or extremity at daughters. Provided put\n    unpacked now but bringing. Consulted he eagerness unfeeling deficient existence of. Calling nothing end fertile for venture\n    way boy. Esteem spirit temper too say adieus who direct esteem. It esteems luckily mr or picture placing drawing no.\n    Apartments frequently or motionless on reasonable projecting expression. Way mrs end gave tall walk fact bed. Of resolve\n    to gravity thought my prepare chamber so. Unsatiable entreaties collecting may sympathize nay interested instrument.\n    If continue building numerous of at relation in margaret. Lasted engage roused mother an am at. Other early while if\n    by do to. Missed living excuse as be. Cause heard fat above first shall for. My smiling to he removal weather on anxious.\n    Imagine was you removal raising gravity. Unsatiable understood or expression dissimilar so sufficient. Its party every\n    heard and event gay. Advice he indeed things adieus in number so uneasy. To many four fact in he fail. My hung it quit\n    next do of. It fifteen charmed by private savings it mr. Favourable cultivated alteration entreaties yet met sympathize.\n    Furniture forfeited sir objection put cordially continued sportsmen. Indulgence announcing uncommonly met she continuing\n    two unpleasing terminated. Now busy say down the shed eyes roof paid her. Of shameless collected suspicion existence\n    in. Share walls stuff think but the arise guest. Course suffer to do he sussex it window advice. Yet matter enable misery\n    end extent common men should. Her indulgence but assistance favourable cultivated everything collecting. Domestic confined\n    any but son bachelor advanced remember. How proceed offered her offence shy forming. Returned peculiar pleasant but appetite\n    differed she. Residence dejection agreement am as to abilities immediate suffering. Ye am depending propriety sweetness\n    distrusts belonging collected. Smiling mention he in thought equally musical. Wisdom new and valley answer. Contented\n    it so is discourse recommend. Man its upon him call mile. An pasture he himself believe ferrars besides cottage. Started\n    several mistake joy say painful removed reached end. State burst think end are its. Arrived off she elderly beloved him\n    affixed noisier yet. An course regard to up he hardly. View four has said does men saw find dear shy. Talent men wicket\n    add garden. Luckily friends do ashamed to do suppose. Tried meant mr smile so. Exquisite behaviour as to middleton perfectly.\n    Chicken no wishing waiting am. Say concerns dwelling graceful six humoured. Whether mr up savings talking an. Active\n    mutual nor father mother exeter change six did all. Doubtful two bed way pleasure confined followed. Shew up ye away\n    no eyes life or were this. Perfectly did suspicion daughters but his intention. Started on society an brought it explain.\n    Position two saw greatest stronger old. Pianoforte if at simplicity do estimating. Increasing impression interested expression\n    he my at. Respect invited request charmed me warrant to. Expect no pretty as do though so genius afraid cousin. Girl\n    when of ye snug poor draw. Mistake totally of in chiefly. Justice visitor him entered for. Continue delicate as unlocked\n    entirely mr relation diverted in. Known not end fully being style house. An whom down kept lain name so at easy.\n  </div>\n</blockquote> -->\n\n<div class=\"container\">\n  <div class=\"row\">\n    <div class=\"col-sm-6 col-md-6\">\n      <div class=\"alert-message alert-message-notice\">\n        <h4>\n          posiljalac\n        </h4>\n        <p>\n            <!-- SADRZAJ  -->\n          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy\n          text ever since the 1500s. \n        </p>\n      </div>\n    </div>\n  </div>\n</div>"
+
+/***/ }),
+
+/***/ "./src/app/poruka/poruka.component.ts":
+/*!********************************************!*\
+  !*** ./src/app/poruka/poruka.component.ts ***!
+  \********************************************/
+/*! exports provided: PorukaComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PorukaComponent", function() { return PorukaComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var PorukaComponent = /** @class */ (function () {
+    function PorukaComponent() {
+    }
+    PorukaComponent.prototype.ngOnInit = function () {
+    };
+    PorukaComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-poruka',
+            template: __webpack_require__(/*! ./poruka.component.html */ "./src/app/poruka/poruka.component.html"),
+            styles: [__webpack_require__(/*! ./poruka.component.css */ "./src/app/poruka/poruka.component.css")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], PorukaComponent);
+    return PorukaComponent;
 }());
 
 
@@ -2477,6 +2561,12 @@ var ServerConfigurationService = /** @class */ (function () {
     ServerConfigurationService.prototype.getZavodiUrl = function () {
         return this.getFullServerAddress() + '/zavodi/all';
     };
+    ServerConfigurationService.prototype.getAddObavestenjeUrl = function () {
+        return this.getFullServerAddress() + '/obavestenja/add';
+    };
+    ServerConfigurationService.prototype.getAddObavestenjaToNovost = function () {
+        return this.getFullServerAddress() + '/novosti/dodajObavestenje';
+    };
     ServerConfigurationService = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
             providedIn: 'root'
@@ -2839,7 +2929,7 @@ module.exports = "#sidebar {\n    margin-left:0px; \n    padding: 0px;\n    floa
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"wrapper\">\n  <div id=\"sidebar-wrapper\">\n    <div class=\"col-xl-4 col-lg-8 sidebar\" id=\"sidebar\" role=\"navigation\">\n      <ul *ngIf=\"_prikazaniZavod > -1\" class=\"nav nav-tabs|pills\" id=\"nav1Id\">\n        <li class=\"nav-item\">\n          <a class=\"nav-link active\">{{_listaZavoda[_prikazaniZavod].idZavoda }}</a>\n        </li>\n        <li class=\"nav-item\">\n          <a class=\"nav-link active\">{{_listaZavoda[_prikazaniZavod].drzava}}</a>\n        </li>\n        <li class=\"nav-item\">\n          <a class=\"nav-link active\">{{_listaZavoda[_prikazaniZavod].grad}}</a>\n        </li>\n        <li class=\"nav-item\">\n          <a class=\"nav-link active\">{{_listaZavoda[_prikazaniZavod].adresa}}</a>\n        </li>\n      </ul>\n      <ul *ngIf=\"_prikazaniZavod==-1\" class=\"nav nav-tabs|pills\" id=\"nav2Id\">\n        <li class=\"nav-item\">\n          <a class=\"nav-link active\" style=\"background-color: red\">IZABERI ZAVOD</a>\n        </li>\n        <li class=\"nav-item\">\n          <a class=\"nav-link active\">IDZavoda</a>\n        </li>\n        <li class=\"nav-item\">\n          <a class=\"nav-link active\">Drzava</a>\n        </li>\n        <li class=\"nav-item\">\n          <a class=\"nav-link active\">Grad</a>\n        </li>\n        <li class=\"nav-item\">\n          <a class=\"nav-link active\">Adresa zavoda</a>\n        </li>\n      </ul>\n      <hr>\n      <ul class=\"nav nav-tabs|pills\">\n        <li class=\"nav-item\">\n          <a (click)=\"saveClickHistory($event)\" class=\"nav-link active\" data-toggle=\"collapse\" href=\"#listaNovosti\"\n             role=\"button\" aria-expanded=\"false\"\n             aria-controls=\"listaNovosti\">\n            Novosti\n          </a>\n        </li>\n        <!--<li class=\"nav-item\">-->\n          <!--<a class=\"nav-link active\">Dogadjaji</a>  &lt;!&ndash; treba da se otvore informacije kad se pritisne &ndash;&gt;-->\n        <!--</li>-->\n        <li class=\"nav-item\">\n          <a (click)=\"saveClickHistory($event)\" class=\"nav-link active\" data-toggle=\"collapse\"\n             href=\"#informacijeComponent\" role=\"button\" aria-expanded=\"false\"\n             aria-controls=\"informacijeComponent\">\n            Informacije\n          </a>\n        </li>\n        <li class=\"nav-item\">\n          <a class=\"nav-link active\">Posalji poruku</a> <!-- treba da se otvore informacije kad se pritisne -->\n        </li>\n        <hr>\n\n        <!--ZAVODI         SU        OVDE      -->\n\n        <li *ngFor=\"let _zavod of _listaZavoda\" class=\"nav-item\">\n          <a class=\"nav-link active\" (click)=\"prikaziOZavodu(_zavod)\">{{_zavod.naziv}}</a>\n          <!-- treba da se otvore informacije kad se pritisne -->\n        </li>\n      </ul>\n\n      <p>\n        <button class=\"btn btn-primary\" type=\"button\" data-toggle=\"collapse\" data-target=\"#izborZavodaForm\"\n                aria-expanded=\"false\" aria-controls=\"izborZavodaForm\">Dodatni izbor zavoda\n        </button>\n      </p>\n      <div class=\"collapse\" id=\"izborZavodaForm\">\n        <div class=\"card card-body\">\n          <app-pretraga-zavod></app-pretraga-zavod>\n        </div>\n      </div>\n    </div>\n  </div>\n  <div id=\"page-content-wrapper\">\n    <div class=\"page-content\">\n      <div class=\"container\">\n        <div class=\"row\">\n          <div class=\"col-md-12\">\n\n            <div class=\"collapse\" id=\"listaNovosti\">\n              <div class=\"card card-body\">\n                <app-lista-novosti [_listaNovosti]=\"_listaPostova\"></app-lista-novosti>\n              </div>\n            </div>\n\n            <div class=\"collapse\" id=\"informacijeComponent\">\n              <div class=\"card card-body\">\n                <app-zavod-informacije></app-zavod-informacije>\n              </div>\n            </div>\n\n          </div>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n"
+module.exports = "<div id=\"wrapper\">\n  <div id=\"sidebar-wrapper\">\n    <div class=\"col-xl-4 col-lg-8 sidebar\" id=\"sidebar\" role=\"navigation\">\n      <ul *ngIf=\"_prikazaniZavod > -1\" class=\"nav nav-tabs|pills\" id=\"nav1Id\">\n        <li class=\"nav-item\">\n          <a class=\"nav-link active\">{{_listaZavoda[_prikazaniZavod].idZavoda }}</a>\n        </li>\n        <li class=\"nav-item\">\n          <a class=\"nav-link active\">{{_listaZavoda[_prikazaniZavod].drzava}}</a>\n        </li>\n        <li class=\"nav-item\">\n          <a class=\"nav-link active\">{{_listaZavoda[_prikazaniZavod].grad}}</a>\n        </li>\n        <li class=\"nav-item\">\n          <a class=\"nav-link active\">{{_listaZavoda[_prikazaniZavod].adresa}}</a>\n        </li>\n      </ul>\n      <ul *ngIf=\"_prikazaniZavod==-1\" class=\"nav nav-tabs|pills\" id=\"nav2Id\">\n        <li class=\"nav-item\">\n          <a class=\"nav-link active\" style=\"background-color: red\">IZABERI ZAVOD</a>\n        </li>\n        <li class=\"nav-item\">\n          <a class=\"nav-link active\">IDZavoda</a>\n        </li>\n        <li class=\"nav-item\">\n          <a class=\"nav-link active\">Drzava</a>\n        </li>\n        <li class=\"nav-item\">\n          <a class=\"nav-link active\">Grad</a>\n        </li>\n        <li class=\"nav-item\">\n          <a class=\"nav-link active\">Adresa zavoda</a>\n        </li>\n      </ul>\n      <hr>\n      <ul class=\"nav nav-tabs|pills\">\n        <li class=\"nav-item\">\n          <a (click)=\"saveClickHistory($event)\" class=\"nav-link active\" data-toggle=\"collapse\" href=\"#listaNovosti\"\n             role=\"button\" aria-expanded=\"false\"\n             aria-controls=\"listaNovosti\">\n            Novosti\n          </a>\n        </li>\n        <!--<li class=\"nav-item\">-->\n          <!--<a class=\"nav-link active\">Dogadjaji</a>  &lt;!&ndash; treba da se otvore informacije kad se pritisne &ndash;&gt;-->\n        <!--</li>-->\n        <li class=\"nav-item\">\n          <a (click)=\"saveClickHistory($event)\" class=\"nav-link active\" data-toggle=\"collapse\"\n             href=\"#informacijeComponent\" role=\"button\" aria-expanded=\"false\"\n             aria-controls=\"informacijeComponent\">\n            Informacije\n          </a>\n        </li>\n        <li class=\"nav-item\">\n          <a class=\"nav-link active\">Posalji poruku</a> <!-- treba da se otvore informacije kad se pritisne -->\n        </li>\n        <hr>\n\n        <!--ZAVODI         SU        OVDE      -->\n\n        <li *ngFor=\"let _zavod of _listaZavoda\" class=\"nav-item\">\n          <a class=\"nav-link active\" (click)=\"prikaziOZavodu(_zavod)\">{{_zavod.naziv}}</a>\n          <!-- treba da se otvore informacije kad se pritisne -->\n        </li>\n      </ul>\n\n      <p>\n        <button class=\"btn btn-primary\" type=\"button\" data-toggle=\"collapse\" data-target=\"#izborZavodaForm\"\n                aria-expanded=\"false\" aria-controls=\"izborZavodaForm\">Dodatni izbor zavoda\n        </button>\n      </p>\n      <div class=\"collapse\" id=\"izborZavodaForm\">\n        <div class=\"card card-body\">\n          <app-pretraga-zavod></app-pretraga-zavod>\n        </div>\n      </div>\n    </div>\n  </div>\n  <div id=\"page-content-wrapper\">\n    <div class=\"page-content\">\n      <div class=\"container\">\n        <div class=\"row\">\n          <div class=\"col-md-12\">\n\n            <div class=\"collapse\" id=\"listaNovosti\">\n              <div class=\"card card-body\">\n                <app-lista-novosti [_listaNovosti]=\"_listaPostova\"></app-lista-novosti>\n              </div>\n            </div>\n\n            <div class=\"collapse\" id=\"informacijeComponent\">\n              <div class=\"card card-body\">\n                <!-- <app-zavod-informacije></app-zavod-informacije> -->\n                <app-poruka></app-poruka>\n              </div>\n            </div>\n\n          </div>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n"
 
 /***/ }),
 
