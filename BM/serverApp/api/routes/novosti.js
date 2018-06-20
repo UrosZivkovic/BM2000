@@ -62,6 +62,49 @@ router.post('/add', (req, res, next) => {
     })
 });
 
+router.post('/zavodNovostiInterval', (req, res, next) => {
+    console.log("stigao");
+    const indexOd = req.body.firstIndex;
+    const indexDo = req.body.lastIndex;
+    console.log(indexOd, indexDo);
+    Novost.find()
+        .where('idZavoda')
+        .equals(req.body.idZavoda)
+        .sort('date')
+        .exec()
+        .then(docs => {
+            var niz = docs;
+            var drugi;
+            if (niz.length > indexOd) {
+                if (niz.length > indexDo) {
+
+                    drugi = niz.slice(indexOd, indexDo);
+
+                    res.status(200).json(drugi);
+
+                } else {
+
+                    drugi = niz.slice(indexOd);
+
+                    res.status(200).json(drugi);
+                }
+            } else
+                return res.status(200).json({
+                    naslov:"Index ot ouf range",
+                    sadrzaj:"Click to find out more"
+                });
+
+
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json({
+                error: err
+            })
+        })
+});
+
+
 router.post("/deleteall", (req,res)=> {
     console.log("delete all");
     Novost.deleteMany({} ,err => {
@@ -128,7 +171,16 @@ router.post("/delete", (req,res,next)=> {
 });
 
 
-
+router.post('/intervalTest',(req,res,next)=>{
+    Novost.find({}).sort('naslov').exec((err, data)=>{
+        if(err){
+            res.status(404).send(err)
+        }
+        else{
+            res.status(200).send(data);
+        }
+    })
+})
 
 router.post('/interval', (req, res, next) => {
     console.log("stigao");
@@ -136,6 +188,7 @@ router.post('/interval', (req, res, next) => {
     const indexDo = req.body.lastIndex;
     console.log(indexOd, indexDo);
     Novost.find()
+        .sort('date')
         .exec()
         .then(docs => {
             var niz = docs;

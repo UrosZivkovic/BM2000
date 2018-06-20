@@ -39,7 +39,8 @@ router.post("/kreiraj", (req, res, nest) => {
         ime: userData.ime,
         prezime: userData.prezime,
         krvnaGrupa: userData.krvnaGrupa,
-        tipKorisnika: userData.tipKorisnika
+        tipKorisnika: userData.tipKorisnika,
+        brojDavaoca: userData.brojDavaoca
 
     })
 
@@ -89,6 +90,19 @@ router.get('/register/realUser', (req, res) => {
         }
     });
 });
+
+router.post('/davanjeKrvi', (req,res)=>{
+    console.log(req.body);
+    let davanje = {date: req.body.date};
+   User.findOneAndUpdate({_id: req.body.id},{$push: {davanja: davanje}}, (err, data)=>{
+       if(err){
+           res.status(404).send(err);
+       }else{
+           console.log(data)
+           res.status(200).send(data)
+       }
+   })
+})
 
 router.post("/getNovosti", (req, res) => {
 

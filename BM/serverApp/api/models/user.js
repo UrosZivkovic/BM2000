@@ -6,11 +6,13 @@ const userSchema = mongoose.Schema({
     password: String,
     ime: String,
     prezime: String,
+    brojDavaoca:String,
     krvnaGrupa: String,
     obavestenja: [String],
     poruke: [{idPoruke:String}],
     tipKorisnika: String,
-    novost: [{idNovosti:String}]
+    novost: [{idNovosti:String}],
+    davanja:[{date:String}]
 });
 
 module.exports = mongoose.model('user', userSchema);
