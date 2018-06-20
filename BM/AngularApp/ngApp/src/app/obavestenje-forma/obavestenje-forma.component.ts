@@ -15,7 +15,8 @@ export class ObavestenjeFormaComponent implements OnInit {
     console.log(this.userData);
     this._formeService.sendObavestenjeForm(this.userData)
      .subscribe(res => {
-     console.log(res); },
+     console.log(res);
+     },
        err => console.log(err));
     }
   ngOnInit() {

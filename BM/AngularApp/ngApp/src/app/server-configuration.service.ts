@@ -69,7 +69,10 @@ export class ServerConfigurationService {
     return this.getFullServerAddress() + '/obavestenja/add';
   }
 
-  public getZabeleziDavanjeUrl(){
-    return this.getFullServerAddress()+'/users/davanjeKrvi';
+  public getZabeleziDavanjeUrl() {
+    return this.getFullServerAddress() + '/users/davanjeKrvi';
+  }
+  public getObrisiUserForm() {
+    return this.getFullServerAddress() + '/users/removeUser';
   }
 }
