@@ -27,6 +27,7 @@ import {Korisnik2Component} from './korisnik2/korisnik2.component';
 import { SadrzajKorisnikaComponent } from './sadrzaj-korisnika/sadrzaj-korisnika.component';
 import { ZavodInformacijeComponent } from './zavod-informacije/zavod-informacije.component';
 import { PretragaZavodComponent } from './pretraga-zavod/pretraga-zavod.component';
+import { Home2Component } from './home2/home2.component';
 
 
 @NgModule({
@@ -51,7 +52,8 @@ import { PretragaZavodComponent } from './pretraga-zavod/pretraga-zavod.componen
     ZavodInformacijeComponent,
     ListaNovostiComponent,
     ZavodInformacijeComponent,
-    PretragaZavodComponent
+    PretragaZavodComponent,
+    Home2Component
 ],
   imports: [
     BrowserModule,
