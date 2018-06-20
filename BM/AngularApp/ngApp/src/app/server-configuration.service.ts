@@ -89,8 +89,13 @@ export class ServerConfigurationService {
     return this.getFullServerAddress() + '/zavodi/all';
   }
 
-  public getAddObavestenjaUrl(){
+  public getAddObavestenjeUrl(){
     return this.getFullServerAddress()+'/obavestenja/add';
   }
+
+  public getAddObavestenjaToNovost(){
+    return this.getFullServerAddress()+'/novosti/dodajObavestenje';
+  }
+
 
 }
