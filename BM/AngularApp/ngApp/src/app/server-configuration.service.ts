@@ -73,7 +73,7 @@ export class ServerConfigurationService {
     return this.getFullServerAddress()+'/users/davanjeKrvi';
   }
   public getZavodNovostiInterval(){
-    return this.getFullServerAddress()+'/zavod/NovostiInterval';
+    return this.getFullServerAddress()+'/novosti/NovostiInterval';
   }
 
   public getDefaultNovosti(){
