@@ -8,18 +8,14 @@
         <form class="form">
 
           <div class="form-group">
-            <label for="">Zavod</label>
-            <input [(ngModel)]="userData.idZavoda" name="idZavoda" type="text" class="form-control rounded-0" required>
-          </div>
-          <div class="form-group">
             <label for="">Naslov</label>
-            <input [(ngModel)]="userData.naslov" name="naslov" type="text" class="form-control rounded-0" required>
+            <input [(ngModel)]="obavestenje.naslov" name="naslov" type="text" class="form-control rounded-0" required>
           </div>
-          
 
           <div class="form-group">
             <label for="">Tekst</label>
-            <textarea style="height:300px" [(ngModel)]="userData.sadrzaj" name="sadrzaj" rows="10" class="form-control"
+            <textarea style="height:300px" [(ngModel)]="obavestenje.sadrzaj" name="sadrzaj" rows="10"
+                      class="form-control"
                       aria-label="With textarea"></textarea>
           </div>
           <br>

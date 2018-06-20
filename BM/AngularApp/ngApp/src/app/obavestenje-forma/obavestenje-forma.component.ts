@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { FormeService } from '../forme.service';
+import {Component, Input, OnInit} from '@angular/core';
+import {FormeService} from '../forme.service';
+
 @Component({
   selector: 'app-obavestenje-forma',
   templateUrl: './obavestenje-forma.component.html',
@@ -7,19 +8,23 @@ import { FormeService } from '../forme.service';
 })
 export class ObavestenjeFormaComponent implements OnInit {
 
-  userData = {};
+  @Input() idPosta;
 
-  constructor(private _formeService: FormeService) { }
+  obavestenje = {};
+
+  constructor(private _formeService: FormeService) {
+  }
 
   submitForm() {
-    this.userData['datum'] = Date.now();
-    console.log(this.userData);
-    this._formeService.sendObavestenjeForm(this.userData)
-     .subscribe(res => {
-     console.log(res);
-     },
-       err => console.log(err));
-    }
+    this.obavestenje['datum'] = Date.now();
+    console.log(this.obavestenje);
+    this._formeService.sendObavestenjeForm(this.obavestenje)
+      .subscribe(res => {
+          console.log(res);
+        },
+        err => console.log(err));
+  }
+
   ngOnInit() {
   }
 

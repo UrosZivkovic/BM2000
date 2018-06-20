@@ -5,8 +5,7 @@ import {Injectable} from '@angular/core';
 })
 export class ServerConfigurationService {
 
-  private ipAddress = 'localhost';
-  // private ipAddress = '192.168.0.100';
+  private ipAddress = '192.168.0.100';
   // 192.168.0.172
   private portNum = '3030';
 
@@ -88,6 +87,10 @@ export class ServerConfigurationService {
 
   public getZavodiUrl() {
     return this.getFullServerAddress() + '/zavodi/all';
+  }
+
+  public getAddObavestenjaUrl(){
+    return this.getFullServerAddress()+'/obavestenja/add';
   }
 
 }
