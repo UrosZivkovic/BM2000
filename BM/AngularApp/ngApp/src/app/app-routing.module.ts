@@ -8,7 +8,10 @@ import {Korisnik2Component} from './korisnik2/korisnik2.component';
 import {UserFormComponent} from './user-form/user-form.component';
 import {NovostFormComponent} from './novost-form/novost-form.component';
 import {ObavestenjeFormaComponent} from './obavestenje-forma/obavestenje-forma.component';
-import {ListaNovostiComponent} from "./lista-novosti/lista-novosti.component";
+import {ZavodInformacijeComponent} from "./zavod-informacije/zavod-informacije.component";
+import {PretragaZavodComponent} from "./pretraga-zavod/pretraga-zavod.component";
+import {PrivilegovanaStranaComponent} from "./privilegovana-strana/privilegovana-strana.component";
+import {ZavodComponent} from "./zavod/zavod.component";
 
 const routes: Routes = [
   {
@@ -18,14 +21,12 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: 'izborZavoda',
-    redirectTo: '/home',
-    pathMatch: 'full'
+    path: 'zavod',
+    component: ZavodComponent
   },
   {
     path: 'informacije',
-    redirectTo: '/home',
-    pathMatch: 'full'
+    component: ZavodInformacijeComponent
   },
   {
     path: 'home',
@@ -58,6 +59,10 @@ const routes: Routes = [
   {
     path: 'obavestenjeForm',
     component: ObavestenjeFormaComponent
+  },
+  {
+    path: 'privilegovani',
+    component: PrivilegovanaStranaComponent
   }
 
 ];

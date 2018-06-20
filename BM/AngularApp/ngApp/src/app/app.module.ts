@@ -28,6 +28,8 @@ import { SadrzajKorisnikaComponent } from './sadrzaj-korisnika/sadrzaj-korisnika
 import { ZavodInformacijeComponent } from './zavod-informacije/zavod-informacije.component';
 import { PretragaZavodComponent } from './pretraga-zavod/pretraga-zavod.component';
 import { Home2Component } from './home2/home2.component';
+import { PrivilegovanaStranaComponent } from './privilegovana-strana/privilegovana-strana.component';
+import { BlezenjeDavanjaFormComponent } from './blezenje-davanja-form/blezenje-davanja-form.component';
 
 
 @NgModule({
@@ -53,7 +55,9 @@ import { Home2Component } from './home2/home2.component';
     ListaNovostiComponent,
     ZavodInformacijeComponent,
     PretragaZavodComponent,
-    Home2Component
+    Home2Component,
+    PrivilegovanaStranaComponent,
+    BlezenjeDavanjaFormComponent
 ],
   imports: [
     BrowserModule,

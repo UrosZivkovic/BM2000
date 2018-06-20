@@ -22,27 +22,22 @@
             </a>
           </li>
           <li class="active">
-            <a routerLink="/show_posts">Zavod
-              <span class="sr-only">(current)</span>
-            </a>
-          </li>
-          <li class="active">
-              <a routerLink="/show_posts">Informacije
+              <a routerLink="/informacije">Informacije
                 <span class="sr-only">(current)</span>
               </a>
             </li>
+          <li class="active">
+            <a routerLink="/zavod">Zavod
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
         </ul>
 
         <ul class="nav navbar-nav navbar-right">
           <!-- Upravljanje nalozima i upravljanje obavestenjima -->
           <ul class="nav navbar-nav" *ngIf="_authService.loggedIn()">
             <li class="active">
-              <a *ngIf="_authService.getUserType().toLowerCase()=='zaposleni'" routerLink="/login">Nalozi
-                <span class="sr-only">(current)</span>
-              </a>
-            </li>
-            <li class="active">
-              <a *ngIf="_authService.getUserType().toLowerCase()=='zaposleni'" routerLink="/show_posts">Postovi
+              <a *ngIf="_authService.getUserType().toLowerCase()=='zaposleni'" routerLink="/privilegovani">Privilegovani
                 <span class="sr-only">(current)</span>
               </a>
             </li>

@@ -91,33 +91,34 @@ router.get('/register/realUser', (req, res) => {
     });
 });
 
-router.post('/ukloniNovost',(req,res)=>{
+router.post('/ukloniNovost', (req, res) => {
     console.log(req.body)
-    User.findOne({_id:req.body.id},(err,data)=>{
-        if(err){
+    User.findOne({_id: req.body.id}, (err, data) => {
+        if (err) {
             res.status(404).send(err)
-        }else{
+        } else {
             console.log(data);
-            let removeIndex = data.novost.map((val,i)=> {
+            let removeIndex = data.novost.map((val, i) => {
                 val.idNovosti
             })//.indexOf(req.body.idNovosti)
             console.log(removeIndex);
             res.status(200).send(data.novost);
-    }})
+        }
+    })
 })
 
 
-router.post('/davanjeKrvi', (req,res)=>{
+router.post('/davanjeKrvi', (req, res) => {
     console.log(req.body);
     let davanje = {date: req.body.date};
-   User.findOneAndUpdate({_id: req.body.id},{$push: {davanja: davanje}}, (err, data)=>{
-       if(err){
-           res.status(404).send(err);
-       }else{
-           console.log(data)
-           res.status(200).send(data)
-       }
-   })
+    User.findOneAndUpdate({_id: req.body.id}, {$push: {davanja: davanje}}, (err, data) => {
+        if (err) {
+            res.status(404).send(err);
+        } else {
+            console.log(data)
+            res.status(200).send(data)
+        }
+    })
 })
 
 router.post("/getNovosti", (req, res) => {
