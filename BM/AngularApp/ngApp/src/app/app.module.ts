@@ -36,7 +36,11 @@ import { ZnacajDavanjaKrviFormComponent } from './znacaj-davanja-krvi-form/znaca
 import { ProcesDavanjaKrviFormComponent } from './proces-davanja-krvi-form/proces-davanja-krvi-form.component';
 import { BezbednostDavanjaKrviFormComponent } from './bezbednost-davanja-krvi-form/bezbednost-davanja-krvi-form.component';
 import { ObrisiUserFormComponent } from './obrisi-user-form/obrisi-user-form.component';
+<<<<<<< HEAD
 import { BrisanjeNalogaComponent } from './brisanje-naloga/brisanje-naloga.component';
+=======
+import { PorukaComponent } from './poruka/poruka.component';
+>>>>>>> 8b99b8ddcff223ab928e86aa7f893a31b9b4bdc8
 
 
 @NgModule({
@@ -71,7 +75,11 @@ import { BrisanjeNalogaComponent } from './brisanje-naloga/brisanje-naloga.compo
     ProcesDavanjaKrviFormComponent,
     BezbednostDavanjaKrviFormComponent,
     ObrisiUserFormComponent,
+<<<<<<< HEAD
     BrisanjeNalogaComponent
+=======
+    PorukaComponent
+>>>>>>> 8b99b8ddcff223ab928e86aa7f893a31b9b4bdc8
 ],
   imports: [
     BrowserModule,
