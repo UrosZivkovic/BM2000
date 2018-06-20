@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormeService } from '../forme.service';
 
 @Component({
   selector: 'app-brisanje-naloga',
@@ -7,7 +8,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BrisanjeNalogaComponent implements OnInit {
 
-  constructor() { }
+  userData = {};
+  constructor(private _formeService: FormeService) { }
 
   ngOnInit() {
   }
