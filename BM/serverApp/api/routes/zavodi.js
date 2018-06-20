@@ -24,6 +24,8 @@ router.get('/',(req,res,next)=>{
         })
     })
         
+
+    
 router.get('/all',(req,res,next)=>{
     Zavod.find()
     .exec()
