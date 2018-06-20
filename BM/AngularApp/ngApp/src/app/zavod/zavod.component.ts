@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 import {PostsManagerService} from "../posts_manager_service/posts-manager.service";
-import {forEach} from "@angular/router/src/utils/collection";
 
 @Component({
   selector: 'app-zavod',
@@ -14,21 +13,28 @@ export class ZavodComponent implements OnInit {
   private _listaPostova = [];
   private _prikazaniZavod = -1;
 
-  private _activeTab;
+  private _activeTab = null;
 
   private _lastPostIndexZavod;
 
   constructor(private _postsManager: PostsManagerService) {
-    this._lastPostIndexZavod = this._postsManager.getLastPostIndexZavod("lastPostIndexZavod" + this._listaZavoda[this._prikazaniZavod].id);
-    console.log("_lastPostIndex set to : " + this._lastPostIndexZavod);
   }
 
   ngOnInit() {
 
-    let _this = this;
+    if (this._prikazaniZavod > -1)
+      this._lastPostIndexZavod = this._postsManager.getLastPostIndexZavod("lastPostIndexZavod" +
+        this._listaZavoda[this._prikazaniZavod].idZavoda);
+    console.log("_lastPostIndex set to : " + this._lastPostIndexZavod);
 
-    let savedPosts = localStorage.getItem("novostiZavod" + this._listaZavoda[this._prikazaniZavod].id);
-    console.log("INITIAL STORAGE STATE: \n" + savedPosts);
+    console.log("Uso u zavod init");
+
+    let _this = this;
+    let savedPosts = null;
+    if (this._prikazaniZavod > -1)
+      savedPosts = localStorage.getItem("novostiZavod" + this._listaZavoda[this._prikazaniZavod].idZavoda);
+    console.log("STORED posts: \n");
+    console.log(savedPosts);
     if (savedPosts != null) {
 
       console.log("Loading posts from storage");
