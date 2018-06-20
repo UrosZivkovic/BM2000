@@ -130,10 +130,11 @@ export class PostsManagerService {
   }
 
 
-  public getNextPostsZavod(firstIndex, lastIndex) {
+  public getNextPostsZavod(firstIndex, lastIndex,idZavoda) {
     return this._http.post<any>(this._serverConfig.getZavodNovostiInterval(), {
       fistIndex: firstIndex,
-      lastIndex: lastIndex
+      lastIndex: lastIndex,
+      idZavoda:idZavoda
     });
   }
 
@@ -168,6 +169,18 @@ export class PostsManagerService {
 
   public saveZavodi(data) {
     localStorage.setItem("zavodiStorage", JSON.stringify(data));
+  }
+
+  public savePrikazaniZavod(index) {
+    localStorage.setItem("prikazaniZavod", index);
+  }
+
+  public getLastPrikazaniZavod() {
+    let zavod = localStorage.getItem("prikazaniZavod");
+    if (zavod != null)
+      return parseInt(zavod);
+    else
+      return -1;
   }
 
 
