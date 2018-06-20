@@ -1,4 +1,6 @@
 import {Component, OnInit} from '@angular/core';
+import {PostsManagerService} from "../posts_manager_service/posts-manager.service";
+import {forEach} from "@angular/router/src/utils/collection";
 
 @Component({
   selector: 'app-zavod',
@@ -7,22 +9,31 @@ import {Component, OnInit} from '@angular/core';
 })
 export class ZavodComponent implements OnInit {
 
-  public _listaZavoda = [
+  private _listaZavoda = [
     {
       id: "1",
-      naziv: "Zavod Nis"
+      naziv: "Zavod Nis",
+      drzava: "Srbija",
+      grad: "Nis",
+      adresa: "Mike Vasica 12/4"
     },
     {
       id: "2",
-      naziv: "Zavod Beograd"
+      naziv: "Zavod Beograd",
+      drzava: "Srbija",
+      grad: "Beograd",
+      adresa: "Save Milutinovica 33"
     },
     {
       id: "3",
-      naziv: "Zavod Smederevo"
+      naziv: "Zavod Smederevo",
+      drzava: "Srbija",
+      grad: "Smederevo",
+      adresa: "Igora Antolovica 7"
     }
   ];
 
-  public _listaPostova = [
+  private _listaPostova = [
     {
       id: "1",
       naslov: "Naslov 1",
@@ -63,16 +74,16 @@ export class ZavodComponent implements OnInit {
     }
   ];
 
+  private _prikazaniZavod = 2;
+
   private _activeTab;
 
-  constructor() {
+  private _lastPostIndexZavod;
+
+  constructor(private _postsManger: PostsManagerService) {
   }
 
   ngOnInit() {
-  }
-
-  getNovosti(idZavoda) {
-    console.log("Getting novosti for zavod : " + idZavoda);
   }
 
   private saveClickHistory(event) {
@@ -88,4 +99,17 @@ export class ZavodComponent implements OnInit {
 
   }
 
+  private getNovosti() {
+  }
+
+  private prikaziOZavodu(trazeniZavod) {
+    // ovo sigurno moze bolje, al necemo sad o tome
+    let _this = this;
+
+    this._prikazaniZavod = this._listaZavoda.indexOf(trazeniZavod);
+  }
 }
+
+
+
+
