@@ -10,33 +10,11 @@ export class ObavestenjeFormaComponent implements OnInit {
 
   @Input() idPosta;
 
-  obavestenje: {
-    idZavoda: string,
-    naslov: string,
-    sadrzaj: string,
-    datum: string
-  };
+  public obavestenje = {idZavoda: 1, datum: Date.now()};
 
-  podaciZaDodavanje: {
-    idObavestenja: string,
-    id: string
-  };
+  public podaciZaDodavanje = {idObavestenja: 1, id: 1};
 
-  _loggedUser: {
-    _id: string
-    email: string,
-    password: string,
-    ime: string,
-    prezime: string,
-    brojDavaoca: string,
-    krvnaGrupa: string,
-    obavestenja: [string],
-    poruke: [{ idPoruke: string }],
-    tipKorisnika: string,
-    novost: [{ idNovosti: string }],
-    davanja: [{ date: string }],
-    idZavoda: string
-  };
+  _loggedUser = {idZavoda: 1};
 
   constructor(private _formeService: FormeService) {
   }
@@ -46,9 +24,11 @@ export class ObavestenjeFormaComponent implements OnInit {
 
     this._loggedUser = JSON.parse(localStorage.getItem("loggedUserData"));
 
+    console.log(this._loggedUser);
+
     this.obavestenje.idZavoda = this._loggedUser.idZavoda;
 
-    this.obavestenje.datum = String(Date.now());
+    this.obavestenje.datum = Date.now();
 
     this.podaciZaDodavanje.id = this._loggedUser.idZavoda;
 

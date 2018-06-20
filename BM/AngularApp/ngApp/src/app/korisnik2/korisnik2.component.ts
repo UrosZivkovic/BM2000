@@ -34,6 +34,8 @@ export class Korisnik2Component implements OnInit {
 
   private _istorijaDogadjaja = [];
 
+  private _primljene_poruke=[];
+
   constructor(private _authService: AuthService, private _router: Router, private _postsManager: PostsManagerService) {
 
   }
@@ -84,7 +86,13 @@ export class Korisnik2Component implements OnInit {
         );
       } else {
         console.log("loading obavestenja from storage");
-        this._obavestenja=JSON.parse(storedObavestenja);
+        this._obavestenja = JSON.parse(storedObavestenja);
+      }
+
+      let storedPoruke=localStorage.getItem("_poruke");
+
+      if(storedPoruke!=null){
+        this._primljene_poruke=JSON.parse(storedPoruke);
       }
 
     }

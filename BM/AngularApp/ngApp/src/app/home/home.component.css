@@ -1,5 +1,21 @@
 .fullscreen {
     left: 0;
     right: 0;
-    position: fixed;
+}
+.col-xs-4 {
+  background: green;
+  height: 200px;
+  /*margin: 0 auto;*/
+  /*float:none;*/
+}
+
+.center-block {
+  float:none;
+}
+h3 {
+  text-align:center;
+  margin-top: 40px;
+}
+.example2 {
+  margin-top: 20px;
 }
