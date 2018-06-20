@@ -69,20 +69,24 @@ export class ServerConfigurationService {
     return this.getFullServerAddress() + '/obavestenja/add';
   }
 
-  public getZabeleziDavanjeUrl(){
-    return this.getFullServerAddress()+'/users/davanjeKrvi';
+  public getZabeleziDavanjeUrl() {
+    return this.getFullServerAddress() + '/users/davanjeKrvi';
   }
-  public getZavodNovostiInterval(){
-    return this.getFullServerAddress()+'/novosti/NovostiInterval';
+  public getZavodNovostiInterval() {
+    return this.getFullServerAddress() + '/novosti/zavodNovostiInterval';
   }
 
-  public getDefaultNovosti(){
+  public getObrisiUserForm() {
+    return this.getFullServerAddress() + '/users/removeUser';
+  }
+
+  public getDefaultNovosti() {
     // firstIndex lastIndex
-    return this.getFullServerAddress()+'/novosti/interval'
+    return this.getFullServerAddress() + '/novosti/interval';
   }
 
-  public getZavodiUrl(){
-    return this.getFullServerAddress()+'/zavodi/all';
+  public getZavodiUrl() {
+    return this.getFullServerAddress() + '/zavodi/all';
   }
 
 }

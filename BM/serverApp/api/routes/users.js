@@ -40,7 +40,8 @@ router.post("/kreiraj", (req, res, nest) => {
         prezime: userData.prezime,
         krvnaGrupa: userData.krvnaGrupa,
         tipKorisnika: userData.tipKorisnika,
-        brojDavaoca: userData.brojDavaoca
+        brojDavaoca: userData.brojDavaoca,
+        idZavoda: userData.idZavoda
 
     })
 
@@ -191,16 +192,9 @@ router.post("/getObavestenja", (req, res) => {
 });
 
 
-router.get('/removeUser', (req, res) => {
-    User.remove({tipKorisnika: "zaposleni"}, function (err) {
-        if (err) {
-            console.log("shit happened");
-            res.status(304).send("shit")
-        } else {
-            console.log("sve ooookeeee");
-            res.status(200).send("sve ooook");
-        }
-    })
+router.post('/removeUser', (req, res) => {
+    console.log(req.body);
+    User.deleteOne({brojDavaoca: req.body.brojDavaoca},(err)=> res.status(200).send(err)) 
 });
 
 router.post('/DodajNovost', (req, res) => {

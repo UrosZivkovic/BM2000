@@ -1,7 +1,7 @@
 .parent {
     display: flex;
     flex-flow: row wrap;
-    width: 99%%;
+    width: 90%;
     align-content: center;
 }
 

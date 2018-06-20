@@ -12,7 +12,8 @@ const userSchema = mongoose.Schema({
     poruke: [{idPoruke:String}],
     tipKorisnika: String,
     novost: [{idNovosti:String}],
-    davanja:[{date:String}]
+    davanja:[{date:String}],
+    idZavoda:String
 });
 
 module.exports = mongoose.model('user', userSchema);

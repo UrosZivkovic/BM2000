@@ -78,6 +78,11 @@ button {
         box-sizing: border-box;
         padding: 0;
     }   
+    
+    .btn {
+      height: 10vh;
+    }
+    
 }
 
 
