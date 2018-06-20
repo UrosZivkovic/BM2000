@@ -37,6 +37,7 @@ import { ProcesDavanjaKrviFormComponent } from './proces-davanja-krvi-form/proce
 import { BezbednostDavanjaKrviFormComponent } from './bezbednost-davanja-krvi-form/bezbednost-davanja-krvi-form.component';
 import { ObrisiUserFormComponent } from './obrisi-user-form/obrisi-user-form.component';
 import { PorukaComponent } from './poruka/poruka.component';
+import { TextInputComponent } from './text-input/text-input.component';
 
 
 @NgModule({
@@ -71,7 +72,8 @@ import { PorukaComponent } from './poruka/poruka.component';
     ProcesDavanjaKrviFormComponent,
     BezbednostDavanjaKrviFormComponent,
     ObrisiUserFormComponent,
-    PorukaComponent
+    PorukaComponent,
+    TextInputComponent
 ],
   imports: [
     BrowserModule,
