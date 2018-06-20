@@ -8,7 +8,7 @@ import {FormeService} from '../forme.service';
 })
 export class BlezenjeDavanjaFormComponent implements OnInit {
 
-  private _brojDavaoca;
+   _brojDavaoca;
 
   constructor(private _formService: FormeService) {
   }
@@ -19,7 +19,10 @@ export class BlezenjeDavanjaFormComponent implements OnInit {
   submitForm() {
     console.log({id: this._brojDavaoca, date: Date.now()});
 
-    this._formService.sendZabeleziDavanje({id: this._brojDavaoca, date: Date.now()});
+    this._formService.sendZabeleziDavanje({id: this._brojDavaoca, date: Date.now()})
+    .subscribe(res => {
+      console.log(res); },
+       err => console.log(err));
     // tamo u funkciji na serveru on uzima id a ja mu to ne saljem, saljem mu neki tamo broj davaoca
   }
 

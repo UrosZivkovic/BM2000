@@ -22,6 +22,7 @@ export class FormeService {
     return this.http.post<any>(this._serverConfig.getObavestenjeSendForm(), user);
   }
   public sendZabeleziDavanje(davanje) {
+    console.log('zabelezi');
     return this.http.post<any>(this._serverConfig.getZabeleziDavanjeUrl(), davanje);
   }
   public sendObrisiUsera(user) {

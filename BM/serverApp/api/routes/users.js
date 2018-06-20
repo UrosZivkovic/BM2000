@@ -117,7 +117,8 @@ router.post('/ukloniNovost', (req, res) => {
 router.post('/davanjeKrvi', (req, res) => {
     console.log(req.body);
     let davanje = {date: req.body.date};
-    User.findOneAndUpdate({_id: req.body.id}, {$push: {davanja: davanje}}, (err, data) => {
+    console.log(davanje);
+    User.findOneAndUpdate({brojDavaoca: req.body.id}, {$push: {davanja: davanje}}, (err, data) => {
         if (err) {
             res.status(404).send(err);
         } else {
