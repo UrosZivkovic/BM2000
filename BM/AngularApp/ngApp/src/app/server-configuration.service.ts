@@ -88,6 +88,7 @@ export class ServerConfigurationService {
   public getZavodiUrl() {
     return this.getFullServerAddress() + '/zavodi/all';
   }
+<<<<<<< HEAD
 
   public getAddObavestenjeUrl(){
     return this.getFullServerAddress()+'/obavestenja/add';
@@ -98,4 +99,12 @@ export class ServerConfigurationService {
   }
 
 
+=======
+  public getBrisanjeNalogaForm() {
+    return this.getFullServerAddress() + '/users/removeUser';
+  }
+  public getPosaljiPoruku() {
+    return this.getFullServerAddress() + '/poruke/add';
+  }
+>>>>>>> 9e3bdcea75fa29173f8e01ea5eaf25077dcef6b5
 }

@@ -36,4 +36,7 @@ export class FormeService {
   public sendObrisiUsera(user) {
     return this.http.post<any>(this._serverConfig.getObrisiUserForm(), user);
   }
+  public sendPosaljiPoruku(poruka) {
+    return this.http.post<any>(this._serverConfig.getPosaljiPoruku(), poruka);
+  }
 }
