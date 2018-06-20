@@ -41,7 +41,10 @@ router.post("/kreiraj", (req, res, nest) => {
         krvnaGrupa: userData.krvnaGrupa,
         tipKorisnika: userData.tipKorisnika,
         brojDavaoca: userData.brojDavaoca,
-        idZavoda: userData.idZavoda
+        idZavoda: userData.idZavoda,
+        novost: [],
+        davanja:[],
+        poruke: [],
 
     })
 
