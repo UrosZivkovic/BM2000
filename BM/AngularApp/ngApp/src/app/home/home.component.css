@@ -1,12 +1,12 @@
 .fullscreen {
     left: 0;
     right: 0;
+  width: 100%;
 }
 .col-xs-4 {
   background: green;
-  height: 200px;
-  /*margin: 0 auto;*/
-  /*float:none;*/
+  margin: 0 auto;
+  width: 50%;
 }
 
 .center-block {
@@ -19,3 +19,9 @@ h3 {
 .example2 {
   margin-top: 20px;
 }
+/* Transparent
+/*
+/*.navbar-default {
+  background: none;
+  border: none;
+}*/

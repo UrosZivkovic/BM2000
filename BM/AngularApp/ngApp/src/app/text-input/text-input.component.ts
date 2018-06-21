@@ -15,8 +15,10 @@ export class TextInputComponent implements OnInit {
 
 
   ngOnInit() {
+    console.log("uso u init za input message");
   }
   submitForm() {
+    console.log("senging message");
     const user = JSON.parse(localStorage.getItem('loggedUserData'));
     this.textData['email'] = user.email;
     this.textData['ime'] = user.ime;

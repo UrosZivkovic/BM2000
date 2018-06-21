@@ -1,14 +1,14 @@
 <div class="card" style="margin-left: 20px;">
   <div class="card-header" role="tab">
     <h2 class="mb-0" >
-      <a type="button" class=" btn btn-secondary btn-block" data-parent="#accordion"
+      <a type="button" class=" btn btn-success btn-lg col-xs-12 " data-parent="#accordion"
          data-toggle="collapse" href="#{{_dataId}}" aria-expanded="false">
         {{_naslov}}
       </a>
     </h2>
   </div>
 
-  <div id="{{_dataId}}" class="collapse" role="tabpanel">
+  <div id="{{_dataId}}" class="collapse right_size" role="tabpanel">
     <div class="container">
       <h1>{{_naslov}}</h1>
       <blockquote>
@@ -26,7 +26,7 @@
         pracenjem
       </button>
 
-      <a type="button" class=" btn btn-default"
+      <a type="button" class=" btn btn-default" *ngIf="_authService.getUserType().toLowerCase()=='zaposleni'"
          data-toggle="collapse" href="#{{_dataId}}obavForm" aria-expanded="false">
         Dodaj obavestenje
       </a>

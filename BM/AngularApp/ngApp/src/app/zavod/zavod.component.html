@@ -52,7 +52,11 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active">Posalji poruku</a> <!-- treba da se otvore informacije kad se pritisne -->
+          <a (click)="saveClickHistory($event)" class="nav-link active" data-toggle="collapse"
+             href="#porukaComponent" role="button" aria-expanded="false"
+             aria-controls="porukaComponent">
+            Posalji poruku
+          </a>
         </li>
         <hr>
 
@@ -102,7 +106,7 @@
                 <app-zavod-informacije></app-zavod-informacije>
               </div>
             </div>
-            
+
             <div class="collapse" id="porukaComponent">
               <div class="card card-body">
                 <app-text-input></app-text-input>
