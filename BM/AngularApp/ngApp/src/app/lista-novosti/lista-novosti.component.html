@@ -2,7 +2,7 @@
   <div class="row">
     <div id="accordion" role="tablist" aria-multiselectable="true">
       <div *ngFor="let _novost of _listaNovosti">
-        <app-novost [_dataId]="_novost._id" [_naslov]="_novost.naslov" [_sadrzaj]="_novost.sadrzaj"></app-novost>
+        <app-novost [_tip_novosti]="_tip_liste" [_dataId]="_novost._id" [_naslov]="_novost.naslov" [_sadrzaj]="_novost.sadrzaj"></app-novost>
       </div>
     </div>
   </div>

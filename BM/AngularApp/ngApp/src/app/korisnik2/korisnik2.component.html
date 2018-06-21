@@ -28,12 +28,7 @@
         <li class="nav-item">
           <a class="nav-link active" data-toggle="collapse" aria-expanded="false"
              data-target="#tabSaProcitanimObavestenjima"
-             (click)="saveClickHistory($event)">Procitana obavestenja</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active" data-toggle="collapse" aria-expanded="false"
-             data-target="#tabSaNeprocitanimObavestenjima"
-             (click)="saveClickHistory($event)">Neprocitana obavestenja</a>
+             (click)="saveClickHistory($event)">Obavestenja</a>
         </li>
         <li class="nav-item">
           <a class="nav-link active" data-toggle="collapse" aria-expanded="false" data-target="#tabIstorijeDavanja"
@@ -105,7 +100,7 @@
         </div>
         <div class="collapse" id="pregled_poruka_form">
           <div class="card card-body">
-            <app-poruka *ngFor="let _poruka of _primljene_poruke" ></app-poruka>
+            <app-poruka *ngFor="let _poruka of _primljene_poruke"></app-poruka>
           </div>
         </div>
 
@@ -125,24 +120,7 @@
                 <div class="collapse multi-collapse" id="tabSaProcitanimObavestenjima">
                   <div class="card card-body">
 
-                    <app-lista-novosti [_listaNovosti]="_obavestenja.procitana"></app-lista-novosti>
-
-                  </div>
-                </div>
-              </div>
-              <div class="col">
-                <div class="collapse multi-collapse" id="tabSaNeprocitanimObavestenjima">
-                  <div class="card card-body">
-
-                    <app-lista-novosti [_listaNovosti]="_obavestenja.neprocitana"></app-lista-novosti>
-
-                    <div class="container example2">
-                      <div class="row">
-                        <div class="col-md-2 col-xs-2 col1 center-block">
-                          <button class="btn btn-primary center-block" (click)="getNextNovosti(2)"> Jos novosti</button>
-                        </div>
-                      </div>
-                    </div>
+                    <app-lista-novosti [_tip_liste]="obavestenja" [_listaNovosti]="_obavestenja"></app-lista-novosti>
 
                   </div>
                 </div>

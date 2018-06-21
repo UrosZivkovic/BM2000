@@ -104,4 +104,9 @@ export class ServerConfigurationService {
   public getPosaljiPoruku() {
     return this.getFullServerAddress() + '/poruke/add';
   }
+
+  public getPorukeUrl(){
+    return this.getFullServerAddress()+'poruke/all';
+  }
+
 }

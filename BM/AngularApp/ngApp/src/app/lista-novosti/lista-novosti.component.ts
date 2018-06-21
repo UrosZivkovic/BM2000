@@ -10,6 +10,8 @@ export class ListaNovostiComponent implements OnInit {
   // bice @Input()
   @Input() _listaNovosti;
 
+  @Input() _tip_liste="novosti";
+
   constructor() {
     console.log("Constructor for lista novosti compoenta");
   }

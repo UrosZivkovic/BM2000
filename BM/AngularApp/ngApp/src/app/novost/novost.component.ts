@@ -14,6 +14,8 @@ export class NovostComponent implements OnInit {
   @Input() _naslov = "neki tamo naslov";
   @Input() _sadrzaj = "neki tamo sadrzaj";
 
+  @Input() _tip_novosti="novosti";
+
   constructor(private _authService: AuthService,private _postsManager:PostsManagerService) {
   }
 

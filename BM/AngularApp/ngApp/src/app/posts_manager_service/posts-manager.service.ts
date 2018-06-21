@@ -184,5 +184,13 @@ export class PostsManagerService {
       return -1;
   }
 
+  public getPoruke(){
+    return this._http.get<any>(this._serverConfig.getPorukeUrl());
+  }
+
+  public zapamtiPorukeUstorage(poruke){
+    localStorage.setItem("poruke",poruke);
+  }
+
 
 }

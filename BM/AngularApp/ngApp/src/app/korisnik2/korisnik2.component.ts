@@ -27,14 +27,15 @@ export class Korisnik2Component implements OnInit {
 
   private _novosti = [];
 
-  private _obavestenja = {
-    procitana: [],
-    neprocitana: []
-  };
+  // private _obavestenja = {
+  //   procitana: [],
+  //   neprocitana: []
+  // };
+  private _obavestenja = [];
 
   private _istorijaDogadjaja = [];
 
-  private _primljene_poruke=[];
+  private _primljene_poruke = [];
 
   constructor(private _authService: AuthService, private _router: Router, private _postsManager: PostsManagerService) {
 
@@ -56,6 +57,7 @@ export class Korisnik2Component implements OnInit {
         this._postsManager.getUserContent_Novosti(this._user._id).subscribe(
           function (data) {
             console.log("getting novosti from server");
+
             _this._novosti = data;
             _this._postsManager.savePraceneNovostiToLocalStorage(_this._novosti);
           },
@@ -89,11 +91,22 @@ export class Korisnik2Component implements OnInit {
         this._obavestenja = JSON.parse(storedObavestenja);
       }
 
-      let storedPoruke=localStorage.getItem("_poruke");
+      let storedPoruke = localStorage.getItem("_poruke");
 
-      if(storedPoruke!=null){
-        this._primljene_poruke=JSON.parse(storedPoruke);
+      if (storedPoruke != null) {
+        this._primljene_poruke = JSON.parse(storedPoruke);
+      } else {
+        this._postsManager.getPoruke().subscribe(
+          function (data) {
+            _this._primljene_poruke = data;
+            _this._postsManager.zapamtiPorukeUstorage(data);
+          },
+          function (err) {
+            console.log(err);
+          }
+        )
       }
+
 
     }
   }
