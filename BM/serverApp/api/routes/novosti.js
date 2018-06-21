@@ -89,11 +89,11 @@ router.post('/zavodNovostiInterval', (req, res, next) => {
                     res.status(200).json(drugi);
                 }
             } else
-                return res.status(200).json({
+                return res.status(200).json([{
                     naslov: "Index ot ouf range",
                     sadrzaj: "Click to find out more",
                     id:"1"
-                });
+                }]);
 
 
         })
@@ -208,10 +208,10 @@ router.post('/interval', (req, res, next) => {
                     res.status(200).json(drugi);
                 }
             } else
-                return res.status(200).json({
+                return res.status(200).json([{
                     naslov: "Index ot ouf range",
                     sadrzaj: "Click to find out more"
-                });
+                }]);
 
 
         })

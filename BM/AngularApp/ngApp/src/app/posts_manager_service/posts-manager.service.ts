@@ -117,11 +117,7 @@ export class PostsManagerService {
 
   }
 
-  public userSubscribedToPost(postId: string) {
-    return true;
-  }
-
-  public subscribeToPost(postId: string) {
+  public subscribeToPost(postId: string,userId:string) {
     console.log("Subscibing to " + postId);
   }
 
@@ -131,6 +127,8 @@ export class PostsManagerService {
 
 
   public getNextPostsZavod(firstIndex, lastIndex, idZavoda) {
+    console.log("Od: "+firstIndex);
+    console.log("Do: "+lastIndex);
     return this._http.post<any>(this._serverConfig.getZavodNovostiInterval(), {
       firstIndex: firstIndex,
       lastIndex: lastIndex,
@@ -184,13 +182,22 @@ export class PostsManagerService {
       return -1;
   }
 
-  public getPoruke(){
+  public getPoruke() {
     return this._http.get<any>(this._serverConfig.getPorukeUrl());
   }
 
-  public zapamtiPorukeUstorage(poruke){
-    localStorage.setItem("poruke",poruke);
+  public zapamtiPorukeUstorage(poruke) {
+    localStorage.setItem("poruke", poruke);
   }
 
+  public storeZavodi(zavodi: any[]) {
+    let zavodiFromStorage = localStorage.getItem("storedZavodi");
+
+    if (zavodiFromStorage != null) {
+      localStorage.setItem("storedZavodi", JSON.stringify(JSON.parse(zavodiFromStorage).concat(zavodi)));
+    } else {
+      localStorage.setItem("storedZavodi", JSON.stringify(zavodi));
+    }
+  }
 
 }

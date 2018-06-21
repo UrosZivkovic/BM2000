@@ -24,26 +24,35 @@ export class ZavodComponent implements OnInit {
 
   loadZavodi() {
 
-    let storedZavodi = localStorage.getItem("zavodiStorage");
+    let storedZavodi = localStorage.getItem("storedZavodi");
     let _this = this;
 
     if (storedZavodi != null) {
-      console.log("reading from storage");
-      console.log(storedZavodi);
+      console.log("reading zavodi from storage");
 
       this._listaZavoda = JSON.parse(storedZavodi);
+
+      let lastPrikazaniZavod = _this._postsManager.getLastPrikazaniZavod();
+      if (lastPrikazaniZavod > -1) {
+        console.log("Last prikazani zavode je : " + lastPrikazaniZavod);
+        _this._prikazaniZavod = lastPrikazaniZavod;
+        _this.loadNovostiForZavod();
+      }
+
     } else {
       console.log("loading zavodi from server");
 
       this._postsManager.getZavodi().subscribe(
         function (data) {
           _this._listaZavoda = data;
+          _this.storeZavodi();
         },
         function (err) {
           console.log("Greska pri pribavljanju zavoda sa servera");
           console.log(err);
         },
         function () {
+          console.log("zavrsen load");
           let lastPrikazaniZavod = _this._postsManager.getLastPrikazaniZavod();
           if (lastPrikazaniZavod > -1) {
             _this._prikazaniZavod = lastPrikazaniZavod;
@@ -53,14 +62,17 @@ export class ZavodComponent implements OnInit {
       );
     }
 
+  }
 
+  storeZavodi() {
+    this._postsManager.storeZavodi(this._listaZavoda);
   }
 
   ngOnInit() {
     this.loadZavodi();
   }
 
-  private saveClickHistory(event) {
+  saveClickHistory(event) {
 
     if (this._activeTab === event.target) {
       this._activeTab = null;
@@ -84,6 +96,7 @@ export class ZavodComponent implements OnInit {
 
       console.log(this._listaPostova);
     } else {
+      console.log("loading novosti from server");
       this.getNextPosts(3);
     }
 
@@ -95,12 +108,17 @@ export class ZavodComponent implements OnInit {
 
     let drugaVrednost = parseInt(_this._lastPostIndexZavod) + count;
     console.log("Druga vrednsot je: " + drugaVrednost);
-    console.log("Id je : " + this._listaZavoda[this._prikazaniZavod].idZavoda);
 
     this._postsManager.getNextPostsZavod(this._lastPostIndexZavod, drugaVrednost,
       this._listaZavoda[this._prikazaniZavod].idZavoda).subscribe(
-      function (data) {
-        console.log(data);
+      function (data: any[]) {
+
+        for (let _i = 0; _i < data.length; _i++) {
+          if (data[_i].naslov == "Index ot ouf range")
+            data.splice(_i, 1);
+        }
+
+        _this._lastPostIndexZavod += count;
         _this._listaPostova = _this._listaPostova.concat(data);
         _this._postsManager.saveLastPostIndexZavod(_this._lastPostIndexZavod, _this._listaZavoda[_this._prikazaniZavod].idZavoda);
         _this._postsManager.savePostsZavod(data, _this._listaZavoda[_this._prikazaniZavod].idZavoda);

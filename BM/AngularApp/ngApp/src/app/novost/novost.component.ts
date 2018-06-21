@@ -14,12 +14,36 @@ export class NovostComponent implements OnInit {
   @Input() _naslov = "neki tamo naslov";
   @Input() _sadrzaj = "neki tamo sadrzaj";
 
-  @Input() _tip_novosti="novosti";
+  @Input() _tip_novosti = "novosti";
 
-  constructor(private _authService: AuthService,private _postsManager:PostsManagerService) {
+  _user = {
+    _id: "1",
+    novost: []
+  };
+
+  constructor(private _authService: AuthService, private _postsManager: PostsManagerService) {
   }
 
   ngOnInit() {
+    this._user = JSON.parse(localStorage.getItem("loggedUserData"));
+    console.log(this._user);
+  }
+
+  subscribeToPost() {
+    this._postsManager.subscribeToPost(this._dataId, this._user._id);
+  }
+
+  unsubscribeFromPost(){
+
+  }
+
+  subscribedToPost() {
+    console.log(this._dataId);
+    for (let _novost of this._user.novost) {
+      if (_novost == this._dataId)
+        return true;
+    }
+    return false;
   }
 
 }
