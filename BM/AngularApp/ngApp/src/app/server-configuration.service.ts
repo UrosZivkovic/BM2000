@@ -121,4 +121,8 @@ export class ServerConfigurationService {
     return this.getFullServerAddress()+'/users/getById';
   }
 
+  public getPorukeForZavodUrl(){
+    return this.getFullServerAddress()+"/poruke/getForZavod"
+  }
+
 }

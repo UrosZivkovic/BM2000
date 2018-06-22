@@ -5,7 +5,29 @@ const mongoose = require('mongoose');
 const fs = require('fs');
 const path = require('path');
 const jwt = require("jsonwebtoken");
+const User = require("../models/user");
 
+router.get('/prepravi', function (req, res) {
+    Poruka.find({}, function (err, data) {
+        if (err) {
+            console.log("Nije naso poruke");
+            console.log(err);
+        } else {
+            for (let poruka of data) {
+                if (poruka.idZavoda != "5b2bbb294ab237335c4141af") {
+                    console.log(poruka.idZavoda);
+                    poruka.idZavoda = "5b2bbb294ab237335c4141af";
+                    Poruka.update({_id: poruka._id}, poruka, function (err, da, ta) {
+                        if (err) {
+                            console.log("nije updatovao poruke");
+                            console.log(err);
+                        }
+                    });
+                }
+            }
+        }
+    });
+});
 
 router.post("/add", (req, res, nest) => {
     let msgData = req.body;
@@ -20,6 +42,8 @@ router.post("/add", (req, res, nest) => {
         poruka: msgData.poruka,
         date: msgData.date
     });
+    console.log("writing poruka");
+    console.log(msg);
 
     msg.save((error, data) => {
         if (error) {
@@ -51,7 +75,7 @@ router.post('/interval', (req, res, next) => {
     const indexOd = req.body.firstIndex;
     const indexDo = req.body.lastIndex;
     console.log(indexOd, indexDo);
-    Poruka.find({idZavoda:req.body.idZavoda})
+    Poruka.find({idZavoda: req.body.idZavoda})
         .sort('-email')
         .exec()
         .then(docs => {
@@ -85,4 +109,19 @@ router.post('/interval', (req, res, next) => {
             })
         })
 });
+
+router.post("/getForZavod", function (req, res) {
+    Poruka.find({idZavoda: req.body.idZavoda},
+        function (err, data) {
+            if (err) {
+                console.log("error finding poruke forZavod");
+                console.log(err);
+            } else {
+                console.log(data);
+                res.status(200).send(data);
+            }
+
+        });
+});
+
 module.exports = router;

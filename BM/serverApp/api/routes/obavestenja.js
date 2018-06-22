@@ -6,6 +6,27 @@ const fs = require('fs');
 const path = require('path');
 const jwt = require("jsonwebtoken");
 
+
+router.get('/obrisi', function (req, res) {
+    Obavestenje.find({}, function (err, obavestenja) {
+        if (err) {
+            console.log("Nije naso obavestenja");
+            console.log(err);
+        } else {
+            for (let obav of obavestenja) {
+                if (obav.idZavoda != "5b2bbb294ab237335c4141af") {
+                    console.log(obav.idZavoda);
+                    Obavestenje.deleteOne({_id: obav._id}, function (err) {
+                        if (err) {
+                            console.log("Nije obrisao");
+                        }
+                    });
+                }
+            }
+        }
+    });
+});
+
 router.get('/', (req, res, next) => {
     res.status(200).json({
         message: "it works for get zavod"

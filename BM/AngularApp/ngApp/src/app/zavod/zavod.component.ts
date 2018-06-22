@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {PostsManagerService} from "../posts_manager_service/posts-manager.service";
 import {store} from "@angular/core/src/render3/instructions";
+import {AuthService} from "../auth.service";
 
 @Component({
   selector: 'app-zavod',
@@ -18,7 +19,7 @@ export class ZavodComponent implements OnInit {
 
   private _lastPostIndexZavod;
 
-  constructor(private _postsManager: PostsManagerService) {
+  constructor(private _authService:AuthService,private _postsManager: PostsManagerService) {
 
   }
 

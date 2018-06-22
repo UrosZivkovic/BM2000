@@ -97,9 +97,10 @@ export class Korisnik2Component implements OnInit {
         console.log("loading poruke from storage")
         this._primljene_poruke = JSON.parse(storedPoruke);
       } else {
-        console.log("loading poruke from server");
-        this._postsManager.getPoruke().subscribe(
+        console.log("loading poruke from server for: "+_this._user.idZavoda);
+        this._postsManager.getPorukeFor(_this._user.idZavoda).subscribe(
           function (data) {
+            console.log("primljene poruke");
             console.log(data);
             _this._primljene_poruke = data;
             _this._postsManager.zapamtiPorukeUstorage(data);

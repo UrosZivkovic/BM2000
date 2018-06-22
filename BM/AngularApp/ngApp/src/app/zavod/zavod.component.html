@@ -51,7 +51,7 @@
             Informacije
           </a>
         </li>
-        <li class="nav-item">
+        <li *ngIf="_authService.loggedIn()" class="nav-item">
           <a (click)="saveClickHistory($event)" class="nav-link active" data-toggle="collapse"
              href="#porukaComponent" role="button" aria-expanded="false"
              aria-controls="porukaComponent">
@@ -109,7 +109,7 @@
 
             <div class="collapse" id="porukaComponent">
               <div class="card card-body">
-                <app-text-input></app-text-input>
+                <app-text-input *ngIf="_prikazaniZavod>-1" [_zavod]="_listaZavoda[_prikazaniZavod]"></app-text-input>
               </div>
             </div>
 

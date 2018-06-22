@@ -199,6 +199,9 @@ export class PostsManagerService {
     return this._http.get<any>(this._serverConfig.getPorukeUrl());
   }
 
+  public getPorukeFor(_idZavoda:string){
+    return this._http.post<any>(this._serverConfig.getPorukeForZavodUrl(),{idZavoda:_idZavoda});
+  }
   public zapamtiPorukeUstorage(poruke) {
     localStorage.setItem("poruke", poruke);
   }
