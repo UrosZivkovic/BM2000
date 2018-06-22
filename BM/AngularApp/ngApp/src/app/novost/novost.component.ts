@@ -21,18 +21,23 @@ export class NovostComponent implements OnInit {
     novost: []
   };
 
+  _userSubscribed: boolean;
+
   constructor(private _authService: AuthService, private _postsManager: PostsManagerService) {
   }
 
   ngOnInit() {
     this._user = JSON.parse(localStorage.getItem("loggedUserData"));
     console.log(this._user);
+    this.subscribedToPost();
   }
 
   subscribeToPost() {
+    let _this = this;
     this._postsManager.subscribeToPost(this._dataId, this._user._id).subscribe(
       function (res) {
         console.log("user subscribed");
+        _this._userSubscribed = true;
       },
       function (err) {
         console.log("Error in subscibe");
@@ -42,16 +47,17 @@ export class NovostComponent implements OnInit {
   }
 
   unsubscribeFromPost() {
-    _this=this;
+    let _this = this;
     console.log("sengin from component to unsub: " + this._dataId + " userid: " + this._user._id);
     this._postsManager.unsubscribeFromPost(this._dataId, this._user._id);
     // subscribe u postMangeru
     this._postsManager.getUserById(this._user._id).subscribe(
-      function(res){
-        _this._user=res; 
-        localStorage.setItem("loggedUserDate",JSON.stringify(res));
+      function (res) {
+        _this._user = res;
+        localStorage.setItem("loggedUserData", JSON.stringify(res));
+        _this._userSubscribed = false;
       },
-      function(err){
+      function (err) {
         console.log("error while changing user");
         console.log(err);
       }
@@ -60,12 +66,13 @@ export class NovostComponent implements OnInit {
 
   subscribedToPost() {
     for (let _novost of this._user.novost) {
-      console.log(_novost.idNovosti);
-      if (_novost.idNovosti == this._dataId)
-        return true;
+      if (_novost.idNovosti == this._dataId) {
+        this._userSubscribed = true;
+        break;
+      }
     }
 
-    return false;
+    this._userSubscribed = false;
   }
 
 }

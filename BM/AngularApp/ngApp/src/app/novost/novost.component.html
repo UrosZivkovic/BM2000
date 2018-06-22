@@ -19,10 +19,10 @@
     <div *ngIf="_authService.loggedIn() && _tip_novosti=='novosti'" class="btn-group" role="group"
          aria-label="Basic example">
 
-      <button type="button" class="btn btn-info" (click)="subscribeToPost()" *ngIf="!subscribedToPost()">Prati novost
+      <button type="button" class="btn btn-info" (click)="subscribeToPost()" *ngIf="!_userSubscribed">Prati novost
       </button>
 
-      <button *ngIf="subscribedToPost()" type="button" class="btn btn-danger"
+      <button *ngIf="_userSubscribed" type="button" class="btn btn-danger"
               (click)="unsubscribeFromPost()">Prestani sa
         pracenjem
       </button>
