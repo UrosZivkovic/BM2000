@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {ServerConfigurationService} from '../server-configuration.service';
+import {post} from "selenium-webdriver/http";
 
 @Injectable({
   providedIn: 'root'
@@ -117,18 +118,30 @@ export class PostsManagerService {
 
   }
 
-  public subscribeToPost(postId: string,userId:string) {
-    console.log("Subscibing to " + postId);
+  public subscribeToPost(postId: string, userId: string) {
+    console.log("sending to: " + this._serverConfig.getSubscribeUrl());
+    return this._http.post<any>(this._serverConfig.getSubscribeUrl(), {id: userId, idNovosti: postId});
   }
 
-  public unsubscribeFromPost(postId: string) {
-    console.log("Unsubscribing " + postId);
+  public unsubscribeFromPost(_idNovosti: string, _userId: string) {
+    console.log("Unsubscribe onL "+this._serverConfig.getUnsubscribeUrl());
+    return this._http.post<any>(this._serverConfig.getUnsubscribeUrl(), {idNovosti: _idNovosti, id: _userId})
+      .subscribe(
+        function (res) {
+          console.log("User unsubscribed from novost");
+          console.log(res);
+        },
+        function (err) {
+          console.log("Error in unsubscribe");
+          console.log(err);
+        }
+      )
   }
 
 
   public getNextPostsZavod(firstIndex, lastIndex, idZavoda) {
-    console.log("Od: "+firstIndex);
-    console.log("Do: "+lastIndex);
+    console.log("Od: " + firstIndex);
+    console.log("Do: " + lastIndex);
     return this._http.post<any>(this._serverConfig.getZavodNovostiInterval(), {
       firstIndex: firstIndex,
       lastIndex: lastIndex,

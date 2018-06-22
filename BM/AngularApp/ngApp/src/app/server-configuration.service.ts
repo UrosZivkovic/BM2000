@@ -106,7 +106,15 @@ export class ServerConfigurationService {
   }
 
   public getPorukeUrl(){
-    return this.getFullServerAddress()+'poruke/all';
+    return this.getFullServerAddress()+'/poruke/all';
+  }
+
+  public getSubscribeUrl(){
+    return this.getFullServerAddress()+'/users/DodajNovost';
+  }
+
+  public getUnsubscribeUrl(){
+    return this.getFullServerAddress()+'/users/ukloniNovost'
   }
 
 }

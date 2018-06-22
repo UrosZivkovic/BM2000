@@ -68,33 +68,6 @@ router.post('/addobv', (req, res, next) => {
     User.update({_id: req.body.id}, {$push: {obavestenja: idObavestenja}})
 });
 
-router.get('/register/realUser', (req, res) => {
-
-
-    const user = new User({
-        _id: new mongoose.Types.ObjectId(),
-        email: "z@z",
-        password: "z",
-        ime: "Zaposleni ",
-        prezime: "Prezime zaposlenog",
-        krvnaGrupa: "0",
-        obavestenja: ["obavestenje1", "obavestenje2", "obavestenje3", "ime sigurno jos"],
-        poruke: ["prva poruka", "druga poruka", "treca poruka"],
-        tipKorisnika: "zaposleni"
-    });
-
-    user.save((error, regUser) => {
-        if (error) {
-            console.log(error);
-        } else {
-            let payload = {subject: regUser._id}
-            let token = jwt.sign(payload, "secretKey")
-            console.log("User added to database: \n" + user);
-            res.status(200).send({token});
-        }
-    });
-});
-
 router.post('/ukloniNovost', (req, res) => {
     console.log(req.body)
     User.findOne({_id: req.body.id}, (err, data) => {
@@ -102,14 +75,19 @@ router.post('/ukloniNovost', (req, res) => {
             res.status(404).send(err)
         } else {
             console.log(data);
-            let element = data.novost.filter(el => {
-                if (el.idNovosti === req.body.idNovosti) {
-                }
-                return el;
-            })
-            element.forEach((el, i) => {
-                //data.novost.indexOf(el));
-                data.novost.splice(data.novost.indexOf(el), 1);
+            // let element = data.novost.filter(el => {
+            //     if (el.idNovosti === req.body.idNovosti) {
+            //         console.log("naso jednu");
+            //     }
+            //     return el;
+            // });
+            // element.forEach((el, i) => {
+            //     //data.novost.indexOf(el));
+            //     data.novost.splice(data.novost.indexOf(el), 1);
+            // });
+            data.novost.forEach(function(element,index){
+                if(element._id==req.body.idNovosti)
+                    data.novost.splice(index,1);
             });
             //console.log(data.novost.indexOf(element[0]));
             res.status(200).send(data.novost);

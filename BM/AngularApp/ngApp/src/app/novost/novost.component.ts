@@ -30,19 +30,30 @@ export class NovostComponent implements OnInit {
   }
 
   subscribeToPost() {
-    this._postsManager.subscribeToPost(this._dataId, this._user._id);
+    this._postsManager.subscribeToPost(this._dataId, this._user._id).subscribe(
+      function (res) {
+        console.log("user subscribed");
+      },
+      function (err) {
+        console.log("Error in subscibe");
+        console.log(err);
+      }
+    )
   }
 
-  unsubscribeFromPost(){
-
+  unsubscribeFromPost() {
+    console.log("sengin from component to unsub: " + this._dataId + " userid: " + this._user._id);
+    this._postsManager.unsubscribeFromPost(this._dataId, this._user._id);
+    // subscribe u postMangeru
   }
 
   subscribedToPost() {
-    console.log(this._dataId);
     for (let _novost of this._user.novost) {
-      if (_novost == this._dataId)
+      console.log(_novost.idNovosti);
+      if (_novost.idNovosti == this._dataId)
         return true;
     }
+
     return false;
   }
 

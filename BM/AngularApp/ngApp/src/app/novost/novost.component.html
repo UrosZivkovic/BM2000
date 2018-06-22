@@ -23,7 +23,7 @@
       </button>
 
       <button *ngIf="subscribedToPost()" type="button" class="btn btn-danger"
-              (click)="_postsManager.unsubscribeFromPost(_dataId)">Prestani sa
+              (click)="unsubscribeFromPost()">Prestani sa
         pracenjem
       </button>
 
