@@ -19,17 +19,15 @@ router.post("/add", (req, res, nest) => {
         idZavoda: msgData.idZavoda,
         poruka: msgData.poruka,
         date: msgData.date
-
-    })
+    });
 
     msg.save((error, data) => {
         if (error) {
             console.log(error);
         } else {
-            
             res.status(200).send(data);
         }
-    })
+    });
 
 });
 
