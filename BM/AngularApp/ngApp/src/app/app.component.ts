@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, HostListener, OnInit} from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { AuthService } from './auth.service';
 import { ServerConfigurationService } from './server-configuration.service';
@@ -10,6 +10,12 @@ import { ServerConfigurationService } from './server-configuration.service';
 })
 
 export class AppComponent implements  OnInit{
+
+  @HostListener('window:unload', [ '$event' ])
+  unloadHandler(event) {
+    localStorage.clear();
+  }
+
   private ROOT_URL = '';
 
   title = 'app';

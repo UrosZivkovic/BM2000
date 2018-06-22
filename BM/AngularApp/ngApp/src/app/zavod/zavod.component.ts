@@ -116,9 +116,11 @@ export class ZavodComponent implements OnInit {
         for (let _i = 0; _i < data.length; _i++) {
           if (data[_i].naslov == "Index ot ouf range")
             data.splice(_i, 1);
+          else
+            _this._lastPostIndexZavod+=1;
         }
 
-        _this._lastPostIndexZavod += count;
+        // _this._lastPostIndexZavod += count;
         _this._listaPostova = _this._listaPostova.concat(data);
         _this._postsManager.saveLastPostIndexZavod(_this._lastPostIndexZavod, _this._listaZavoda[_this._prikazaniZavod].idZavoda);
         _this._postsManager.savePostsZavod(data, _this._listaZavoda[_this._prikazaniZavod].idZavoda);

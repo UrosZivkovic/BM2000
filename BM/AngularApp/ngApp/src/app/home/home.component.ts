@@ -40,21 +40,21 @@ export class HomeComponent implements OnInit {
   getNextNovosti(count) {
 
     let _this = this;
-
+    console.log(this._lastIndexDefaultNovosti);
     this._postsManager.getDefaultNovosti(this._lastIndexDefaultNovosti, this._lastIndexDefaultNovosti + count).subscribe(
       function (data: any[]) {
         for (let _i = 0; _i < data.length; _i++) {
           console.log(data[_i]);
           console.log(data[_i].naslov);
           if (data[_i].naslov == "Index ot ouf range") {
-            console.log("uso u if");
             data.splice(_i, 1);
-            console.log("splice " + _i);
+          }else{
+            _this._lastIndexDefaultNovosti+=1;
           }
         }
 
         _this._defaultPost = _this._defaultPost.concat(data);
-        _this._lastIndexDefaultNovosti += count;
+        // _this._lastIndexDefaultNovosti += count;
 
         _this._postsManager.saveLastDefaultNovostiIndex(_this._lastIndexDefaultNovosti);
         if (_this._num_of_stored_posts < 20) {
