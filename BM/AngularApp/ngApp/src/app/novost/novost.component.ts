@@ -42,9 +42,20 @@ export class NovostComponent implements OnInit {
   }
 
   unsubscribeFromPost() {
+    _this=this;
     console.log("sengin from component to unsub: " + this._dataId + " userid: " + this._user._id);
     this._postsManager.unsubscribeFromPost(this._dataId, this._user._id);
     // subscribe u postMangeru
+    this._postsManager.getUserById(this._user._id).subscribe(
+      function(res){
+        _this._user=res; 
+        localStorage.setItem("loggedUserDate",JSON.stringify(res));
+      },
+      function(err){
+        console.log("error while changing user");
+        console.log(err);
+      }
+    )
   }
 
   subscribedToPost() {

@@ -114,7 +114,11 @@ export class ServerConfigurationService {
   }
 
   public getUnsubscribeUrl(){
-    return this.getFullServerAddress()+'/users/ukloniNovost'
+    return this.getFullServerAddress()+'/users/ukloniNovost';
+  }
+
+  public getUserByIdUrl(){
+    return this.getFullServerAddress()+'/users/getById';
   }
 
 }

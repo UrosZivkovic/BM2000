@@ -27,7 +27,19 @@ router.post('/register', (req, res) => {
             res.status(200).send({token});
         }
     })
-})
+});
+
+router.post("/getById", function (req, res) {
+    User.findOne({_id: req.body.userId}, function (err, data) {
+        if (err) {
+            console.log("error in find one by id");
+            console.log(err);
+        } else {
+            console.log(data);
+            res.status(200).send(data);
+        }
+    })
+});
 
 router.post("/kreiraj", (req, res, nest) => {
     let userData = req.body;
@@ -43,7 +55,7 @@ router.post("/kreiraj", (req, res, nest) => {
         brojDavaoca: userData.brojDavaoca,
         idZavoda: userData.idZavoda,
         novost: [],
-        davanja:[],
+        davanja: [],
         poruke: [],
 
     })
@@ -85,9 +97,16 @@ router.post('/ukloniNovost', (req, res) => {
             //     //data.novost.indexOf(el));
             //     data.novost.splice(data.novost.indexOf(el), 1);
             // });
-            data.novost.forEach(function(element,index){
-                if(element._id==req.body.idNovosti)
-                    data.novost.splice(index,1);
+            data.novost.forEach(function (element, index) {
+                if (element.idNovosti == req.body.idNovosti) {
+                    console.log("brise: " + element._id);
+                    data.novost.splice(index, 1);
+                }
+            });
+            console.log("Updated user: \n\n");
+            User.update({_id: data._id}, data, function (err, numAff, rawRest) {
+                if (err)
+                    console.log(err);
             });
             //console.log(data.novost.indexOf(element[0]));
             res.status(200).send(data.novost);

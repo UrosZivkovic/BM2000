@@ -213,4 +213,8 @@ export class PostsManagerService {
     }
   }
 
+  getUserById(_userId:string){
+    return this._http.post<any>(this._serverConfig.getUserByIdUrl(),{userId:_userId});
+  }
+
 }
