@@ -65,14 +65,16 @@ export class NovostComponent implements OnInit {
   }
 
   subscribedToPost() {
-    for (let _novost of this._user.novost) {
-      if (_novost.idNovosti == this._dataId) {
-        this._userSubscribed = true;
-        break;
+    if (this._user != null) {
+      for (let _novost of this._user.novost) {
+        if (_novost.idNovosti == this._dataId) {
+          this._userSubscribed = true;
+          break;
+        }
       }
-    }
 
-    this._userSubscribed = false;
+      this._userSubscribed = false;
+    }
   }
 
 }
